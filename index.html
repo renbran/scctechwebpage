@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/premium-design.css">
     <link rel="stylesheet" href="css/homepage-premium.css">
     <link rel="stylesheet" href="css/premium-global.css">
+    <link rel="stylesheet" href="css/calculator-modal.css">
     <link rel="stylesheet" href="css/contrast-improvements.css">
     <link rel="stylesheet" href="css/redesign-2025.css">
     <link rel="stylesheet" href="css/animations.css">
@@ -26,7 +27,7 @@
         <a href="https://wa.me/971563905772?text=Hi%20SGC%2C%20I%27m%20interested%20in%20the%2014-day%20AI-Powered Systems%20deployment" class="btn-whatsapp-sticky" target="_blank" aria-label="Contact us on WhatsApp">
             <i class="fab fa-whatsapp"></i> WhatsApp Us
         </a>
-        <a href="#roi-calculator" class="btn-roi-sticky" aria-label="Open ROI Calculator">
+        <a href="#" class="btn-roi-sticky" data-calculator-trigger aria-label="Open ROI Calculator">
             <i class="fas fa-calculator"></i> ROI Calculator
         </a>
     </div>
@@ -97,7 +98,7 @@
 
                     <!-- Dual CTA -->
                     <div class="hero-cta">
-                        <a href="#roi-calculator" class="btn btn-primary btn-large">
+                        <a href="#" class="btn btn-primary btn-large" data-calculator-trigger>
                             <i class="fas fa-calculator"></i> Calculate Your ROI
                         </a>
                         <a href="#process" class="btn btn-secondary btn-large">
@@ -110,12 +111,12 @@
                         <div class="client-logos">
                             <span>Trusted by UAE enterprises:</span>
                             <div class="logo-scroll">
-                                <img src="img/clients/osus.png" alt="OSUS Properties" style="height: 40px; object-fit: contain;">
-                                <img src="img/clients/axcapital.svg" alt="AX Capital" style="height: 40px; object-fit: contain;">
-                                <img src="img/clients/freshmarket.png" alt="Fresh Market LLC" style="height: 40px; object-fit: contain;">
-                                <img src="img/clients/lmd-logo.png" alt="LMD" style="height: 40px; object-fit: contain;">
-                                <img src="img/clients/gj-realestate-logo.png" alt="GJ Real Estate" style="height: 40px; object-fit: contain;">
-                                <img src="img/clients/eigermarvel-logo.png" alt="Eiger Marvel" style="height: 40px; object-fit: contain;">
+                                <img src="img/clients/osus.png" alt="OSUS Properties">
+                                <img src="img/clients/axcapital.svg" alt="AX Capital">
+                                <img src="img/clients/freshmarket.png" alt="Fresh Market LLC">
+                                <img src="img/clients/lmd-logo.png" alt="LMD">
+                                <img src="img/clients/gj-realestate-logo.png" alt="GJ Real Estate">
+                                <img src="img/clients/eigermarvel-logo.png" alt="Eiger Marvel">
                             </div>
                         </div>
                     </div>
@@ -292,21 +293,21 @@
             <div class="timeline-comparison">
                 <div class="timeline-row timeline-sgc">
                     <div class="timeline-label">
-                        <i class="fas fa-rocket" style="color: var(--electric-cyan); font-size: 1.5rem;"></i>
-                        <span style="color: var(--electric-cyan); font-weight: 900;">SGC TECH AI</span>
+                        <i class="fas fa-rocket"></i>
+                        <span>SGC TECH AI</span>
                     </div>
                     <div class="timeline-bar">
-                        <div class="timeline-fill" style="width: 5%;">14 Days</div>
+                        <div class="timeline-fill">14 Days</div>
                     </div>
                 </div>
                 
                 <div class="timeline-row timeline-traditional">
                     <div class="timeline-label">
-                        <i class="fas fa-hourglass-half" style="color: #ff4444; font-size: 1.5rem;"></i>
-                        <span style="color: rgba(255, 255, 255, 0.7);">Traditional Consultants</span>
+                        <i class="fas fa-hourglass-half"></i>
+                        <span>Traditional Consultants</span>
                     </div>
                     <div class="timeline-bar">
-                        <div class="timeline-fill" style="width: 100%;">6-12 Months</div>
+                        <div class="timeline-fill">6-12 Months</div>
                     </div>
                 </div>
             </div>
@@ -480,7 +481,7 @@
                         </div>
                     </div>
 
-                    <button class="btn btn-primary btn-large btn-block" id="calculateROI">
+                    <button class="btn btn-primary btn-large btn-block" id="calculateROI" data-calculator-trigger>
                         <i class="fas fa-calculator"></i> Calculate My ROI
                     </button>
                 </div>
@@ -720,6 +721,237 @@
         </div>
     </footer>
 
+    <!-- ROI Calculator Modal -->
+    <div id="calculatorModalOverlay" class="calculator-modal-overlay">
+        <div class="calculator-modal" role="dialog" aria-labelledby="calculatorModalTitle" aria-modal="true">
+            <div class="calculator-modal-header">
+                <h2 id="calculatorModalTitle" class="calculator-modal-title">Calculate Your ROI</h2>
+                <p class="calculator-modal-subtitle">See how much you'll save with Odoo ERP in 60 seconds</p>
+                <button class="calculator-modal-close" aria-label="Close calculator">&times;</button>
+            </div>
+            
+            <div class="calculator-modal-body">
+                <form id="calculatorForm">
+                    <!-- Business Information -->
+                    <div class="calculator-form-grid">
+                        <div class="calculator-form-group">
+                            <label class="calculator-form-label" for="calcEmployees">
+                                <i class="fas fa-users"></i>
+                                Number of Employees
+                            </label>
+                            <input 
+                                type="number" 
+                                id="calcEmployees" 
+                                name="employees" 
+                                class="calculator-input" 
+                                placeholder="e.g., 25"
+                                required
+                                min="1"
+                                max="10000"
+                            >
+                        </div>
+
+                        <div class="calculator-form-group">
+                            <label class="calculator-form-label" for="calcIndustry">
+                                <i class="fas fa-industry"></i>
+                                Industry
+                            </label>
+                            <select id="calcIndustry" name="industry" class="calculator-select" required>
+                                <option value="">Select your industry</option>
+                                <option value="real-estate">Real Estate</option>
+                                <option value="manufacturing">Manufacturing</option>
+                                <option value="professional-services">Professional Services</option>
+                                <option value="retail">Retail & E-commerce</option>
+                                <option value="healthcare">Healthcare</option>
+                                <option value="logistics">Logistics & Distribution</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="calculator-form-group">
+                            <label class="calculator-form-label" for="calcCurrentCost">
+                                <i class="fas fa-dollar-sign"></i>
+                                Current Annual Software Cost (Optional)
+                            </label>
+                            <input 
+                                type="number" 
+                                id="calcCurrentCost" 
+                                name="currentCost" 
+                                class="calculator-input" 
+                                placeholder="e.g., 50000"
+                                min="0"
+                            >
+                        </div>
+
+                        <div class="calculator-form-group">
+                            <label class="calculator-form-label" for="calcTimeline">
+                                <i class="fas fa-clock"></i>
+                                Implementation Timeline
+                            </label>
+                            <select id="calcTimeline" name="timeline" class="calculator-select" required>
+                                <option value="">When do you need this?</option>
+                                <option value="immediate">Immediate (Within 14 days)</option>
+                                <option value="1-3-months">1-3 Months</option>
+                                <option value="3-6-months">3-6 Months</option>
+                                <option value="6-12-months">6-12 Months</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Contact Information -->
+                    <div class="calculator-form-grid">
+                        <div class="calculator-form-group">
+                            <label class="calculator-form-label" for="calcName">
+                                <i class="fas fa-user"></i>
+                                Your Name
+                            </label>
+                            <input 
+                                type="text" 
+                                id="calcName" 
+                                name="name" 
+                                class="calculator-input" 
+                                placeholder="John Doe"
+                                required
+                            >
+                        </div>
+
+                        <div class="calculator-form-group">
+                            <label class="calculator-form-label" for="calcEmail">
+                                <i class="fas fa-envelope"></i>
+                                Email Address
+                            </label>
+                            <input 
+                                type="email" 
+                                id="calcEmail" 
+                                name="email" 
+                                class="calculator-input" 
+                                placeholder="john@company.com"
+                                required
+                            >
+                        </div>
+
+                        <div class="calculator-form-group">
+                            <label class="calculator-form-label" for="calcPhone">
+                                <i class="fas fa-phone"></i>
+                                Phone Number
+                            </label>
+                            <input 
+                                type="tel" 
+                                id="calcPhone" 
+                                name="phone" 
+                                class="calculator-input" 
+                                placeholder="+971 50 123 4567"
+                                required
+                            >
+                        </div>
+
+                        <div class="calculator-form-group">
+                            <label class="calculator-form-label" for="calcCompany">
+                                <i class="fas fa-building"></i>
+                                Company Name
+                            </label>
+                            <input 
+                                type="text" 
+                                id="calcCompany" 
+                                name="company" 
+                                class="calculator-input" 
+                                placeholder="Acme Corporation"
+                                required
+                            >
+                        </div>
+                    </div>
+
+                    <!-- Odoo Modules Selection -->
+                    <div class="calculator-form-group full-width">
+                        <label class="calculator-form-label">
+                            <i class="fas fa-puzzle-piece"></i>
+                            Which Odoo Modules Interest You? (Select all that apply)
+                        </label>
+                        <div class="calculator-modules">
+                            <label class="calculator-module-checkbox">
+                                <input type="checkbox" name="modules" value="crm">
+                                <span class="calculator-module-label">CRM & Sales</span>
+                            </label>
+                            <label class="calculator-module-checkbox">
+                                <input type="checkbox" name="modules" value="accounting">
+                                <span class="calculator-module-label">Accounting & Finance</span>
+                            </label>
+                            <label class="calculator-module-checkbox">
+                                <input type="checkbox" name="modules" value="inventory">
+                                <span class="calculator-module-label">Inventory Management</span>
+                            </label>
+                            <label class="calculator-module-checkbox">
+                                <input type="checkbox" name="modules" value="manufacturing">
+                                <span class="calculator-module-label">Manufacturing</span>
+                            </label>
+                            <label class="calculator-module-checkbox">
+                                <input type="checkbox" name="modules" value="ecommerce">
+                                <span class="calculator-module-label">E-commerce</span>
+                            </label>
+                            <label class="calculator-module-checkbox">
+                                <input type="checkbox" name="modules" value="hr">
+                                <span class="calculator-module-label">HR & Payroll</span>
+                            </label>
+                            <label class="calculator-module-checkbox">
+                                <input type="checkbox" name="modules" value="project">
+                                <span class="calculator-module-label">Project Management</span>
+                            </label>
+                            <label class="calculator-module-checkbox">
+                                <input type="checkbox" name="modules" value="helpdesk">
+                                <span class="calculator-module-label">Helpdesk & Support</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="calculator-submit-btn">
+                        <i class="fas fa-calculator"></i>
+                        Calculate My ROI
+                    </button>
+                </form>
+
+                <!-- Results Section -->
+                <div id="calculatorResults" class="calculator-results">
+                    <h3 class="calculator-results-title">
+                        <i class="fas fa-chart-line"></i> Your Projected ROI Results
+                    </h3>
+                    
+                    <div class="calculator-results-grid">
+                        <div class="calculator-result-card">
+                            <div class="calculator-result-label">ROI Percentage</div>
+                            <div class="calculator-result-value highlight" id="resultROI">150%</div>
+                        </div>
+                        <div class="calculator-result-card">
+                            <div class="calculator-result-label">Payback Period</div>
+                            <div class="calculator-result-value" id="resultPayback">6 Months</div>
+                        </div>
+                        <div class="calculator-result-card">
+                            <div class="calculator-result-label">Annual Savings</div>
+                            <div class="calculator-result-value" id="resultAnnualSavings">$0</div>
+                        </div>
+                        <div class="calculator-result-card">
+                            <div class="calculator-result-label">3-Year Savings</div>
+                            <div class="calculator-result-value" id="resultThreeYear">$0</div>
+                        </div>
+                    </div>
+
+                    <div class="calculator-results-cta">
+                        <a href="appointment.html" class="calculator-cta-btn primary">
+                            <i class="fas fa-calendar-check"></i>
+                            Book Free Consultation
+                        </a>
+                        <a href="https://wa.me/971563905772?text=Hi%20SGC%2C%20I%20just%20calculated%20my%20ROI%20and%20want%20to%20learn%20more" 
+                           class="calculator-cta-btn secondary" 
+                           target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                            Discuss on WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Animation Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
@@ -727,6 +959,7 @@
     
     <!-- Main Scripts -->
     <script src="js/main.js"></script>
+    <script src="js/calculator-modal.js"></script>
     <script src="js/redesign-animations.js"></script>
     <script src="js/animations.js"></script>
 </body>
