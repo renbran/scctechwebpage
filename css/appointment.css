@@ -80,7 +80,7 @@
 /* Booking Section */
 .booking-section {
     padding: 80px 0;
-    background: white;
+    background: #0c1e34;
 }
 
 .booking-options {
@@ -91,17 +91,17 @@
 }
 
 .booking-card {
-    background: white;
+    background: rgba(12, 30, 52, 0.95);
     padding: 2.5rem;
     border-radius: 20px;
-    border: 2px solid #e5e7eb;
+    border: 2px solid rgba(0, 255, 240, 0.2);
     position: relative;
     transition: all 0.3s ease;
 }
 
 .booking-card:hover {
     border-color: var(--electric-cyan);
-    box-shadow: 0 15px 40px rgba(79, 195, 247, 0.2);
+    box-shadow: 0 15px 40px rgba(0, 255, 240, 0.3);
     transform: translateY(-5px);
 }
 
@@ -152,7 +152,7 @@
 
 .booking-card h3 {
     font-size: 1.75rem;
-    color: var(--deep-navy);
+    color: #ffffff;
     text-align: center;
     margin-bottom: 1rem;
     font-weight: 700;
@@ -161,7 +161,7 @@
 .booking-card > p {
     text-align: center;
     font-size: 1rem;
-    color: var(--carbon-black);
+    color: rgba(255, 255, 255, 0.85);
     line-height: 1.6;
     margin-bottom: 1.5rem;
 }
@@ -179,7 +179,7 @@
     padding: 0.75rem 0;
     font-size: 0.95rem;
     line-height: 1.5;
-    color: var(--carbon-black);
+    color: rgba(255, 255, 255, 0.85);
 }
 
 .card-features i {
@@ -200,7 +200,7 @@
 /* Expect Section */
 .expect-section {
     padding: 80px 0;
-    background: linear-gradient(to bottom, #f8f9fa 0%, white 100%);
+    background: linear-gradient(to bottom, #0c1e34 0%, #1a2942 100%);
 }
 
 .timeline {
@@ -244,16 +244,17 @@
 }
 
 .timeline-content {
-    background: white;
+    background: rgba(12, 30, 52, 0.95);
     padding: 2rem;
     border-radius: 16px;
+    border: 1px solid rgba(0, 255, 240, 0.15);
     flex: 1;
-    box-shadow: 0 4px 15px rgba(12, 30, 52, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 .timeline-content h3 {
     font-size: 1.5rem;
-    color: var(--deep-navy);
+    color: #ffffff;
     margin-bottom: 1rem;
     font-weight: 700;
 }
@@ -261,13 +262,13 @@
 .timeline-content p {
     font-size: 1rem;
     line-height: 1.7;
-    color: var(--carbon-black);
+    color: rgba(255, 255, 255, 0.85);
 }
 
 /* Contact Section */
 .contact-section {
     padding: 80px 0;
-    background: white;
+    background: #0c1e34;
 }
 
 .contact-grid {
@@ -278,17 +279,18 @@
 }
 
 .contact-card {
-    background: #f8f9fa;
+    background: rgba(12, 30, 52, 0.95);
     padding: 2rem;
     border-radius: 16px;
+    border: 1px solid rgba(0, 255, 240, 0.15);
     text-align: center;
     border-left: 4px solid var(--electric-cyan);
     transition: all 0.3s ease;
 }
 
 .contact-card:hover {
-    background: white;
-    box-shadow: 0 10px 30px rgba(12, 30, 52, 0.1);
+    background: rgba(30, 58, 138, 0.95);
+    box-shadow: 0 10px 30px rgba(0, 255, 240, 0.2);
     transform: translateY(-5px);
 }
 
@@ -314,21 +316,21 @@
 
 .contact-card h3 {
     font-size: 1.25rem;
-    color: var(--deep-navy);
+    color: #ffffff;
     margin-bottom: 0.75rem;
     font-weight: 700;
 }
 
 .contact-card > p {
     font-size: 0.95rem;
-    color: var(--carbon-black);
+    color: rgba(255, 255, 255, 0.85);
     margin-bottom: 0.5rem;
 }
 
 .contact-detail {
     font-size: 1.125rem;
     font-weight: 600;
-    color: var(--ocean-blue);
+    color: #00FFF0;
     margin: 1rem 0;
 }
 
@@ -376,7 +378,7 @@
 /* FAQ Section */
 .faq-section {
     padding: 80px 0;
-    background: #f8f9fa;
+    background: #0c1e34;
 }
 
 .faq-grid {
@@ -387,15 +389,16 @@
 }
 
 .faq-item {
-    background: white;
+    background: rgba(12, 30, 52, 0.95);
     padding: 2rem;
     border-radius: 16px;
-    box-shadow: 0 4px 15px rgba(12, 30, 52, 0.08);
+    border: 1px solid rgba(0, 255, 240, 0.15);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
 }
 
 .faq-item:hover {
-    box-shadow: 0 10px 25px rgba(12, 30, 52, 0.12);
+    box-shadow: 0 10px 25px rgba(0, 255, 240, 0.2);
     transform: translateY(-3px);
 }
 
@@ -404,7 +407,7 @@
     align-items: start;
     gap: 0.75rem;
     font-size: 1.125rem;
-    color: var(--deep-navy);
+    color: #ffffff;
     margin-bottom: 1rem;
     font-weight: 700;
     line-height: 1.4;
@@ -420,13 +423,13 @@
 .faq-item p {
     font-size: 0.95rem;
     line-height: 1.7;
-    color: var(--carbon-black);
+    color: rgba(255, 255, 255, 0.85);
 }
 
 /* Calendly Embed Section */
 .calendly-embed-section {
     padding: 80px 0;
-    background: white;
+    background: #0c1e34;
 }
 
 .calendly-container {
