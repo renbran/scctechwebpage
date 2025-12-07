@@ -1,5 +1,5 @@
 # robots.txt for SGC TECH AI
-# https://sgctechai.com/robots.txt
+# https://sgctech.ai/robots.txt
 
 # Allow all search engines to crawl all content
 User-agent: *
@@ -15,7 +15,7 @@ Disallow: /*?*cal_api_key=*
 Crawl-delay: 1
 
 # XML Sitemap location
-Sitemap: https://sgctechai.com/sitemap.xml
+Sitemap: https://sgctech.ai/sitemap.xml
 
 # Specific rules for major search engines
 User-agent: Googlebot
