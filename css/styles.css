@@ -357,17 +357,19 @@ h4 { font-size: clamp(18px, 2.5vw, 24px); }
 /* ========== Header & Navigation ========== */
 .header {
     background: var(--white);
-    box-shadow: var(--shadow-sm);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
     position: sticky;
     top: 0;
     z-index: 999;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .navbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: var(--spacing-sm) 0;
+    padding: 16px 0;
+    gap: 20px;
 }
 
 .logo {
@@ -506,9 +508,10 @@ h4 { font-size: clamp(18px, 2.5vw, 24px); }
     }
     
     .nav-menu li a {
-        padding: 10px 18px;
-        color: #ffffff !important;
-        font-weight: 700;
+        padding: 10px 16px;
+        color: var(--deep-navy);
+        font-weight: 600;
+        white-space: nowrap;
     }
 
     .nav-calculator {
@@ -524,6 +527,30 @@ h4 { font-size: clamp(18px, 2.5vw, 24px); }
     
     .btn-nav-cta {
         margin-top: 0;
+    }
+}
+
+/* Larger screen navigation optimization */
+@media (min-width: 1024px) {
+    .nav-menu li a {
+        padding: 10px 20px;
+        font-size: 15px;
+    }
+    
+    .navbar {
+        padding: 18px 0;
+    }
+}
+
+/* Extra large screens - prevent any compression */
+@media (min-width: 1200px) {
+    .nav-menu {
+        gap: 8px;
+    }
+    
+    .nav-menu li a {
+        padding: 12px 22px;
+        font-size: 16px;
     }
 }
 
@@ -1355,6 +1382,7 @@ section {
     border: 2px solid var(--ice-white);
     border-radius: 12px;
     padding: var(--spacing-md);
+    padding-top: 48px; /* Extra top padding to prevent badge overlap */
     box-shadow: var(--shadow-sm);
     transition: var(--transition-medium);
     position: relative;
@@ -1374,6 +1402,7 @@ section {
     background: linear-gradient(135deg, var(--deep-navy), var(--ocean-blue));
     color: var(--white);
     border: none;
+    padding-top: 48px; /* Extra top padding for featured card badge */
 }
 
 @media (min-width: 992px) {
@@ -1389,14 +1418,18 @@ section {
 
 .story-badge {
     position: absolute;
-    top: var(--spacing-sm);
-    right: var(--spacing-sm);
+    top: 16px;
+    right: 16px;
     background: var(--neon-green);
     color: var(--carbon-black);
-    padding: 4px 12px;
-    border-radius: 12px;
-    font-size: 12px;
-    font-weight: var(--font-weight-semibold);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: var(--font-weight-bold);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .story-industry {
