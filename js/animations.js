@@ -596,6 +596,152 @@ function initNumberCounters() {
 }
 
 // ============================================================================
+// ANIMATION #8: HERO VISUAL ANIMATIONS (Trust Badge Counters + Sections)
+// ============================================================================
+
+/**
+ * Initialize hero trust badge number counters
+ * Animates the numbers: 14, 150%, 98%
+ */
+function initHeroCounters() {
+    const trustBadges = document.querySelectorAll('.trust-badge .trust-number');
+    
+    if (trustBadges.length === 0) return;
+    
+    // Parse and animate each trust number
+    trustBadges.forEach((badge, index) => {
+        const originalText = badge.textContent.trim();
+        let target, suffix = '', prefix = '';
+        
+        // Parse the number and suffix
+        if (originalText.includes('%')) {
+            target = parseInt(originalText.replace('%', ''));
+            suffix = '%';
+        } else if (originalText.includes('AED')) {
+            target = parseInt(originalText.replace(/[^\d]/g, ''));
+            prefix = 'AED ';
+        } else {
+            target = parseInt(originalText);
+        }
+        
+        // Store original for fallback
+        badge.dataset.originalText = originalText;
+        badge.dataset.target = target;
+        badge.dataset.suffix = suffix;
+        badge.dataset.prefix = prefix;
+        
+        // Start counter after hero loads
+        setTimeout(() => {
+            animateHeroCounter(badge, target, 1500, prefix, suffix);
+        }, 1500 + (index * 200)); // Stagger each counter
+    });
+}
+
+/**
+ * Animate a single hero counter
+ */
+function animateHeroCounter(element, target, duration, prefix, suffix) {
+    if (!element) return;
+    
+    element.classList.add('counting');
+    let current = 0;
+    const increment = target / (duration / 16);
+    const startTime = performance.now();
+    
+    function updateCounter(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        // Easing function (ease-out)
+        const easeOut = 1 - Math.pow(1 - progress, 3);
+        current = Math.floor(target * easeOut);
+        
+        element.textContent = prefix + current.toLocaleString('en-AE') + suffix;
+        
+        if (progress < 1) {
+            requestAnimationFrame(updateCounter);
+        } else {
+            element.textContent = prefix + target.toLocaleString('en-AE') + suffix;
+            element.classList.remove('counting');
+        }
+    }
+    
+    requestAnimationFrame(updateCounter);
+}
+
+/**
+ * Initialize section scroll animations
+ * Uses Intersection Observer for performance
+ */
+function initSectionAnimations() {
+    const sections = document.querySelectorAll('.problem-section, .solution-section, .process-section, .modules-section, .cta-section');
+    
+    if (sections.length === 0) return;
+    
+    const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                sectionObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.15,
+        rootMargin: '0px 0px -50px 0px'
+    });
+    
+    sections.forEach(section => sectionObserver.observe(section));
+}
+
+/**
+ * Create floating particles in hero section
+ */
+function initHeroParticles() {
+    const hero = document.querySelector('.hero');
+    if (!hero || window.innerWidth < 768) return; // Skip on mobile
+    
+    // Check if particles already exist
+    if (hero.querySelector('.hero-particle')) return;
+    
+    // Create 6 floating particles
+    for (let i = 0; i < 6; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'hero-particle';
+        hero.appendChild(particle);
+    }
+}
+
+/**
+ * Create hexagon background grid (optional - for high-performance devices)
+ */
+function initHexagonBackground() {
+    const hero = document.querySelector('.hero');
+    if (!hero || window.innerWidth < 1024) return; // Skip on smaller screens
+    
+    // Check if already exists
+    if (hero.querySelector('.hero-hexagon-bg')) return;
+    
+    const hexBg = document.createElement('div');
+    hexBg.className = 'hero-hexagon-bg';
+    hexBg.innerHTML = `
+        <div class="hexagon-grid">
+            <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+                <defs>
+                    <pattern id="hexPattern" width="10" height="17.32" patternUnits="userSpaceOnUse">
+                        <polygon class="hexagon-cell" points="5,0 10,2.89 10,8.66 5,11.55 0,8.66 0,2.89" />
+                        <polygon class="hexagon-cell" points="5,5.77 10,8.66 10,14.43 5,17.32 0,14.43 0,8.66" transform="translate(5, 8.66)" />
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#hexPattern)" />
+            </svg>
+        </div>
+    `;
+    
+    // Insert at the beginning of hero
+    hero.insertBefore(hexBg, hero.firstChild);
+}
+
+// ============================================================================
 // INITIALIZATION
 // ============================================================================
 
@@ -619,6 +765,12 @@ function initAllAnimations() {
     initLogoAnimation();
     initScrollReveals();
     initNumberCounters();
+    
+    // Phase 2: Hero Visual Animations
+    initHeroCounters();
+    initSectionAnimations();
+    initHeroParticles();
+    initHexagonBackground();
     
     console.log('✨ All animations initialized successfully!');
 }
@@ -649,5 +801,11 @@ window.SGCAnimations = {
     initTimelineAnimation,
     initComparisonTable,
     initTripleShield,
-    initThreeDoors
+    initThreeDoors,
+    // Phase 2: Hero Animations
+    initHeroCounters,
+    initSectionAnimations,
+    initHeroParticles,
+    initHexagonBackground,
+    animateHeroCounter
 };
