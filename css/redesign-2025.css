@@ -13,6 +13,9 @@
     backdrop-filter: blur(20px) saturate(180%);
     border-bottom: 1px solid rgba(0, 255, 240, 0.15);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 9999 !important;
 }
 
 .nav-menu li a {
@@ -50,7 +53,8 @@
 
 .hero {
     background: linear-gradient(135deg, #0a1628 0%, #1a2942 50%, #0f2439 100%) !important;
-    padding: 160px 0 140px !important;
+    padding: 120px 0 100px !important;
+    margin-top: 0 !important;
     position: relative;
     overflow: hidden;
 }
@@ -647,6 +651,55 @@
 }
 
 /* ═══════════════════════════════════════════════════════════════
+   6.5 CLIENT LOGOS IN HERO SECTION
+   ═══════════════════════════════════════════════════════════════ */
+
+.hero-social-proof {
+    margin-top: 50px;
+}
+
+.client-logos {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.client-logos > span {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.logo-scroll {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 30px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo-scroll img {
+    height: 35px !important;
+    width: auto !important;
+    max-width: 120px;
+    object-fit: contain !important;
+    filter: brightness(0) invert(1) opacity(0.7);
+    transition: all 0.3s ease;
+}
+
+.logo-scroll img:hover {
+    filter: brightness(0) invert(1) opacity(1);
+    transform: scale(1.1);
+}
+
+/* ═══════════════════════════════════════════════════════════════
    7. SCROLL ANIMATIONS - MODERATE APPROACH
    ═══════════════════════════════════════════════════════════════ */
 
@@ -668,6 +721,66 @@
 .fade-in-up:nth-child(4) { transition-delay: 0.3s; }
 .fade-in-up:nth-child(5) { transition-delay: 0.4s; }
 .fade-in-up:nth-child(6) { transition-delay: 0.5s; }
+
+/* ═══════════════════════════════════════════════════════════════
+   7.5 CLIENT LOGOS IN HERO SECTION
+   ═══════════════════════════════════════════════════════════════ */
+
+.hero-social-proof {
+    margin-top: 50px;
+}
+
+.client-logos {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.client-logos > span {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.logo-scroll {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 30px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo-scroll img {
+    height: 35px !important;
+    width: auto !important;
+    max-width: 120px;
+    object-fit: contain !important;
+    filter: brightness(0) invert(1) opacity(0.7);
+    transition: all 0.3s ease;
+}
+
+.logo-scroll img:hover {
+    filter: brightness(0) invert(1) opacity(1);
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .logo-scroll {
+        gap: 20px;
+        padding: 15px;
+    }
+    
+    .logo-scroll img {
+        height: 28px !important;
+        max-width: 90px;
+    }
+}
 
 /* ═══════════════════════════════════════════════════════════════
    8. MOBILE RESPONSIVENESS
@@ -703,6 +816,20 @@
     
     .timeline-comparison {
         gap: 25px;
+    }
+    
+    .logo-scroll {
+        gap: 20px;
+        padding: 15px;
+    }
+    
+    .logo-scroll img {
+        height: 28px !important;
+        max-width: 90px;
+    }
+    
+    .hero {
+        padding: 100px 0 80px !important;
     }
     
     .process-timeline {
