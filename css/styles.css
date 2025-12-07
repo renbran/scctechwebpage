@@ -1327,12 +1327,18 @@ section {
 
 .success-stories-grid {
     display: grid;
-    gap: var(--spacing-md);
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+    align-items: stretch;
 }
 
 @media (min-width: 768px) {
     .success-stories-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .success-stories-grid > .story-card {
+        min-height: 360px;
     }
 }
 
@@ -1352,6 +1358,8 @@ section {
     position: relative;
     display: flex;
     flex-direction: column;
+    height: 100%;
+    min-height: 320px;
 }
 
 .story-card:hover {
@@ -1370,6 +1378,10 @@ section {
     .story-card.featured {
         grid-column: span 3;
         grid-row: span 1;
+    }
+    
+    .story-card.featured .story-metrics {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
@@ -1420,9 +1432,10 @@ section {
 
 .story-metrics {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-sm);
     margin: var(--spacing-md) 0;
+    margin-top: auto;
 }
 
 .story-metric {
