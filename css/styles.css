@@ -663,11 +663,82 @@ h4 { font-size: clamp(18px, 2.5vw, 24px); }
     display: flex;
     flex-direction: column;
     gap: var(--spacing-sm);
+    width: 100%;
+    max-width: 600px;
 }
 
 .client-logos span {
     font-size: 14px;
     opacity: 0.8;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+/* Logo Carousel - Infinite Scroll */
+.logo-carousel {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    padding: 20px 0;
+}
+
+.logo-carousel::before,
+.logo-carousel::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 60px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.logo-carousel::before {
+    left: 0;
+    background: linear-gradient(to right, var(--deep-navy), transparent);
+}
+
+.logo-carousel::after {
+    right: 0;
+    background: linear-gradient(to left, var(--deep-navy), transparent);
+}
+
+.logo-track {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    animation: logoScroll 20s linear infinite;
+    width: max-content;
+}
+
+.logo-track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes logoScroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.logo-track img {
+    height: 45px;
+    width: auto;
+    object-fit: contain;
+    filter: none;
+    opacity: 1;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    flex-shrink: 0;
+}
+
+.logo-track img:hover {
+    transform: scale(1.15);
+    filter: brightness(1.2);
 }
 
 .logo-scroll {
@@ -1664,30 +1735,22 @@ section {
 }
 
 /* Client logos in hero section */
-.client-logos .logo-scroll {
-    display: flex;
-    gap: 30px;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.client-logos .logo-scroll img {
-    height: 40px;
-    width: auto;
-    object-fit: contain;
-    opacity: 0.8;
-    transition: all 0.3s ease;
-    filter: brightness(0) invert(1);
-}
-
-.client-logos .logo-scroll img:hover {
-    opacity: 1;
-    transform: scale(1.1);
+.client-logos .logo-carousel {
+    max-width: 100%;
 }
 
 @media (max-width: 768px) {
-    .client-logos .logo-scroll img {
-        height: 30px;
+    .logo-track {
+        gap: 30px;
+        animation-duration: 15s;
+    }
+    
+    .logo-track img {
+        height: 35px;
+    }
+    
+    .client-logos {
+        max-width: 100%;
     }
 }
 
