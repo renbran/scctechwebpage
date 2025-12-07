@@ -304,6 +304,57 @@ textarea:focus {
     font-weight: 700 !important;
 }
 
+/* ─────────────────────────────────────────────────────────────── */
+/* 6. COMPARISON CARDS - ENHANCED CONTRAST */
+/* ─────────────────────────────────────────────────────────────── */
+
+/* Comparison cards on homepage hero section */
+.comparison-card h3 {
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    font-size: 1.3rem !important;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.comparison-card.chaos h3 {
+    color: #ffffff !important;
+}
+
+.comparison-card.streamlined h3 {
+    color: #ffffff !important;
+}
+
+.comparison-list li {
+    color: rgba(255, 255, 255, 0.92) !important;
+    font-size: 1rem !important;
+    line-height: 1.7 !important;
+}
+
+.comparison-list .timeline {
+    color: #00d9ff !important;
+    font-weight: 600 !important;
+}
+
+.comparison-result {
+    color: #ffffff !important;
+    font-weight: 700 !important;
+}
+
+.comparison-result strong {
+    color: #ffffff !important;
+    font-size: 1.2rem !important;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.comparison-result.fail strong {
+    color: #ff6b6b !important;
+}
+
+.comparison-result.success strong {
+    color: #00ff88 !important;
+    text-shadow: 0 2px 8px rgba(0, 255, 136, 0.4);
+}
+
 /* ═══════════════════════════════════════════════════════════════
    END OF CONTRAST IMPROVEMENTS
    ═══════════════════════════════════════════════════════════════ */
