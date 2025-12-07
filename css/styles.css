@@ -43,6 +43,24 @@
     --shadow-glow-green: 0 0 20px rgba(0, 255, 136, 0.3);
 }
 
+/* ========== Global Utility Classes ========== */
+/* Logo image sizing (replaces inline styles) */
+.logo-image {
+    height: 50px;
+    width: auto;
+}
+
+/* Hidden elements for forms */
+.hidden,
+input[name="botcheck"] {
+    display: none !important;
+}
+
+/* Calculator results initial state */
+#calculatorResults {
+    display: none;
+}
+
 /* ========== Accessibility Skip Link ========== */
 .skip-link {
     position: absolute;
@@ -268,7 +286,9 @@ h4 { font-size: clamp(18px, 2.5vw, 24px); }
     left: 0;
     right: 0;
     background: linear-gradient(135deg, rgba(10, 22, 40, 0.98) 0%, rgba(26, 41, 66, 0.98) 100%);
-    -webkit-backdrop-filter: blur(20px);
+    -webkit--webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(20px);
     border-top: 1px solid rgba(0, 255, 240, 0.2);
     box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.4);
@@ -561,6 +581,7 @@ h4 { font-size: clamp(18px, 2.5vw, 24px); }
     font-size: 14px;
     font-weight: var(--font-weight-semibold);
     margin-bottom: var(--spacing-md);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
 }
 
@@ -589,6 +610,7 @@ h4 { font-size: clamp(18px, 2.5vw, 24px); }
 
 .trust-badge {
     background: rgba(255, 255, 255, 0.1);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     padding: var(--spacing-sm);
     border-radius: 8px;
@@ -682,6 +704,7 @@ h4 { font-size: clamp(18px, 2.5vw, 24px); }
 
 .comparison-card {
     background: rgba(255, 255, 255, 0.08);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(15px);
     border-radius: 12px;
     padding: var(--spacing-md);
@@ -1411,6 +1434,7 @@ section {
 
 .story-card.featured .story-metric {
     background: rgba(255, 255, 255, 0.15);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
 }
 
