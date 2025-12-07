@@ -1,0 +1,313 @@
+/* ═══════════════════════════════════════════════════════════════
+   CONSISTENT BACKGROUNDS - Navy & Cyan Geometric Patterns
+   Applied across all pages for unified design
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Base Navy Background with Cyan Geometric Pattern */
+.page-hero,
+.hero,
+section.dark-section,
+.cta-section,
+.stats-section,
+.testimonials-section {
+    background: #0c1e34;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Cyan Geometric Pattern Overlay */
+.page-hero::before,
+.hero::before,
+section.dark-section::before,
+.cta-section::before,
+.stats-section::before,
+.testimonials-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        /* Diagonal lines */
+        linear-gradient(45deg, transparent 45%, rgba(0, 255, 240, 0.02) 45%, rgba(0, 255, 240, 0.02) 55%, transparent 55%),
+        linear-gradient(-45deg, transparent 45%, rgba(0, 255, 240, 0.02) 45%, rgba(0, 255, 240, 0.02) 55%, transparent 55%),
+        /* Grid pattern */
+        linear-gradient(0deg, transparent 48%, rgba(0, 255, 240, 0.03) 48%, rgba(0, 255, 240, 0.03) 52%, transparent 52%),
+        linear-gradient(90deg, transparent 48%, rgba(0, 255, 240, 0.03) 48%, rgba(0, 255, 240, 0.03) 52%, transparent 52%),
+        /* Dot pattern */
+        radial-gradient(circle at 20% 30%, rgba(0, 255, 240, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(0, 255, 240, 0.06) 0%, transparent 40%),
+        radial-gradient(circle at 50% 50%, rgba(0, 255, 240, 0.04) 0%, transparent 60%);
+    background-size: 
+        80px 80px,
+        80px 80px,
+        40px 40px,
+        40px 40px,
+        100% 100%,
+        100% 100%,
+        100% 100%;
+    background-position: 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0;
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+/* Animated Geometric Glow Effect */
+.page-hero::after,
+.hero::after,
+section.dark-section::after,
+.cta-section::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    right: -50%;
+    bottom: -50%;
+    background: 
+        radial-gradient(circle at 30% 20%, rgba(0, 255, 240, 0.15) 0%, transparent 25%),
+        radial-gradient(circle at 70% 80%, rgba(0, 255, 240, 0.12) 0%, transparent 25%),
+        radial-gradient(circle at 90% 40%, rgba(0, 255, 240, 0.08) 0%, transparent 30%);
+    animation: geometricPulse 20s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes geometricPulse {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 0.6;
+    }
+    33% {
+        transform: translate(10px, -10px) rotate(120deg);
+        opacity: 0.8;
+    }
+    66% {
+        transform: translate(-10px, 10px) rotate(240deg);
+        opacity: 0.7;
+    }
+}
+
+/* Hexagon Pattern Overlay (Optional Enhancement) */
+.page-hero.with-hexagons::before,
+.hero.with-hexagons::before {
+    background-image: 
+        /* Hexagon pattern */
+        repeating-linear-gradient(60deg, transparent, transparent 30px, rgba(0, 255, 240, 0.03) 30px, rgba(0, 255, 240, 0.03) 60px),
+        repeating-linear-gradient(120deg, transparent, transparent 30px, rgba(0, 255, 240, 0.03) 30px, rgba(0, 255, 240, 0.03) 60px),
+        repeating-linear-gradient(180deg, transparent, transparent 30px, rgba(0, 255, 240, 0.03) 30px, rgba(0, 255, 240, 0.03) 60px);
+}
+
+/* Light Sections with Subtle Pattern */
+section.light-section {
+    background: #ffffff;
+    position: relative;
+}
+
+section.light-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        linear-gradient(0deg, transparent 48%, rgba(12, 30, 52, 0.015) 48%, rgba(12, 30, 52, 0.015) 52%, transparent 52%),
+        linear-gradient(90deg, transparent 48%, rgba(12, 30, 52, 0.015) 48%, rgba(12, 30, 52, 0.015) 52%, transparent 52%);
+    background-size: 50px 50px;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+/* Content must be above patterns */
+.page-hero > .container,
+.hero > .container,
+section.dark-section > .container,
+.cta-section > .container,
+.stats-section > .container,
+.testimonials-section > .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Header with Navy Background and Cyan Pattern */
+.header {
+    background: #0c1e34;
+    position: relative;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid rgba(0, 255, 240, 0.1);
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        linear-gradient(90deg, transparent 48%, rgba(0, 255, 240, 0.02) 48%, rgba(0, 255, 240, 0.02) 52%, transparent 52%);
+    background-size: 30px 30px;
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+.header > .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Footer with Navy Background */
+.footer {
+    background: #0c1e34;
+    position: relative;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        linear-gradient(45deg, transparent 45%, rgba(0, 255, 240, 0.015) 45%, rgba(0, 255, 240, 0.015) 55%, transparent 55%),
+        linear-gradient(-45deg, transparent 45%, rgba(0, 255, 240, 0.015) 45%, rgba(0, 255, 240, 0.015) 55%, transparent 55%);
+    background-size: 60px 60px;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.footer > .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Pricing Cards on White Background - Subtle Navy Pattern */
+.pricing-tiers-section {
+    background: #ffffff;
+    position: relative;
+}
+
+.pricing-tiers-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(12, 30, 52, 0.02) 0%, transparent 50%),
+        radial-gradient(circle at 90% 80%, rgba(12, 30, 52, 0.02) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+/* About Page Sections */
+.about-section,
+.values-section,
+.mission-section {
+    background: #ffffff;
+}
+
+.about-section.dark,
+.values-section.dark,
+.mission-section.dark {
+    background: #0c1e34;
+    position: relative;
+}
+
+.about-section.dark::before,
+.values-section.dark::before,
+.mission-section.dark::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        linear-gradient(0deg, transparent 48%, rgba(0, 255, 240, 0.02) 48%, rgba(0, 255, 240, 0.02) 52%, transparent 52%),
+        linear-gradient(90deg, transparent 48%, rgba(0, 255, 240, 0.02) 48%, rgba(0, 255, 240, 0.02) 52%, transparent 52%);
+    background-size: 40px 40px;
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+/* Team Page Grid Background */
+.team-section {
+    background: #ffffff;
+    position: relative;
+}
+
+.leadership-section,
+.certifications-section {
+    background: #0c1e34;
+    position: relative;
+}
+
+.leadership-section::before,
+.certifications-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 255, 240, 0.03) 2px, rgba(0, 255, 240, 0.03) 4px),
+        repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(0, 255, 240, 0.03) 2px, rgba(0, 255, 240, 0.03) 4px);
+    background-size: 20px 20px;
+    pointer-events: none;
+}
+
+/* Success Stories Cards Section */
+.success-stories-section {
+    background: #ffffff;
+}
+
+.case-studies-section {
+    background: #0c1e34;
+    position: relative;
+}
+
+.case-studies-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        linear-gradient(45deg, rgba(0, 255, 240, 0.02) 25%, transparent 25%),
+        linear-gradient(-45deg, rgba(0, 255, 240, 0.02) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, rgba(0, 255, 240, 0.02) 75%),
+        linear-gradient(-45deg, transparent 75%, rgba(0, 255, 240, 0.02) 75%);
+    background-size: 40px 40px;
+    background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
+    pointer-events: none;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .page-hero::before,
+    .hero::before,
+    section.dark-section::before {
+        background-size: 
+            40px 40px,
+            40px 40px,
+            20px 20px,
+            20px 20px,
+            100% 100%,
+            100% 100%,
+            100% 100%;
+        opacity: 0.5;
+    }
+}
+
+/* Performance Optimization */
+@media (prefers-reduced-motion: reduce) {
+    .page-hero::after,
+    .hero::after,
+    section.dark-section::after,
+    .cta-section::after {
+        animation: none;
+    }
+}
