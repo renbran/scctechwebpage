@@ -613,3 +613,53 @@
         padding: 1.5rem;
     }
 }
+
+/* ========== Phase 4: Conversion Elements ========== */
+.appointment-urgency {
+    margin-top: 1.5rem;
+    color: #ff9f43;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    animation: fadeInUp 0.8s ease 0.3s both;
+}
+
+.appointment-urgency i {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+}
+
+.pulse-animation {
+    animation: ctaPulse 2s ease-in-out infinite;
+    position: relative;
+}
+
+@keyframes ctaPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+
+@media (max-width: 768px) {
+    .appointment-urgency {
+        font-size: 0.9rem;
+        flex-direction: column;
+        text-align: center;
+    }
+}

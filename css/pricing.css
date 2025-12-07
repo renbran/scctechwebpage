@@ -569,6 +569,51 @@
     color: var(--sky-blue);
 }
 
+/* ========== Phase 4: Conversion Elements ========== */
+.pricing-urgency {
+    margin-top: 1.5rem;
+    color: #ff9f43;
+    font-size: 1.05rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.pricing-urgency i {
+    animation: fireFlicker 1s ease-in-out infinite;
+}
+
+@keyframes fireFlicker {
+    0%, 100% { transform: scale(1); }
+    25% { transform: scale(1.1) rotate(-5deg); }
+    75% { transform: scale(1.1) rotate(5deg); }
+}
+
+.calculator-promise {
+    text-align: center;
+    margin-top: 0.75rem;
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.calculator-promise i {
+    color: var(--sky-blue);
+}
+
+.pulse-animation {
+    animation: ctaPulse 2s ease-in-out infinite;
+}
+
+@keyframes ctaPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+
 /* ========== Responsive Adjustments ========== */
 @media (max-width: 767px) {
     .pricing-card {
@@ -595,5 +640,11 @@
     
     .accelerator-icon i {
         font-size: 28px;
+    }
+    
+    .pricing-urgency {
+        font-size: 0.9rem;
+        flex-direction: column;
+        text-align: center;
     }
 }

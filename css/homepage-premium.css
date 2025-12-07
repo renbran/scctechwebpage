@@ -903,3 +903,154 @@
         font-size: 2rem;
     }
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   PHASE 4: CONVERSION OPTIMIZATION ELEMENTS
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Urgency messaging under hero CTA */
+.hero-urgency {
+    margin-top: 1.5rem;
+    color: #ff9f43;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    animation: fadeInUp 0.8s ease 0.5s both;
+}
+
+.hero-urgency i {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* Pulse animation for CTAs */
+.pulse-animation {
+    animation: ctaPulse 2s ease-in-out infinite;
+    position: relative;
+}
+
+.pulse-animation::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+    animation: pulseRing 2s ease-in-out infinite;
+    border: 2px solid var(--electric-cyan, #00D9FF);
+    opacity: 0;
+}
+
+@keyframes ctaPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+
+@keyframes pulseRing {
+    0% { transform: scale(1); opacity: 0.5; }
+    100% { transform: scale(1.2); opacity: 0; }
+}
+
+/* Process section guarantee text */
+.process-guarantee {
+    text-align: center;
+    margin-top: 1rem;
+    color: var(--neon-green, #00FF88);
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.process-guarantee i {
+    color: var(--neon-green, #00FF88);
+}
+
+/* Calculator privacy promise */
+.calculator-promise {
+    text-align: center;
+    margin-top: 0.75rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.calculator-promise i {
+    color: var(--neon-green, #00FF88);
+}
+
+/* CTA section urgency box */
+.cta-urgency-box {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: rgba(255, 159, 67, 0.15);
+    border: 1px solid rgba(255, 159, 67, 0.4);
+    border-radius: 50px;
+    padding: 0.75rem 1.5rem;
+    margin: 1.5rem 0;
+    animation: urgencyGlow 2s ease-in-out infinite;
+}
+
+.urgency-icon {
+    font-size: 1.25rem;
+    color: #ff9f43;
+    animation: fireFlicker 1s ease-in-out infinite;
+}
+
+.urgency-text {
+    color: #fff;
+    font-size: 0.95rem;
+}
+
+@keyframes urgencyGlow {
+    0%, 100% { box-shadow: 0 0 10px rgba(255, 159, 67, 0.2); }
+    50% { box-shadow: 0 0 20px rgba(255, 159, 67, 0.4); }
+}
+
+@keyframes fireFlicker {
+    0%, 100% { transform: scale(1); }
+    25% { transform: scale(1.1) rotate(-5deg); }
+    75% { transform: scale(1.1) rotate(5deg); }
+}
+
+/* Fade in up animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile responsive for new elements */
+@media (max-width: 768px) {
+    .hero-urgency {
+        font-size: 0.85rem;
+        text-align: center;
+    }
+    
+    .cta-urgency-box {
+        flex-direction: column;
+        text-align: center;
+        padding: 1rem;
+    }
+    
+    .urgency-text {
+        font-size: 0.9rem;
+    }
+    
+    .process-guarantee,
+    .calculator-promise {
+        font-size: 0.8rem;
+    }
+}
