@@ -1635,5 +1635,500 @@
 }
 
 /* =================================================================
+   SECTION 8: EXIT INTENT POPUP
+   ================================================================= */
+
+.exit-intent-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.85);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.exit-intent-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.exit-intent-popup {
+    background: linear-gradient(135deg, #0a1628 0%, #1a2942 50%, #0f2439 100%);
+    border: 2px solid rgba(0, 255, 240, 0.3);
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    transform: scale(0.8) translateY(30px);
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5),
+                0 0 60px rgba(0, 255, 240, 0.15);
+}
+
+.exit-intent-overlay.active .exit-intent-popup {
+    transform: scale(1) translateY(0);
+}
+
+.exit-intent-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 28px;
+    cursor: pointer;
+    transition: color 0.2s ease, transform 0.2s ease;
+    line-height: 1;
+}
+
+.exit-intent-close:hover {
+    color: var(--electric-cyan);
+    transform: rotate(90deg);
+}
+
+.exit-intent-content {
+    text-align: center;
+}
+
+.exit-intent-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--electric-cyan), var(--neon-green));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+    animation: scalePulse 2s ease-in-out infinite;
+}
+
+.exit-intent-icon i {
+    font-size: 36px;
+    color: var(--deep-navy);
+}
+
+.exit-intent-content h2 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 12px;
+    line-height: 1.2;
+}
+
+.exit-intent-subtitle {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 30px;
+}
+
+.exit-intent-stats {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: rgba(0, 255, 240, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(0, 255, 240, 0.1);
+}
+
+.exit-stat {
+    text-align: center;
+}
+
+.exit-stat-number {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--electric-cyan);
+    display: inline;
+}
+
+.exit-stat-suffix {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--electric-cyan);
+}
+
+.exit-stat-label {
+    display: block;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.exit-intent-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, var(--electric-cyan), var(--neon-green));
+    color: var(--deep-navy);
+    font-size: 18px;
+    font-weight: 700;
+    padding: 16px 40px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    width: 100%;
+    justify-content: center;
+}
+
+.exit-intent-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 40px rgba(0, 255, 240, 0.4);
+}
+
+.exit-intent-guarantee {
+    margin-top: 16px;
+    font-size: 14px;
+    color: var(--neon-green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.exit-intent-dismiss {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 13px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.exit-intent-dismiss:hover {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* =================================================================
+   SECTION 9: SCROLL-TRIGGERED COUNTERS
+   ================================================================= */
+
+.scroll-counter {
+    display: inline-block;
+    transition: color 0.3s ease;
+}
+
+.scroll-counter.counting {
+    color: var(--electric-cyan);
+}
+
+/* Story metrics animation enhancement */
+.story-metric .metric-value.scroll-counter {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.5s ease, transform 0.5s ease, color 0.3s ease;
+}
+
+.story-metric .metric-value.scroll-counter.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Problem stat animation */
+.problem-stat .scroll-counter {
+    position: relative;
+}
+
+.problem-stat .scroll-counter::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--electric-cyan);
+    transition: width 0.5s ease;
+}
+
+.problem-stat .scroll-counter.counted::after {
+    width: 100%;
+}
+
+/* =================================================================
+   SECTION 10: GUARANTEE BADGES
+   ================================================================= */
+
+.guarantee-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    background: rgba(0, 255, 136, 0.1);
+    border: 1px solid rgba(0, 255, 136, 0.3);
+    border-radius: 8px;
+    color: var(--neon-green);
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.guarantee-badge:hover {
+    background: rgba(0, 255, 136, 0.2);
+    border-color: var(--neon-green);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 255, 136, 0.2);
+}
+
+.guarantee-badge i {
+    font-size: 20px;
+}
+
+.guarantee-badges-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+/* CTA Section Guarantee Enhancement */
+.cta-guarantee {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 24px;
+    background: rgba(0, 255, 136, 0.1);
+    border: 1px solid rgba(0, 255, 136, 0.3);
+    border-radius: 50px;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+}
+
+.cta-guarantee:hover {
+    background: rgba(0, 255, 136, 0.15);
+    transform: scale(1.02);
+}
+
+/* Mobile Optimization for Phase 4 */
+@media (max-width: 768px) {
+    .exit-intent-popup {
+        padding: 30px 20px;
+        margin: 20px;
+    }
+    
+    .exit-intent-content h2 {
+        font-size: 22px;
+    }
+    
+    .exit-intent-stats {
+        gap: 15px;
+        padding: 15px;
+    }
+    
+    .exit-stat-number {
+        font-size: 24px;
+    }
+    
+    .exit-intent-cta {
+        font-size: 16px;
+        padding: 14px 24px;
+    }
+    
+    .guarantee-badges-row {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* =================================================================
+   SECTION 11: VIDEO TESTIMONIALS PLACEHOLDER
+   ================================================================= */
+
+.video-testimonials-section {
+    padding: 80px 0;
+    background: linear-gradient(180deg, rgba(10, 22, 40, 0.95) 0%, rgba(15, 36, 57, 0.98) 100%);
+}
+
+.video-testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.video-testimonial-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(0, 255, 240, 0.1);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.video-testimonial-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(0, 255, 240, 0.3);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+.video-testimonial-card.featured {
+    border-color: rgba(0, 255, 240, 0.3);
+}
+
+.video-placeholder {
+    position: relative;
+    aspect-ratio: 16/9;
+    background: linear-gradient(135deg, rgba(0, 255, 240, 0.05) 0%, rgba(0, 255, 136, 0.05) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.video-thumbnail {
+    font-size: 48px;
+    color: rgba(0, 255, 240, 0.2);
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.video-overlay i {
+    font-size: 48px;
+    color: var(--electric-cyan);
+    opacity: 0.8;
+}
+
+.video-overlay span {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.video-info {
+    padding: 20px;
+}
+
+.video-info h4 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 8px;
+}
+
+.video-info p {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    font-style: italic;
+    margin-bottom: 16px;
+}
+
+.video-meta {
+    display: flex;
+    gap: 20px;
+    font-size: 13px;
+}
+
+.video-company {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.video-company i {
+    margin-right: 6px;
+}
+
+.video-result {
+    color: var(--neon-green);
+    font-weight: 600;
+}
+
+.video-result i {
+    margin-right: 6px;
+}
+
+.video-testimonials-cta {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    background: rgba(0, 255, 240, 0.05);
+    border-radius: 12px;
+    border: 1px dashed rgba(0, 255, 240, 0.2);
+}
+
+.video-testimonials-cta p {
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+}
+
+.video-testimonials-cta i {
+    color: var(--electric-cyan);
+    margin-right: 8px;
+}
+
+.video-testimonials-cta a {
+    color: var(--electric-cyan);
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.video-testimonials-cta a:hover {
+    color: var(--neon-green);
+}
+
+/* Video Testimonials Mobile */
+@media (max-width: 1024px) {
+    .video-testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .video-testimonial-card.featured {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 768px) {
+    .video-testimonials-section {
+        padding: 60px 0;
+    }
+    
+    .video-testimonials-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .video-testimonial-card.featured {
+        grid-column: span 1;
+    }
+    
+    .video-info h4 {
+        font-size: 16px;
+    }
+    
+    .video-meta {
+        flex-direction: column;
+        gap: 8px;
+    }
+}
+
+/* =================================================================
    END OF ANIMATIONS.CSS
    ================================================================= */

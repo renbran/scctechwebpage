@@ -742,6 +742,203 @@ function initHexagonBackground() {
 }
 
 // ============================================================================
+// PHASE 4: EXIT INTENT POPUP
+// ============================================================================
+
+/**
+ * Initialize exit intent detection
+ * Shows popup when user moves mouse toward browser close/back
+ */
+function initExitIntent() {
+    const popup = document.getElementById('exitIntentPopup');
+    if (!popup) return;
+    
+    let hasShownPopup = false;
+    let mouseY = 0;
+    
+    // Check if already dismissed this session
+    if (sessionStorage.getItem('exitIntentDismissed')) {
+        return;
+    }
+    
+    // Track mouse position
+    document.addEventListener('mousemove', (e) => {
+        mouseY = e.clientY;
+    });
+    
+    // Detect exit intent (mouse leaving viewport from top)
+    document.addEventListener('mouseout', (e) => {
+        if (hasShownPopup) return;
+        
+        // Check if mouse left from the top of the page
+        if (e.clientY < 10 && mouseY < 100) {
+            showExitPopup();
+        }
+    });
+    
+    // Also trigger on back button attempt (mobile-friendly)
+    window.addEventListener('popstate', () => {
+        if (!hasShownPopup) {
+            showExitPopup();
+            // Push state back to prevent actual navigation
+            history.pushState(null, '', location.href);
+        }
+    });
+    
+    // Push initial state for popstate detection
+    history.pushState(null, '', location.href);
+    
+    function showExitPopup() {
+        if (hasShownPopup) return;
+        hasShownPopup = true;
+        
+        popup.classList.add('active');
+        popup.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        
+        // Animate the counter numbers in popup
+        const counters = popup.querySelectorAll('[data-count]');
+        counters.forEach((counter, index) => {
+            const target = parseInt(counter.dataset.count);
+            setTimeout(() => {
+                animateExitCounter(counter, target, 1000);
+            }, 300 + (index * 150));
+        });
+    }
+    
+    // Close popup handlers
+    const closeBtn = popup.querySelector('.exit-intent-close');
+    const dismissBtn = popup.querySelector('.exit-intent-dismiss');
+    const ctaBtn = popup.querySelector('.exit-intent-cta');
+    
+    function closeExitPopup() {
+        popup.classList.remove('active');
+        popup.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        sessionStorage.setItem('exitIntentDismissed', 'true');
+    }
+    
+    if (closeBtn) closeBtn.addEventListener('click', closeExitPopup);
+    if (dismissBtn) dismissBtn.addEventListener('click', closeExitPopup);
+    
+    // CTA closes popup and opens calculator
+    if (ctaBtn) {
+        ctaBtn.addEventListener('click', () => {
+            closeExitPopup();
+            // The data-calculator-trigger will be handled by calculator-modal.js
+        });
+    }
+    
+    // Close on overlay click
+    popup.addEventListener('click', (e) => {
+        if (e.target === popup) closeExitPopup();
+    });
+    
+    // Close on escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && popup.classList.contains('active')) {
+            closeExitPopup();
+        }
+    });
+}
+
+/**
+ * Animate exit popup counter
+ */
+function animateExitCounter(element, target, duration) {
+    let current = 0;
+    const startTime = performance.now();
+    
+    function update(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const easeOut = 1 - Math.pow(1 - progress, 3);
+        
+        current = Math.floor(target * easeOut);
+        element.textContent = current;
+        
+        if (progress < 1) {
+            requestAnimationFrame(update);
+        } else {
+            element.textContent = target;
+        }
+    }
+    
+    requestAnimationFrame(update);
+}
+
+// ============================================================================
+// PHASE 4: SCROLL-TRIGGERED COUNTERS
+// ============================================================================
+
+/**
+ * Initialize scroll-triggered counters for stats throughout the page
+ */
+function initScrollCounters() {
+    const counters = document.querySelectorAll('.scroll-counter');
+    
+    if (counters.length === 0) return;
+    
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const counter = entry.target;
+                
+                // Mark as visible for CSS animations
+                counter.classList.add('visible');
+                
+                // Get counter configuration
+                const target = parseInt(counter.dataset.count) || 0;
+                const prefix = counter.dataset.prefix || '';
+                const suffix = counter.dataset.suffix || '';
+                
+                // Animate the counter
+                animateScrollCounter(counter, target, 1500, prefix, suffix);
+                
+                // Only animate once
+                counterObserver.unobserve(counter);
+            }
+        });
+    }, {
+        threshold: 0.5,
+        rootMargin: '0px 0px -20px 0px'
+    });
+    
+    counters.forEach(counter => counterObserver.observe(counter));
+}
+
+/**
+ * Animate a scroll-triggered counter
+ */
+function animateScrollCounter(element, target, duration, prefix, suffix) {
+    element.classList.add('counting');
+    
+    let current = 0;
+    const startTime = performance.now();
+    
+    function update(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        // Ease-out cubic
+        const easeOut = 1 - Math.pow(1 - progress, 3);
+        current = Math.floor(target * easeOut);
+        
+        element.textContent = prefix + current.toLocaleString('en-AE') + suffix;
+        
+        if (progress < 1) {
+            requestAnimationFrame(update);
+        } else {
+            element.textContent = prefix + target.toLocaleString('en-AE') + suffix;
+            element.classList.remove('counting');
+            element.classList.add('counted');
+        }
+    }
+    
+    requestAnimationFrame(update);
+}
+
+// ============================================================================
 // INITIALIZATION
 // ============================================================================
 
@@ -772,6 +969,10 @@ function initAllAnimations() {
     initHeroParticles();
     initHexagonBackground();
     
+    // Phase 4: Exit Intent & Scroll Counters
+    initExitIntent();
+    initScrollCounters();
+    
     console.log('✨ All animations initialized successfully!');
 }
 
@@ -787,6 +988,7 @@ window.addEventListener('load', () => {
     // Re-check for any elements added after initial load
     initScrollReveals();
     initNumberCounters();
+    initScrollCounters();
 });
 
 // ============================================================================
@@ -807,5 +1009,9 @@ window.SGCAnimations = {
     initSectionAnimations,
     initHeroParticles,
     initHexagonBackground,
-    animateHeroCounter
+    animateHeroCounter,
+    // Phase 4: Exit Intent & Scroll Counters
+    initExitIntent,
+    initScrollCounters,
+    animateScrollCounter
 };
