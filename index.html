@@ -724,6 +724,15 @@
     <!-- ROI Calculator Modal -->
     <div id="calculatorModalOverlay" class="calculator-modal-overlay">
         <div class="calculator-modal" role="dialog" aria-labelledby="calculatorModalTitle" aria-modal="true">
+            <!-- Progress Steps Indicator -->
+            <div class="calculator-steps-indicator">
+                <div class="step-dot active" data-step="1">1</div>
+                <div class="step-line"></div>
+                <div class="step-dot" data-step="2">2</div>
+                <div class="step-line"></div>
+                <div class="step-dot" data-step="3">3</div>
+            </div>
+
             <div class="calculator-modal-header">
                 <h2 id="calculatorModalTitle" class="calculator-modal-title">Calculate Your ROI</h2>
                 <p class="calculator-modal-subtitle">See how much you'll save with Odoo ERP in 60 seconds</p>
@@ -731,8 +740,8 @@
             </div>
             
             <div class="calculator-modal-body">
-                <form id="calculatorForm">
-                    <!-- Business Information -->
+                <!-- STEP 1: Business Information -->
+                <div id="calculatorStep1" class="calculator-step active">
                     <div class="calculator-form-grid">
                         <div class="calculator-form-group">
                             <label class="calculator-form-label" for="calcEmployees">
@@ -748,6 +757,7 @@
                                 required
                                 min="1"
                                 max="10000"
+                                value="25"
                             >
                         </div>
 
@@ -771,15 +781,16 @@
                         <div class="calculator-form-group">
                             <label class="calculator-form-label" for="calcCurrentCost">
                                 <i class="fas fa-dollar-sign"></i>
-                                Current Annual Software Cost (Optional)
+                                Current Monthly Software Cost (AED)
                             </label>
                             <input 
                                 type="number" 
                                 id="calcCurrentCost" 
                                 name="currentCost" 
                                 class="calculator-input" 
-                                placeholder="e.g., 50000"
+                                placeholder="e.g., 5000"
                                 min="0"
+                                value="5000"
                             >
                         </div>
 
@@ -798,87 +809,28 @@
                         </div>
                     </div>
 
-                    <!-- Contact Information -->
-                    <div class="calculator-form-grid">
-                        <div class="calculator-form-group">
-                            <label class="calculator-form-label" for="calcName">
-                                <i class="fas fa-user"></i>
-                                Your Name
-                            </label>
-                            <input 
-                                type="text" 
-                                id="calcName" 
-                                name="name" 
-                                class="calculator-input" 
-                                placeholder="John Doe"
-                                required
-                            >
-                        </div>
-
-                        <div class="calculator-form-group">
-                            <label class="calculator-form-label" for="calcEmail">
-                                <i class="fas fa-envelope"></i>
-                                Email Address
-                            </label>
-                            <input 
-                                type="email" 
-                                id="calcEmail" 
-                                name="email" 
-                                class="calculator-input" 
-                                placeholder="john@company.com"
-                                required
-                            >
-                        </div>
-
-                        <div class="calculator-form-group">
-                            <label class="calculator-form-label" for="calcPhone">
-                                <i class="fas fa-phone"></i>
-                                Phone Number
-                            </label>
-                            <input 
-                                type="tel" 
-                                id="calcPhone" 
-                                name="phone" 
-                                class="calculator-input" 
-                                placeholder="+971 50 123 4567"
-                                required
-                            >
-                        </div>
-
-                        <div class="calculator-form-group">
-                            <label class="calculator-form-label" for="calcCompany">
-                                <i class="fas fa-building"></i>
-                                Company Name
-                            </label>
-                            <input 
-                                type="text" 
-                                id="calcCompany" 
-                                name="company" 
-                                class="calculator-input" 
-                                placeholder="Acme Corporation"
-                                required
-                            >
-                        </div>
-                    </div>
-
                     <!-- Odoo Modules Selection -->
                     <div class="calculator-form-group full-width">
                         <label class="calculator-form-label">
                             <i class="fas fa-puzzle-piece"></i>
-                            Which Odoo Modules Interest You? (Select all that apply)
+                            Which Odoo Modules Interest You?
                         </label>
                         <div class="calculator-modules">
                             <label class="calculator-module-checkbox">
-                                <input type="checkbox" name="modules" value="crm">
+                                <input type="checkbox" name="modules" value="crm" checked>
                                 <span class="calculator-module-label">CRM & Sales</span>
                             </label>
                             <label class="calculator-module-checkbox">
                                 <input type="checkbox" name="modules" value="accounting">
-                                <span class="calculator-module-label">Accounting & Finance</span>
+                                <span class="calculator-module-label">Accounting</span>
                             </label>
                             <label class="calculator-module-checkbox">
                                 <input type="checkbox" name="modules" value="inventory">
-                                <span class="calculator-module-label">Inventory Management</span>
+                                <span class="calculator-module-label">Inventory</span>
+                            </label>
+                            <label class="calculator-module-checkbox">
+                                <input type="checkbox" name="modules" value="hr">
+                                <span class="calculator-module-label">HR & Payroll</span>
                             </label>
                             <label class="calculator-module-checkbox">
                                 <input type="checkbox" name="modules" value="manufacturing">
@@ -888,65 +840,211 @@
                                 <input type="checkbox" name="modules" value="ecommerce">
                                 <span class="calculator-module-label">E-commerce</span>
                             </label>
-                            <label class="calculator-module-checkbox">
-                                <input type="checkbox" name="modules" value="hr">
-                                <span class="calculator-module-label">HR & Payroll</span>
-                            </label>
-                            <label class="calculator-module-checkbox">
-                                <input type="checkbox" name="modules" value="project">
-                                <span class="calculator-module-label">Project Management</span>
-                            </label>
-                            <label class="calculator-module-checkbox">
-                                <input type="checkbox" name="modules" value="helpdesk">
-                                <span class="calculator-module-label">Helpdesk & Support</span>
-                            </label>
                         </div>
                     </div>
 
-                    <!-- Submit Button -->
-                    <button type="submit" class="calculator-submit-btn">
-                        <i class="fas fa-calculator"></i>
-                        Calculate My ROI
+                    <!-- Real-time Teaser Preview -->
+                    <div class="teaser-preview" id="teaserPreview">
+                        <div class="teaser-icon">💰</div>
+                        <div class="teaser-content">
+                            <div class="teaser-label">Estimated Annual Savings</div>
+                            <div class="teaser-amount" id="teaserAmount">AED 45,000 - 85,000</div>
+                        </div>
+                    </div>
+
+                    <button type="button" class="calculator-next-btn" id="goToStep2">
+                        See My Detailed ROI Report <i class="fas fa-arrow-right"></i>
                     </button>
-                </form>
+                </div>
 
-                <!-- Results Section -->
-                <div id="calculatorResults" class="calculator-results">
-                    <h3 class="calculator-results-title">
-                        <i class="fas fa-chart-line"></i> Your Projected ROI Results
-                    </h3>
-                    
-                    <div class="calculator-results-grid">
-                        <div class="calculator-result-card">
-                            <div class="calculator-result-label">ROI Percentage</div>
-                            <div class="calculator-result-value highlight" id="resultROI">150%</div>
+                <!-- STEP 2: Email Capture Gate -->
+                <div id="calculatorStep2" class="calculator-step">
+                    <div class="email-gate">
+                        <div class="email-gate-icon">📊</div>
+                        <h3 class="email-gate-title">Your ROI Report is Ready!</h3>
+                        <p class="email-gate-subtitle">Enter your details to see your personalized savings breakdown</p>
+
+                        <!-- Teaser Results -->
+                        <div class="teaser-results">
+                            <div class="teaser-result-item">
+                                <span class="teaser-result-label">Projected ROI</span>
+                                <span class="teaser-result-value" id="teaserROI">~180%</span>
+                            </div>
+                            <div class="teaser-result-item">
+                                <span class="teaser-result-label">Annual Savings</span>
+                                <span class="teaser-result-value" id="teaserSavings">~AED 65,000</span>
+                            </div>
                         </div>
-                        <div class="calculator-result-card">
-                            <div class="calculator-result-label">Payback Period</div>
-                            <div class="calculator-result-value" id="resultPayback">6 Months</div>
+
+                        <form id="leadCaptureForm" class="email-capture-form">
+                            <!-- Web3Forms Access Key (replace with your own from web3forms.com) -->
+                            <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+                            <input type="hidden" name="subject" value="🎯 New ROI Calculator Lead - SGC TECH AI">
+                            <input type="hidden" name="from_name" value="SGC TECH AI Calculator">
+                            
+                            <!-- Hidden fields for ROI data -->
+                            <input type="hidden" name="calculated_roi" id="hiddenROI">
+                            <input type="hidden" name="annual_savings" id="hiddenSavings">
+                            <input type="hidden" name="employees" id="hiddenEmployees">
+                            <input type="hidden" name="industry" id="hiddenIndustry">
+                            <input type="hidden" name="modules" id="hiddenModules">
+                            
+                            <!-- Honeypot for spam protection -->
+                            <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+                            <div class="calculator-form-group">
+                                <label class="calculator-form-label" for="leadName">
+                                    <i class="fas fa-user"></i> Your Name
+                                </label>
+                                <input 
+                                    type="text" 
+                                    id="leadName" 
+                                    name="name" 
+                                    class="calculator-input" 
+                                    placeholder="John Doe"
+                                    required
+                                >
+                            </div>
+
+                            <div class="calculator-form-group">
+                                <label class="calculator-form-label" for="leadEmail">
+                                    <i class="fas fa-envelope"></i> Work Email
+                                </label>
+                                <input 
+                                    type="email" 
+                                    id="leadEmail" 
+                                    name="email" 
+                                    class="calculator-input" 
+                                    placeholder="john@company.com"
+                                    required
+                                >
+                            </div>
+
+                            <div class="calculator-form-group">
+                                <label class="calculator-form-label" for="leadPhone">
+                                    <i class="fas fa-phone"></i> Phone Number
+                                </label>
+                                <input 
+                                    type="tel" 
+                                    id="leadPhone" 
+                                    name="phone" 
+                                    class="calculator-input" 
+                                    placeholder="+971 50 123 4567"
+                                    required
+                                >
+                            </div>
+
+                            <div class="calculator-form-group">
+                                <label class="calculator-form-label" for="leadCompany">
+                                    <i class="fas fa-building"></i> Company Name
+                                </label>
+                                <input 
+                                    type="text" 
+                                    id="leadCompany" 
+                                    name="company" 
+                                    class="calculator-input" 
+                                    placeholder="Acme Corporation"
+                                    required
+                                >
+                            </div>
+
+                            <button type="submit" class="calculator-submit-btn" id="submitLeadForm">
+                                <i class="fas fa-unlock"></i> Unlock My Full ROI Report
+                            </button>
+
+                            <p class="privacy-note">
+                                <i class="fas fa-lock"></i> We respect your privacy. No spam, ever.
+                            </p>
+                        </form>
+
+                        <button type="button" class="calculator-back-btn" id="backToStep1">
+                            <i class="fas fa-arrow-left"></i> Back to adjust inputs
+                        </button>
+                    </div>
+                </div>
+
+                <!-- STEP 3: Full Results with Losing vs Winning -->
+                <div id="calculatorStep3" class="calculator-step">
+                    <div class="results-comparison">
+                        <!-- Without SGC Section (RED/LOSING) -->
+                        <div class="comparison-card losing">
+                            <div class="comparison-header">
+                                <i class="fas fa-times-circle"></i>
+                                <h4>Without SGC TECH AI</h4>
+                            </div>
+                            <div class="comparison-body">
+                                <div class="comparison-stat">
+                                    <span class="stat-label">Monthly Losses</span>
+                                    <span class="stat-value losing" id="monthlyLosses">AED 8,500</span>
+                                </div>
+                                <div class="comparison-stat">
+                                    <span class="stat-label">Annual Waste</span>
+                                    <span class="stat-value losing" id="annualWaste">AED 102,000</span>
+                                </div>
+                                <div class="comparison-stat">
+                                    <span class="stat-label">3-Year Impact</span>
+                                    <span class="stat-value losing" id="threeYearLoss">AED 306,000</span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="calculator-result-card">
-                            <div class="calculator-result-label">Annual Savings</div>
-                            <div class="calculator-result-value" id="resultAnnualSavings">$0</div>
-                        </div>
-                        <div class="calculator-result-card">
-                            <div class="calculator-result-label">3-Year Savings</div>
-                            <div class="calculator-result-value" id="resultThreeYear">$0</div>
+
+                        <!-- With SGC Section (GREEN/WINNING) -->
+                        <div class="comparison-card winning">
+                            <div class="comparison-header">
+                                <i class="fas fa-check-circle"></i>
+                                <h4>With SGC TECH AI</h4>
+                            </div>
+                            <div class="comparison-body">
+                                <div class="comparison-stat">
+                                    <span class="stat-label">Monthly Savings</span>
+                                    <span class="stat-value winning" id="monthlySavings">AED 5,400</span>
+                                </div>
+                                <div class="comparison-stat">
+                                    <span class="stat-label">Annual Savings</span>
+                                    <span class="stat-value winning" id="resultAnnualSavings">AED 64,800</span>
+                                </div>
+                                <div class="comparison-stat">
+                                    <span class="stat-label">3-Year Savings</span>
+                                    <span class="stat-value winning" id="resultThreeYear">AED 194,400</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
+                    <!-- Net Impact Summary -->
+                    <div class="net-impact-summary">
+                        <div class="impact-row">
+                            <span class="impact-label">Your ROI</span>
+                            <span class="impact-value highlight" id="resultROI">185%</span>
+                        </div>
+                        <div class="impact-row">
+                            <span class="impact-label">Payback Period</span>
+                            <span class="impact-value" id="resultPayback">4.2 Months</span>
+                        </div>
+                        <div class="impact-row featured">
+                            <span class="impact-label">Net Benefit (3 Years)</span>
+                            <span class="impact-value big" id="netBenefit">AED 500,400</span>
+                        </div>
+                    </div>
+
+                    <!-- Call to Action -->
                     <div class="calculator-results-cta">
-                        <a href="appointment.html" class="calculator-cta-btn primary">
+                        <a href="appointment.html" class="calculator-cta-btn primary pulse">
                             <i class="fas fa-calendar-check"></i>
-                            Book Free Consultation
+                            Book Free Consultation - Lock In This ROI
                         </a>
-                        <a href="https://wa.me/971563905772?text=Hi%20SGC%2C%20I%20just%20calculated%20my%20ROI%20and%20want%20to%20learn%20more" 
+                        <a href="https://wa.me/971563905772?text=Hi%20SGC%2C%20I%20just%20calculated%20my%20ROI%20and%20I%27m%20ready%20to%20discuss%20implementation" 
                            class="calculator-cta-btn secondary" 
                            target="_blank">
                             <i class="fab fa-whatsapp"></i>
-                            Discuss on WhatsApp
+                            Discuss on WhatsApp Now
                         </a>
                     </div>
+
+                    <p class="guarantee-note">
+                        <i class="fas fa-shield-alt"></i> 
+                        <strong>150% ROI Guarantee:</strong> If we don't deliver, you get a full refund.
+                    </p>
                 </div>
             </div>
         </div>
