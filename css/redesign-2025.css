@@ -1188,6 +1188,153 @@ section a:not(.btn):not(.button):hover {
     color: var(--neon-green) !important;
 }
 
+/* ========== Hero Comparison Cards - Larger & Proportional ========== */
+.hero-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.comparison-visual {
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+    width: 100%;
+}
+
+.comparison-card {
+    background: rgba(255, 255, 255, 0.08) !important;
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
+    border-radius: 20px !important;
+    padding: 30px 25px !important;
+    border: 2px solid rgba(255, 255, 255, 0.15) !important;
+    flex: 1;
+    min-width: 220px;
+    transition: all 0.3s ease;
+}
+
+.comparison-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.comparison-card.chaos {
+    border-color: rgba(255, 68, 68, 0.4) !important;
+}
+
+.comparison-card.chaos:hover {
+    border-color: rgba(255, 68, 68, 0.7) !important;
+    box-shadow: 0 15px 40px rgba(255, 68, 68, 0.2);
+}
+
+.comparison-card.streamlined {
+    border-color: rgba(0, 255, 240, 0.4) !important;
+}
+
+.comparison-card.streamlined:hover {
+    border-color: rgba(0, 255, 240, 0.7) !important;
+    box-shadow: 0 15px 40px rgba(0, 255, 240, 0.2);
+}
+
+.comparison-card h3 {
+    font-size: 1.4rem !important;
+    font-weight: 800 !important;
+    margin-bottom: 20px !important;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.comparison-card.chaos h3 i {
+    color: #ff4444 !important;
+}
+
+.comparison-card.streamlined h3 i {
+    color: var(--electric-cyan) !important;
+}
+
+.comparison-list {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 0 20px 0 !important;
+}
+
+.comparison-list li {
+    padding: 10px 0 !important;
+    font-size: 1rem !important;
+    line-height: 1.5 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.comparison-list li:last-child {
+    border-bottom: none;
+}
+
+.comparison-list .timeline {
+    font-weight: 700 !important;
+    font-size: 1rem !important;
+}
+
+.comparison-card.chaos .timeline {
+    color: #ff6b6b !important;
+}
+
+.comparison-card.streamlined .timeline {
+    color: var(--electric-cyan) !important;
+}
+
+.comparison-result {
+    padding: 18px !important;
+    border-radius: 12px !important;
+    text-align: center;
+    font-size: 1rem !important;
+    line-height: 1.5 !important;
+    margin-top: 15px !important;
+}
+
+.comparison-result strong {
+    font-size: 1.2rem !important;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.comparison-result.fail {
+    background: rgba(255, 68, 68, 0.15) !important;
+    border: 2px solid rgba(255, 68, 68, 0.4) !important;
+}
+
+.comparison-result.success {
+    background: rgba(0, 255, 136, 0.15) !important;
+    border: 2px solid rgba(0, 255, 136, 0.4) !important;
+}
+
+.comparison-arrow {
+    font-size: 2.5rem !important;
+    color: var(--electric-cyan) !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+}
+
+/* Mobile adjustments for comparison cards */
+@media (max-width: 1024px) {
+    .comparison-visual {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .comparison-card {
+        min-width: 100%;
+    }
+    
+    .comparison-arrow {
+        transform: rotate(90deg);
+        padding: 10px 0;
+    }
+}
+
 /* Fix any remaining white-on-white issues */
 [style*="background: white"],
 [style*="background: #fff"],
