@@ -1,5 +1,5 @@
 # Cloudflare Pages Configuration for SGC TECH AI Website
-name = "sgc-tech-ai"
+name = "sgctech"
 compatibility_date = "2024-12-01"
 
 # Pages configuration
@@ -7,8 +7,8 @@ pages_build_output_dir = "./"
 
 # Production environment
 [env.production]
-name = "sgc-tech-ai"
+name = "sgctech"
 
 # Preview environment  
 [env.preview]
-name = "sgc-tech-ai-preview"
+name = "sgctech-preview"
