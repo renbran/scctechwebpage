@@ -53,7 +53,8 @@ body {
     text-rendering: optimizeLegibility;
 }
 
-/* Heading contrast improvements */
+/* Heading contrast improvements - only for dark backgrounds */
+/* Exclude cards with light/white backgrounds */
 h1, h2, h3, h4, h5, h6 {
     color: #ffffff !important;
     font-weight: 700 !important;
@@ -61,11 +62,41 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1.2 !important;
 }
 
+/* Override for light background cards - use dark text */
+.story-card h3,
+.story-card h4,
+.pricing-card h3,
+.pricing-card h4,
+.booking-card h3,
+.booking-card h4,
+.differentiator-card h3,
+.value-card h3,
+.case-study h3,
+.expertise-card h3,
+.partner-card h3 {
+    color: var(--deep-navy, #0c1e34) !important;
+    text-shadow: none !important;
+}
+
 /* Paragraph text - minimum contrast ratio 4.5:1 */
 p, li, span {
     color: rgba(255, 255, 255, 0.9) !important;
     line-height: 1.7 !important;
     font-size: 1.05rem !important;
+}
+
+/* Override for light background cards */
+.story-card p,
+.story-card li,
+.story-card span,
+.pricing-card p,
+.booking-card p,
+.differentiator-card p,
+.value-card p,
+.case-study p,
+.expertise-card p,
+.partner-card p {
+    color: var(--slate-gray, #64748b) !important;
 }
 
 /* Improve section label visibility */
@@ -89,6 +120,22 @@ p, li, span {
     color: #ffffff !important;
     font-weight: 800 !important;
     text-shadow: 0 2px 10px rgba(0, 217, 255, 0.3);
+}
+
+/* Story card metrics - light background override */
+.story-card .metric-value,
+.story-card .story-metric .metric-value {
+    color: var(--electric-cyan, #00d9ff) !important;
+    text-shadow: none !important;
+}
+
+.story-card .metric-label,
+.story-card .story-metric .metric-label {
+    color: var(--slate-gray, #64748b) !important;
+}
+
+.story-card .story-industry {
+    color: var(--electric-cyan, #00d9ff) !important;
 }
 
 /* Description text - better readability */
