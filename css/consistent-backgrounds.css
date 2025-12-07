@@ -3,21 +3,36 @@
    Applied across all pages for unified design
    ═══════════════════════════════════════════════════════════════ */
 
-/* Base Navy Background with Cyan Geometric Pattern */
+/* Base Navy Background with Cyan Geometric Pattern - APPLIED TO ALL SECTIONS */
 .page-hero,
 .hero,
+section,
+.pricing-tiers-section,
+.about-section,
+.values-section,
+.mission-section,
+.team-section,
+.success-stories-section,
+.case-studies-section,
+.leadership-section,
+.certifications-section,
 section.dark-section,
 .cta-section,
 .stats-section,
 .testimonials-section {
-    background: #0c1e34;
+    background: #0c1e34 !important;
     position: relative;
     overflow: hidden;
 }
 
-/* Cyan Geometric Pattern Overlay */
+/* Cyan Geometric Pattern Overlay - APPLIED TO ALL SECTIONS */
 .page-hero::before,
 .hero::before,
+section::before,
+.pricing-tiers-section::before,
+.about-section::before,
+.team-section::before,
+.success-stories-section::before,
 section.dark-section::before,
 .cta-section::before,
 .stats-section::before,
@@ -96,26 +111,7 @@ section.dark-section::after,
         repeating-linear-gradient(180deg, transparent, transparent 30px, rgba(0, 255, 240, 0.03) 30px, rgba(0, 255, 240, 0.03) 60px);
 }
 
-/* Light Sections with Subtle Pattern */
-section.light-section {
-    background: #ffffff;
-    position: relative;
-}
-
-section.light-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: 
-        linear-gradient(0deg, transparent 48%, rgba(12, 30, 52, 0.015) 48%, rgba(12, 30, 52, 0.015) 52%, transparent 52%),
-        linear-gradient(90deg, transparent 48%, rgba(12, 30, 52, 0.015) 48%, rgba(12, 30, 52, 0.015) 52%, transparent 52%);
-    background-size: 50px 50px;
-    pointer-events: none;
-    opacity: 0.5;
-}
+/* All sections now use navy background - removed light section overrides */
 
 /* Content must be above patterns */
 .page-hero > .container,
@@ -310,4 +306,60 @@ section.dark-section > .container,
     .cta-section::after {
         animation: none;
     }
+}
+
+/* ===========================
+   TEXT COLOR ADJUSTMENTS FOR NAVY BACKGROUNDS
+   =========================== */
+
+/* Section Headers */
+section h1,
+section h2,
+section h3,
+.section-title,
+.pricing-header h2,
+.about-section h2,
+.team-section h2,
+.success-stories h2 {
+    color: #ffffff !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Paragraph Text */
+section p,
+.section-description,
+.pricing-description,
+.about-section p,
+.team-section p,
+.case-study p {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* List Items */
+section ul li,
+section ol li,
+.features-list li {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Subtle Text */
+.pricing-card .price-note,
+.card-footer p,
+small,
+.meta-info {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* Accent Text (Cyan) */
+.highlight,
+.accent-text,
+.pricing-card .save-badge {
+    color: #00FFF0 !important;
+}
+
+/* Neon Green Accents */
+.success-metric,
+.roi-number,
+.stat-number {
+    color: #00FF88 !important;
 }

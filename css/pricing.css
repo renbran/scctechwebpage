@@ -74,7 +74,7 @@
 /* ========== Pricing Tiers Grid ========== */
 .pricing-tiers-section {
     padding: var(--spacing-2xl) 0;
-    background: var(--white);
+    /* Navy background applied in consistent-backgrounds.css */
 }
 
 .pricing-grid {
@@ -90,43 +90,60 @@
 }
 
 .pricing-card {
-    background: var(--white);
-    border: 2px solid var(--ice-white);
+    background: rgba(30, 58, 138, 0.15);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(0, 255, 240, 0.2);
     border-radius: 16px;
     padding: var(--spacing-lg);
     display: flex;
     flex-direction: column;
-    box-shadow: var(--shadow-md);
+    box-shadow: 0 8px 32px rgba(0, 255, 240, 0.1);
     transition: var(--transition-medium);
     position: relative;
 }
 
 .pricing-card:hover {
-    box-shadow: var(--shadow-lg);
+    box-shadow: 0 12px 48px rgba(0, 255, 240, 0.2);
     transform: translateY(-8px);
+    border-color: rgba(0, 255, 240, 0.4);
 }
 
 .pricing-card.featured {
-    border-color: var(--ocean-blue);
+    border-color: #FFD700;
     border-width: 3px;
-    background: linear-gradient(135deg, rgba(30, 58, 138, 0.03), rgba(79, 195, 247, 0.05));
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(0, 255, 240, 0.15));
+    box-shadow: 0 12px 48px rgba(255, 215, 0, 0.3);
 }
 
 .popular-badge {
     position: absolute;
-    top: -16px;
-    left: 50%;
-    transform: translateX(-50%);
+    top: 30px;
+    right: -8px;
     background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
     color: #000000;
-    padding: 8px 24px;
-    border-radius: 50px;
+    padding: 12px 20px;
     font-size: 11px;
     font-weight: 800;
     letter-spacing: 0.5px;
-    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+    box-shadow: 
+        0 4px 15px rgba(255, 215, 0, 0.4),
+        -2px 0 8px rgba(0, 0, 0, 0.3);
     text-transform: uppercase;
     z-index: 10;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 8px 50%);
+}
+
+.popular-badge::before {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 8px 8px 0 0;
+    border-color: #B8860B transparent transparent transparent;
 }
 
 .enterprise-badge {
@@ -157,7 +174,7 @@
 
 .pricing-header h3 {
     font-size: 20px;
-    color: var(--ocean-blue);
+    color: #ffffff;
     margin-bottom: var(--spacing-xs);
     font-weight: 800;
     letter-spacing: 0.5px;
@@ -169,7 +186,7 @@
 
 .pricing-subtitle {
     font-size: 14px;
-    color: var(--slate-gray);
+    color: rgba(255, 255, 255, 0.8);
 }
 
 /* Pricing Price */
@@ -177,20 +194,21 @@
     text-align: center;
     padding: var(--spacing-md);
     margin-bottom: var(--spacing-md);
-    background: #f8f9fa;
+    background: rgba(0, 255, 240, 0.05);
+    border: 1px solid rgba(0, 255, 240, 0.2);
     border-radius: 8px;
 }
 
 .price-was {
     font-size: 14px;
-    color: var(--slate-gray);
+    color: rgba(255, 255, 255, 0.7);
     margin-bottom: 8px;
     font-weight: 600;
 }
 
 .strikethrough {
     text-decoration: line-through;
-    color: #999;
+    color: rgba(255, 255, 255, 0.5);
 }
 
 .price-now {
@@ -200,7 +218,7 @@
 .pricing-price .currency {
     font-size: 18px;
     font-weight: var(--font-weight-semibold);
-    color: var(--ocean-blue);
+    color: #00FFF0;
     vertical-align: super;
     margin-right: 4px;
 }
@@ -208,19 +226,19 @@
 .pricing-price .amount {
     font-size: 44px;
     font-weight: var(--font-weight-extrabold);
-    color: var(--deep-navy);
+    color: #ffffff;
     line-height: 1;
 }
 
 .pricing-price .amount.custom {
     font-size: 36px;
-    color: var(--ocean-blue);
+    color: #00FFF0;
 }
 
 .pricing-price .period {
     display: block;
     font-size: 16px;
-    color: var(--slate-gray);
+    color: rgba(255, 255, 255, 0.7);
     margin-top: var(--spacing-xs);
 }
 
@@ -246,12 +264,13 @@
 
 .pricing-users {
     text-align: center;
-    background: var(--ice-white);
+    background: rgba(0, 255, 240, 0.1);
+    border: 1px solid rgba(0, 255, 240, 0.3);
     padding: 10px;
     border-radius: 8px;
     margin-bottom: var(--spacing-md);
     font-weight: var(--font-weight-semibold);
-    color: var(--ocean-blue);
+    color: #00FFF0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -272,10 +291,11 @@
     gap: var(--spacing-xs);
     font-size: 15px;
     line-height: 1.5;
+    color: rgba(255, 255, 255, 0.9);
 }
 
 .pricing-features li strong {
-    color: var(--ocean-blue);
+    color: #00FFF0;
 }
 
 .pricing-features i {
@@ -303,14 +323,15 @@
 /* ========== Comparison Table ========== */
 .comparison-table-wrapper {
     margin-top: var(--spacing-2xl);
-    background: var(--ice-white);
+    background: rgba(30, 58, 138, 0.15);
+    border: 1px solid rgba(0, 255, 240, 0.2);
     padding: var(--spacing-lg);
     border-radius: 12px;
 }
 
 .comparison-title {
     text-align: center;
-    color: var(--ocean-blue);
+    color: #ffffff;
     margin-bottom: var(--spacing-lg);
 }
 
@@ -342,13 +363,15 @@
 
 .comparison-table td {
     padding: var(--spacing-sm);
-    border-bottom: 1px solid var(--ice-white);
+    border-bottom: 1px solid rgba(0, 255, 240, 0.1);
     font-size: 14px;
+    color: rgba(255, 255, 255, 0.9);
+    background: rgba(12, 30, 52, 0.5);
 }
 
 .comparison-table td:first-child {
     font-weight: var(--font-weight-semibold);
-    color: var(--ocean-blue);
+    color: #00FFF0;
 }
 
 .comparison-table td.center {
@@ -366,13 +389,13 @@
     opacity: 0.3;
 }
 
-.comparison-table tr:hover {
-    background: rgba(79, 195, 247, 0.05);
+.comparison-table tr:hover td {
+    background: rgba(0, 255, 240, 0.1);
 }
 
 /* ========== Accelerators Section ========== */
 .accelerators-section {
-    background: var(--ice-white);
+    /* Navy background applied in consistent-backgrounds.css */
     padding: var(--spacing-2xl) 0;
 }
 
@@ -389,22 +412,26 @@
 }
 
 .accelerator-card {
-    background: var(--white);
+    background: rgba(30, 58, 138, 0.15);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(0, 255, 240, 0.2);
     border-radius: 16px;
     padding: var(--spacing-lg);
-    box-shadow: var(--shadow-md);
+    box-shadow: 0 8px 32px rgba(0, 255, 240, 0.1);
     transition: var(--transition-medium);
     position: relative;
 }
 
 .accelerator-card:hover {
-    box-shadow: var(--shadow-lg);
+    box-shadow: 0 12px 48px rgba(0, 255, 240, 0.2);
     transform: translateY(-5px);
+    border-color: rgba(0, 255, 240, 0.4);
 }
 
 .accelerator-card.rapid-rescue {
     border: 3px solid #dc3545;
-    background: linear-gradient(135deg, rgba(220, 53, 69, 0.03), rgba(255, 193, 7, 0.05));
+    background: linear-gradient(135deg, rgba(220, 53, 69, 0.2), rgba(255, 193, 7, 0.15));
 }
 
 .rescue-badge {
@@ -441,18 +468,19 @@
 }
 
 .accelerator-card h3 {
-    color: var(--ocean-blue);
+    color: #ffffff;
     margin-bottom: var(--spacing-xs);
 }
 
 .accelerator-subtitle {
     font-size: 16px;
-    color: var(--slate-gray);
+    color: rgba(255, 255, 255, 0.8);
     margin-bottom: var(--spacing-md);
 }
 
 .accelerator-price {
-    background: var(--ice-white);
+    background: rgba(0, 255, 240, 0.05);
+    border: 1px solid rgba(0, 255, 240, 0.2);
     padding: var(--spacing-md);
     border-radius: 8px;
     text-align: center;
@@ -462,14 +490,14 @@
 .accelerator-price span {
     display: block;
     font-size: 14px;
-    color: var(--slate-gray);
+    color: rgba(255, 255, 255, 0.7);
 }
 
 .accelerator-price strong {
     display: block;
     font-size: 32px;
     font-weight: var(--font-weight-extrabold);
-    color: var(--ocean-blue);
+    color: #00FFF0;
     margin: 4px 0;
 }
 
@@ -482,10 +510,11 @@
 .accelerator-description {
     margin: var(--spacing-md) 0;
     line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
 }
 
 .accelerator-card h4 {
-    color: var(--ocean-blue);
+    color: #ffffff;
     font-size: 18px;
     margin: var(--spacing-md) 0 var(--spacing-sm) 0;
 }
@@ -501,6 +530,7 @@
     align-items: flex-start;
     gap: var(--spacing-xs);
     font-size: 15px;
+    color: rgba(255, 255, 255, 0.9);
 }
 
 .accelerator-features i {
@@ -552,7 +582,8 @@
 }
 
 .rescue-eligibility {
-    background: var(--ice-white);
+    background: rgba(0, 255, 240, 0.05);
+    border: 1px solid rgba(0, 255, 240, 0.2);
     padding: var(--spacing-md);
     border-radius: 8px;
     margin: var(--spacing-md) 0;
@@ -560,17 +591,19 @@
 
 .rescue-eligibility h4 {
     margin-top: 0;
+    color: #ffffff;
 }
 
 .rescue-eligibility p {
     margin: 0;
     font-size: 14px;
     line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
 }
 
 /* ========== FAQ Section ========== */
 .faq-section {
-    background: var(--white);
+    /* Navy background applied in consistent-backgrounds.css */
     padding: var(--spacing-2xl) 0;
 }
 
@@ -587,19 +620,23 @@
 }
 
 .faq-item {
-    background: var(--ice-white);
+    background: rgba(30, 58, 138, 0.15);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 255, 240, 0.2);
     border-radius: 12px;
     padding: var(--spacing-md);
     transition: var(--transition-medium);
 }
 
 .faq-item:hover {
-    box-shadow: var(--shadow-md);
+    box-shadow: 0 8px 32px rgba(0, 255, 240, 0.2);
     transform: translateY(-2px);
+    border-color: rgba(0, 255, 240, 0.4);
 }
 
 .faq-item h3 {
-    color: var(--ocean-blue);
+    color: #ffffff;
     font-size: 18px;
     margin-bottom: var(--spacing-sm);
     display: flex;
@@ -608,12 +645,12 @@
 }
 
 .faq-item h3 i {
-    color: var(--sky-blue);
+    color: #00FFF0;
     font-size: 20px;
 }
 
 .faq-item p {
-    color: var(--carbon-black);
+    color: rgba(255, 255, 255, 0.9);
     line-height: 1.6;
     margin: 0;
 }
@@ -622,17 +659,18 @@
     text-align: center;
     margin-top: var(--spacing-xl);
     font-size: 18px;
+    color: rgba(255, 255, 255, 0.9);
 }
 
 .faq-cta a {
-    color: var(--ocean-blue);
+    color: #00FFF0;
     font-weight: var(--font-weight-semibold);
     text-decoration: underline;
     transition: var(--transition-fast);
 }
 
 .faq-cta a:hover {
-    color: var(--sky-blue);
+    color: #00FF88;
 }
 
 /* ========== Phase 4: Conversion Elements ========== */
@@ -659,7 +697,7 @@
 .calculator-promise {
     text-align: center;
     margin-top: 0.75rem;
-    color: rgba(0, 0, 0, 0.6);
+    color: rgba(255, 255, 255, 0.7);
     font-size: 0.85rem;
     display: flex;
     align-items: center;
@@ -668,7 +706,7 @@
 }
 
 .calculator-promise i {
-    color: var(--sky-blue);
+    color: #00FFF0;
 }
 
 .pulse-animation {
