@@ -149,7 +149,7 @@
 /* Expertise Section */
 .expertise-section {
     padding: 80px 0;
-    background: linear-gradient(to bottom, #f8f9fa 0%, white 100%);
+    background: linear-gradient(135deg, #0a1628 0%, #1a2942 50%, #0f2439 100%);
 }
 
 .expertise-grid {
@@ -160,16 +160,18 @@
 }
 
 .expertise-card {
-    background: white;
+    background: linear-gradient(135deg, rgba(12, 30, 52, 0.95) 0%, rgba(26, 41, 66, 0.95) 100%);
     padding: 2rem;
     border-radius: 16px;
-    box-shadow: 0 4px 15px rgba(12, 30, 52, 0.08);
+    border: 1px solid rgba(0, 255, 240, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
 }
 
 .expertise-card:hover {
-    box-shadow: 0 10px 30px rgba(12, 30, 52, 0.15);
+    box-shadow: 0 10px 30px rgba(0, 255, 240, 0.2);
     transform: translateY(-5px);
+    border-color: rgba(0, 255, 240, 0.4);
 }
 
 .expertise-header {
@@ -178,7 +180,7 @@
     gap: 1rem;
     margin-bottom: 1.5rem;
     padding-bottom: 1rem;
-    border-bottom: 2px solid #e5e7eb;
+    border-bottom: 2px solid rgba(0, 255, 240, 0.3);
 }
 
 .expertise-header i {
@@ -188,7 +190,7 @@
 
 .expertise-header h3 {
     font-size: 1.5rem;
-    color: var(--deep-navy);
+    color: #ffffff;
     font-weight: 700;
 }
 
@@ -314,11 +316,13 @@
     align-items: start;
     gap: 1rem;
     padding: 1rem;
-    background: #f8f9fa;
+    background: rgba(0, 255, 240, 0.08);
     border-radius: 8px;
     margin-bottom: 1rem;
     font-size: 1rem;
     line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(0, 255, 240, 0.15);
 }
 
 .team-features i {
@@ -329,7 +333,7 @@
 }
 
 .team-features strong {
-    color: var(--deep-navy);
+    color: var(--electric-cyan);
 }
 
 /* Analytics Section */
@@ -759,15 +763,17 @@
 
 .positions-list li {
     padding: 1rem;
-    background: #f8f9fa;
+    background: rgba(0, 255, 240, 0.08);
     border-left: 4px solid var(--electric-cyan);
     margin-bottom: 0.75rem;
     font-size: 1rem;
     line-height: 1.5;
+    color: rgba(255, 255, 255, 0.9);
+    border-radius: 0 8px 8px 0;
 }
 
 .positions-list strong {
-    color: var(--deep-navy);
+    color: var(--electric-cyan);
     font-size: 1.0625rem;
 }
 
@@ -829,7 +835,7 @@
 /* CTA Section */
 .cta-section {
     padding: 80px 0;
-    background: linear-gradient(to bottom, #f8f9fa 0%, white 100%);
+    background: linear-gradient(135deg, #0a1628 0%, #1a2942 50%, #0f2439 100%);
     text-align: center;
 }
 
@@ -837,12 +843,12 @@
     font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 800;
     margin-bottom: 1rem;
-    color: var(--deep-navy);
+    color: #ffffff;
 }
 
 .cta-content p {
     font-size: 1.25rem;
-    color: var(--carbon-black);
+    color: rgba(255, 255, 255, 0.9);
     margin-bottom: 2rem;
     max-width: 700px;
     margin-left: auto;
