@@ -32,11 +32,11 @@ else
     git push origin main
 fi
 
-echo -e "\n${CYAN}☁️ Deploying to Cloudflare Pages...${NC}"
-wrangler pages deploy . --project-name=sgctech --commit-dirty=true
+echo -e "\n${CYAN}☁️ Deploying to Cloudflare Pages (Production)...${NC}"
+wrangler pages deploy . --project-name=sgctech --branch=production --commit-dirty=true
 
 echo -e "\n${GREEN}✅ Deployment Complete!${NC}"
 echo "================================"
-echo -e "🔗 Production: ${GREEN}https://sgctech.ai${NC}"
-echo -e "🔗 Pages URL:  ${GREEN}https://sgctech.pages.dev${NC}"
-echo -e "🔗 Main Alias: ${GREEN}https://main.sgctech.pages.dev${NC}"
+echo -e "🔗 Production:  ${GREEN}https://sgctech.ai${NC}"
+echo -e "🔗 Pages URL:   ${GREEN}https://sgctech.pages.dev${NC}"
+echo -e "🔗 Prod Alias:  ${GREEN}https://production.sgctech.pages.dev${NC}"
