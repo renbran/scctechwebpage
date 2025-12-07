@@ -78,6 +78,13 @@ h1, h2, h3, h4, h5, h6 {
     text-shadow: none !important;
 }
 
+/* Featured story cards have dark backgrounds - keep text white */
+.story-card.featured h3,
+.story-card.featured h4 {
+    color: #ffffff !important;
+    text-shadow: none !important;
+}
+
 /* Paragraph text - minimum contrast ratio 4.5:1 */
 p, li, span {
     color: rgba(255, 255, 255, 0.9) !important;
@@ -382,14 +389,16 @@ textarea:focus {
     justify-content: center;
 }
 
-/* Navigation toggle (hamburger) - larger touch target */
-.nav-toggle {
-    min-width: 44px;
-    min-height: 44px;
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+/* Navigation toggle (hamburger) - larger touch target - MOBILE ONLY */
+@media (max-width: 767px) {
+    .nav-toggle {
+        min-width: 44px;
+        min-height: 44px;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 }
 
 /* Mobile navigation links */
