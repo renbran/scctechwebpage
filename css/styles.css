@@ -1694,47 +1694,48 @@ section {
 /* ========== Client Logos Carousel ========== */
 .client-logos-carousel {
     width: 100%;
+    max-width: 500px;
     text-align: center;
+    margin-top: 15px;
 }
 
 .carousel-label {
     display: block;
-    font-size: 14px;
-    color: rgba(255, 255, 255, 0.8);
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.7);
     text-transform: uppercase;
     letter-spacing: 2px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     font-weight: 600;
 }
 
 .logo-carousel-wrapper {
     width: 100%;
     overflow: hidden;
-    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
     -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
 
 .logo-carousel-track {
     display: flex;
     align-items: center;
-    gap: 50px;
-    animation: scrollLogos 20s linear infinite;
+    gap: 35px;
+    animation: scrollLogos 15s linear infinite;
     width: max-content;
 }
 
 .logo-carousel-track img {
-    height: 45px;
+    height: 28px;
     width: auto;
     object-fit: contain;
     flex-shrink: 0;
     transition: all 0.3s ease;
-    /* Show original colors - no filter */
     filter: none;
-    opacity: 0.9;
+    opacity: 0.8;
 }
 
 .logo-carousel-track img:hover {
-    transform: scale(1.15);
+    transform: scale(1.1);
     opacity: 1;
 }
 
