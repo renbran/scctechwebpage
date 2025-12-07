@@ -1141,10 +1141,26 @@ section span:not(.section-label):not(.highlight-cyan):not(.highlight-green) {
     opacity: 0.9 !important;
 }
 
-.timeline-number,
 .timeline-marker {
-    color: var(--electric-cyan) !important;
-    text-shadow: 0 0 20px rgba(0, 255, 240, 0.8) !important;
+    background: linear-gradient(135deg, var(--electric-cyan) 0%, var(--neon-green) 100%) !important;
+    box-shadow: 0 8px 30px rgba(0, 255, 240, 0.5), 0 0 40px rgba(0, 255, 136, 0.3) !important;
+}
+
+.timeline-number {
+    color: #0a1628 !important;
+    font-size: 48px !important;
+    font-weight: 900 !important;
+    text-shadow: none !important;
+    letter-spacing: -1px;
+}
+
+.timeline-days {
+    color: #0a1628 !important;
+    font-size: 13px !important;
+    font-weight: 800 !important;
+    text-shadow: none !important;
+    letter-spacing: 3px !important;
+    text-transform: uppercase !important;
 }
 
 /* Deliverable text fixes */
