@@ -781,6 +781,23 @@
     color: var(--neon-green);
 }
 
+/* Single video layout - centered */
+.video-testimonials-grid.single-video {
+    display: flex;
+    justify-content: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.video-testimonials-grid.single-video .video-testimonial-card {
+    max-width: 100%;
+}
+
+.video-testimonials-grid.single-video .video-testimonial-card.featured {
+    border: 2px solid rgba(0, 255, 240, 0.4);
+    box-shadow: 0 15px 50px rgba(0, 255, 240, 0.2);
+}
+
 /* Responsive adjustments for video testimonials */
 @media (max-width: 768px) {
     .video-testimonials-section {
