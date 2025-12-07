@@ -290,6 +290,64 @@
         });
     });
 
+    // ========== Video Testimonials Modal ==========
+    window.playVideoTestimonial = function(type) {
+        const modal = document.getElementById('videoModal');
+        const title = document.getElementById('videoModalTitle');
+        const desc = document.getElementById('videoModalDesc');
+        
+        if (!modal) return;
+        
+        // Video content based on type (placeholder for actual videos)
+        const content = {
+            'real-estate': {
+                title: 'Real Estate Transformation Story',
+                desc: 'Discover how Dubai Brokerage achieved 197% ROI with our 14-day Odoo implementation. Video testimonial coming soon!'
+            },
+            'manufacturing': {
+                title: 'Manufacturing Excellence Story',
+                desc: 'See how our Trading Co. client reduced errors by 94% and saved AED 42,000 monthly. Full video coming soon!'
+            },
+            'professional': {
+                title: 'Professional Services Success',
+                desc: 'Learn how a leading consultancy saves 75+ hours monthly and achieved 168% ROI. Video testimonial in production!'
+            }
+        };
+        
+        if (title && content[type]) {
+            title.textContent = content[type].title;
+            desc.textContent = content[type].desc;
+        }
+        
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        
+        // Track video modal opens
+        console.log('Video testimonial opened:', type);
+    };
+    
+    window.closeVideoModal = function(event) {
+        const modal = document.getElementById('videoModal');
+        if (!modal) return;
+        
+        // Only close if clicking overlay or close button
+        if (event.target === modal || event.target.closest('.video-modal-close')) {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    };
+    
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            const modal = document.getElementById('videoModal');
+            if (modal && modal.classList.contains('active')) {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+    });
+
     // ========== Console Welcome Message ==========
     console.log('%cSGC TECH AI', 'color: #00FFF0; font-size: 24px; font-weight: bold;');
     console.log('%cIntelligent Infrastructure. Instant Impact.', 'color: #4fc3f7; font-size: 14px;');

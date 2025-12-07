@@ -2148,5 +2148,157 @@
 }
 
 /* =================================================================
+   VIDEO MODAL STYLES
+   ================================================================= */
+   
+.video-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 10000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.video-modal.active {
+    display: flex;
+    opacity: 1;
+}
+
+.video-modal-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 40px;
+    cursor: pointer;
+    z-index: 10001;
+    transition: color 0.3s ease, transform 0.3s ease;
+    line-height: 1;
+}
+
+.video-modal-close:hover {
+    color: var(--electric-cyan);
+    transform: scale(1.1);
+}
+
+.video-modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 600px;
+    background: linear-gradient(135deg, #0c1e34 0%, #1a2942 100%);
+    border-radius: 16px;
+    padding: 60px 40px;
+    text-align: center;
+    box-shadow: 0 25px 80px rgba(0, 255, 240, 0.15);
+    border: 1px solid rgba(0, 255, 240, 0.2);
+}
+
+.video-modal-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.video-modal-icon {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, rgba(0, 255, 240, 0.2), rgba(0, 255, 136, 0.2));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.video-modal-icon i {
+    font-size: 40px;
+    color: var(--electric-cyan);
+}
+
+.video-modal-placeholder h3 {
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.video-modal-placeholder p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 16px;
+    line-height: 1.6;
+    max-width: 400px;
+    margin: 0;
+}
+
+.video-modal-placeholder .btn {
+    margin-top: 15px;
+}
+
+/* Interactive Video Cards */
+.video-placeholder {
+    cursor: pointer;
+}
+
+.video-placeholder:hover .play-button-overlay {
+    transform: translate(-50%, -50%) scale(1.1);
+    background: rgba(0, 255, 240, 0.95);
+}
+
+.play-button-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70px;
+    height: 70px;
+    background: rgba(0, 255, 240, 0.85);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0, 255, 240, 0.4);
+}
+
+.play-button-overlay i {
+    color: var(--deep-navy);
+    font-size: 24px;
+    margin-left: 4px;
+}
+
+/* Video Modal Mobile Responsive */
+@media (max-width: 768px) {
+    .video-modal-close {
+        top: 10px;
+        right: 15px;
+        font-size: 32px;
+    }
+    
+    .video-modal-content {
+        width: 95%;
+        border-radius: 8px;
+    }
+    
+    .play-button-overlay {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .play-button-overlay i {
+        font-size: 18px;
+    }
+}
+
+/* =================================================================
    END OF ANIMATIONS.CSS
    ================================================================= */
