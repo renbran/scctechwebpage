@@ -1,0 +1,608 @@
+/* Appointment/Contact Page Styles */
+
+/* Page Hero */
+.page-hero {
+    background: linear-gradient(135deg, var(--deep-navy) 0%, var(--ocean-blue) 100%);
+    padding: 120px 0 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.page-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(0, 255, 136, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.page-hero h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+    color: var(--electric-cyan);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.hero-description {
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.badge-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.badge-item i {
+    color: var(--neon-green);
+    font-size: 1.25rem;
+}
+
+/* Booking Section */
+.booking-section {
+    padding: 80px 0;
+    background: white;
+}
+
+.booking-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.booking-card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 20px;
+    border: 2px solid #e5e7eb;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.booking-card:hover {
+    border-color: var(--electric-cyan);
+    box-shadow: 0 15px 40px rgba(79, 195, 247, 0.2);
+    transform: translateY(-5px);
+}
+
+.booking-card.featured {
+    border-color: var(--electric-cyan);
+    border-width: 3px;
+    box-shadow: 0 10px 30px rgba(79, 195, 247, 0.15);
+}
+
+.card-badge {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, var(--electric-cyan) 0%, var(--neon-green) 100%);
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.card-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--electric-cyan) 0%, var(--neon-green) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+}
+
+.card-icon.whatsapp {
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+}
+
+.card-icon.phone {
+    background: linear-gradient(135deg, var(--ocean-blue) 0%, var(--deep-navy) 100%);
+}
+
+.card-icon i {
+    font-size: 2.5rem;
+    color: white;
+}
+
+.booking-card h3 {
+    font-size: 1.75rem;
+    color: var(--deep-navy);
+    text-align: center;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.booking-card > p {
+    text-align: center;
+    font-size: 1rem;
+    color: var(--carbon-black);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.card-features {
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0;
+}
+
+.card-features li {
+    display: flex;
+    align-items: start;
+    gap: 0.75rem;
+    padding: 0.75rem 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--carbon-black);
+}
+
+.card-features i {
+    color: var(--neon-green);
+    font-size: 1.125rem;
+    margin-top: 0.125rem;
+    flex-shrink: 0;
+}
+
+.btn-large {
+    width: 100%;
+    padding: 1rem 2rem;
+    font-size: 1.125rem;
+    font-weight: 700;
+    justify-content: center;
+}
+
+/* Expect Section */
+.expect-section {
+    padding: 80px 0;
+    background: linear-gradient(to bottom, #f8f9fa 0%, white 100%);
+}
+
+.timeline {
+    max-width: 900px;
+    margin: 3rem auto 0;
+    position: relative;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 40px;
+    top: 40px;
+    bottom: 40px;
+    width: 3px;
+    background: linear-gradient(to bottom, var(--electric-cyan) 0%, var(--neon-green) 100%);
+}
+
+.timeline-item {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.timeline-number {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--electric-cyan) 0%, var(--neon-green) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 800;
+    color: white;
+    flex-shrink: 0;
+    box-shadow: 0 8px 20px rgba(79, 195, 247, 0.3);
+    position: relative;
+    z-index: 1;
+}
+
+.timeline-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    flex: 1;
+    box-shadow: 0 4px 15px rgba(12, 30, 52, 0.1);
+}
+
+.timeline-content h3 {
+    font-size: 1.5rem;
+    color: var(--deep-navy);
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.timeline-content p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--carbon-black);
+}
+
+/* Contact Section */
+.contact-section {
+    padding: 80px 0;
+    background: white;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.contact-card {
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 16px;
+    text-align: center;
+    border-left: 4px solid var(--electric-cyan);
+    transition: all 0.3s ease;
+}
+
+.contact-card:hover {
+    background: white;
+    box-shadow: 0 10px 30px rgba(12, 30, 52, 0.1);
+    transform: translateY(-5px);
+}
+
+.contact-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, var(--electric-cyan) 0%, var(--neon-green) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+}
+
+.contact-icon.whatsapp {
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+}
+
+.contact-icon i {
+    font-size: 2rem;
+    color: white;
+}
+
+.contact-card h3 {
+    font-size: 1.25rem;
+    color: var(--deep-navy);
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+}
+
+.contact-card > p {
+    font-size: 0.95rem;
+    color: var(--carbon-black);
+    margin-bottom: 0.5rem;
+}
+
+.contact-detail {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--ocean-blue);
+    margin: 1rem 0;
+}
+
+.contact-detail a {
+    color: var(--ocean-blue);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-detail a:hover {
+    color: var(--electric-cyan);
+}
+
+.contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--electric-cyan);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+}
+
+.contact-link:hover {
+    gap: 0.75rem;
+}
+
+.response-time {
+    font-size: 0.875rem;
+    color: var(--neon-green);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.response-time i {
+    font-size: 1rem;
+}
+
+/* FAQ Section */
+.faq-section {
+    padding: 80px 0;
+    background: #f8f9fa;
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.faq-item {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(12, 30, 52, 0.08);
+    transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+    box-shadow: 0 10px 25px rgba(12, 30, 52, 0.12);
+    transform: translateY(-3px);
+}
+
+.faq-item h3 {
+    display: flex;
+    align-items: start;
+    gap: 0.75rem;
+    font-size: 1.125rem;
+    color: var(--deep-navy);
+    margin-bottom: 1rem;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.faq-item h3 i {
+    color: var(--electric-cyan);
+    font-size: 1.25rem;
+    margin-top: 0.125rem;
+    flex-shrink: 0;
+}
+
+.faq-item p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--carbon-black);
+}
+
+/* Calendly Embed Section */
+.calendly-embed-section {
+    padding: 80px 0;
+    background: white;
+}
+
+.calendly-container {
+    max-width: 1000px;
+    margin: 3rem auto 0;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(12, 30, 52, 0.15);
+}
+
+/* Final CTA */
+.final-cta {
+    padding: 80px 0;
+    background: linear-gradient(135deg, var(--deep-navy) 0%, var(--ocean-blue) 100%);
+    text-align: center;
+    color: white;
+}
+
+.final-cta .cta-content h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.final-cta .cta-content p {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-footer {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: 1.5rem;
+}
+
+.cta-footer a {
+    color: var(--electric-cyan);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.cta-footer a:hover {
+    text-decoration: underline;
+}
+
+/* Mobile Sticky Bar Override */
+.btn-call-sticky {
+    background: linear-gradient(135deg, var(--ocean-blue) 0%, var(--deep-navy) 100%);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.btn-call-sticky:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(30, 58, 138, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .booking-options {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .timeline::before {
+        left: 30px;
+    }
+    
+    .timeline-number {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+    
+    .faq-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .page-hero {
+        padding: 100px 0 60px;
+    }
+    
+    .booking-section,
+    .expect-section,
+    .contact-section,
+    .faq-section,
+    .calendly-embed-section,
+    .final-cta {
+        padding: 60px 0;
+    }
+    
+    .hero-badges {
+        gap: 1rem;
+    }
+    
+    .badge-item {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+    }
+    
+    .booking-card {
+        padding: 2rem;
+    }
+    
+    .timeline-item {
+        gap: 1.5rem;
+    }
+    
+    .timeline-content {
+        padding: 1.5rem;
+    }
+    
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .calendly-container {
+        border-radius: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-badges {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .badge-item {
+        justify-content: center;
+    }
+    
+    .card-icon {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .card-icon i {
+        font-size: 2rem;
+    }
+    
+    .booking-card h3 {
+        font-size: 1.5rem;
+    }
+    
+    .timeline::before {
+        display: none;
+    }
+    
+    .timeline-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .faq-grid {
+        gap: 1.5rem;
+    }
+    
+    .faq-item {
+        padding: 1.5rem;
+    }
+}

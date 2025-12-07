@@ -1,0 +1,61 @@
+# Operating System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# IDE and Editor Files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.code-workspace
+
+# Node modules (if using any build tools in future)
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# Logs
+*.log
+logs/
+
+# Environment variables
+.env
+.env.local
+.env.production
+
+# Build outputs (for future)
+dist/
+build/
+.cache/
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# Backup files
+*.bak
+*.backup
+
+# Cloudflare specific (if needed)
+.wrangler/
+wrangler.toml
+
+# Testing
+coverage/
+.nyc_output/
+
+# Misc
+*.zip
+*.tar.gz
+*.rar
