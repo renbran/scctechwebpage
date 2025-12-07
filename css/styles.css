@@ -1691,7 +1691,97 @@ section {
     }
 }
 
-/* ========== Client Logos Carousel ========== */
+/* ========== Trusted By Section - Full Width Carousel ========== */
+.trusted-by-section {
+    background: linear-gradient(180deg, #0a1628 0%, #0c1e34 50%, #0a1628 100%);
+    padding: 40px 0;
+    overflow: hidden;
+    border-top: 1px solid rgba(0, 255, 240, 0.1);
+    border-bottom: 1px solid rgba(0, 255, 240, 0.1);
+}
+
+.trusted-by-container {
+    width: 100%;
+    text-align: center;
+}
+
+.trusted-label {
+    display: block;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+.trusted-by-section .logo-carousel-wrapper {
+    width: 100%;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+}
+
+.trusted-by-section .logo-carousel-track {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    animation: scrollLogos 25s linear infinite;
+    width: max-content;
+    padding: 10px 0;
+}
+
+.trusted-by-section .logo-carousel-track img {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+    flex-shrink: 0;
+    transition: all 0.4s ease;
+    filter: none;
+    opacity: 0.85;
+}
+
+.trusted-by-section .logo-carousel-track img:hover {
+    transform: scale(1.15);
+    opacity: 1;
+}
+
+@keyframes scrollLogos {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Pause animation on hover */
+.trusted-by-section .logo-carousel-wrapper:hover .logo-carousel-track {
+    animation-play-state: paused;
+}
+
+@media (max-width: 768px) {
+    .trusted-by-section {
+        padding: 30px 0;
+    }
+    
+    .trusted-label {
+        font-size: 11px;
+        letter-spacing: 2px;
+        margin-bottom: 20px;
+    }
+    
+    .trusted-by-section .logo-carousel-track {
+        gap: 50px;
+        animation-duration: 18s;
+    }
+    
+    .trusted-by-section .logo-carousel-track img {
+        height: 38px;
+    }
+}
+
+/* ========== Client Logos Carousel (Legacy - keep for other pages) ========== */
 .client-logos-carousel {
     width: 100%;
     max-width: 500px;
