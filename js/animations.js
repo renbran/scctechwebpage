@@ -602,39 +602,50 @@ function initNumberCounters() {
 /**
  * Initialize hero trust badge number counters
  * Animates the numbers: 14, 150%, 98%
+ * IMPORTANT: Does NOT reset values - uses Intersection Observer to animate only when visible
  */
 function initHeroCounters() {
     const trustBadges = document.querySelectorAll('.trust-badge .trust-number');
     
     if (trustBadges.length === 0) return;
     
-    // Parse and animate each trust number
-    trustBadges.forEach((badge, index) => {
-        const originalText = badge.textContent.trim();
-        let target, suffix = '', prefix = '';
-        
-        // Parse the number and suffix
-        if (originalText.includes('%')) {
-            target = parseInt(originalText.replace('%', ''));
-            suffix = '%';
-        } else if (originalText.includes('AED')) {
-            target = parseInt(originalText.replace(/[^\d]/g, ''));
-            prefix = 'AED ';
-        } else {
-            target = parseInt(originalText);
-        }
-        
-        // Store original for fallback
-        badge.dataset.originalText = originalText;
-        badge.dataset.target = target;
-        badge.dataset.suffix = suffix;
-        badge.dataset.prefix = prefix;
-        
-        // Start counter after hero loads
-        setTimeout(() => {
-            animateHeroCounter(badge, target, 1500, prefix, suffix);
-        }, 1500 + (index * 200)); // Stagger each counter
-    });
+    // Use Intersection Observer to trigger animation when visible
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const badge = entry.target;
+                
+                // Skip if already animated
+                if (badge.dataset.animated === 'true') return;
+                badge.dataset.animated = 'true';
+                
+                const originalText = badge.textContent.trim();
+                let target, suffix = '', prefix = '';
+                
+                // Parse the number and suffix
+                if (originalText.includes('%')) {
+                    target = parseInt(originalText.replace('%', ''));
+                    suffix = '%';
+                } else if (originalText.includes('AED')) {
+                    target = parseInt(originalText.replace(/[^\d]/g, ''));
+                    prefix = 'AED ';
+                } else {
+                    target = parseInt(originalText);
+                }
+                
+                // Store original for fallback
+                badge.dataset.originalText = originalText;
+                
+                // Animate the counter
+                animateHeroCounter(badge, target, 1500, prefix, suffix);
+                
+                counterObserver.unobserve(badge);
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    // Observe each trust number
+    trustBadges.forEach(badge => counterObserver.observe(badge));
 }
 
 /**
