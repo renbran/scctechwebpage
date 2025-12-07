@@ -1457,3 +1457,52 @@ section {
         padding-bottom: 70px;
     }
 }
+/* ═══════════════════════════════════════════════════════════════
+   LOGO IMAGE STYLING
+   ═══════════════════════════════════════════════════════════════ */
+
+.logo-image {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover .logo-image {
+    transform: scale(1.05);
+}
+
+/* Mobile logo sizing */
+@media (max-width: 768px) {
+    .logo-image {
+        height: 40px;
+    }
+}
+
+/* Client logos in hero section */
+.client-logos .logo-scroll {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.client-logos .logo-scroll img {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+    filter: brightness(0) invert(1);
+}
+
+.client-logos .logo-scroll img:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .client-logos .logo-scroll img {
+        height: 30px;
+    }
+}
