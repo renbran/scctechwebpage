@@ -964,8 +964,25 @@ section {
     color: var(--white);
 }
 
-.roi-calculator-section .section-label {
-    color: var(--electric-cyan);
+.roi-calculator-section .section-label,
+.problem-section .section-label,
+.process-section .section-label,
+.hero .section-label {
+    color: var(--electric-cyan) !important;
+    font-weight: 700;
+    text-shadow: 0 0 20px rgba(0, 255, 240, 0.4);
+}
+
+.roi-calculator-section .section-header h2,
+.problem-section .section-header h2,
+.process-section .section-header h2 {
+    color: #ffffff !important;
+}
+
+.roi-calculator-section .section-subtitle,
+.problem-section .section-subtitle,
+.process-section .section-subtitle {
+    color: rgba(255, 255, 255, 0.85) !important;
 }
 
 .roi-calculator-section .section-subtitle {
