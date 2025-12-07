@@ -80,7 +80,7 @@
 /* Our Story Section */
 .our-story {
     padding: 80px 0;
-    background: white;
+    background: #0c1e34;
 }
 
 .story-grid {
@@ -93,7 +93,7 @@
 
 .story-content h3 {
     font-size: 1.75rem;
-    color: var(--deep-navy);
+    color: #ffffff;
     margin-bottom: 1rem;
     margin-top: 2rem;
 }
@@ -105,7 +105,7 @@
 .story-content p {
     font-size: 1.0625rem;
     line-height: 1.8;
-    color: var(--carbon-black);
+    color: rgba(255, 255, 255, 0.9);
     margin-bottom: 1.5rem;
 }
 
@@ -117,15 +117,16 @@
 
 .breakthrough-list li {
     padding: 1rem;
-    background: #f8f9fa;
+    background: rgba(0, 255, 240, 0.15);
     border-left: 4px solid var(--electric-cyan);
     margin-bottom: 1rem;
     font-size: 1rem;
     line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
 }
 
 .breakthrough-list strong {
-    color: var(--deep-navy);
+    color: #00FFF0;
     display: block;
     margin-bottom: 0.25rem;
 }
@@ -194,12 +195,13 @@
     display: block;
     font-size: 2rem;
     font-weight: 800;
-    color: var(--deep-navy);
+    color: #ffffff;
     line-height: 1.2;
     padding: 2rem;
-    background: white;
+    background: rgba(12, 30, 52, 0.95);
     border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(12, 30, 52, 0.1);
+    border: 1px solid rgba(0, 255, 240, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .parent-description h4 {
@@ -248,7 +250,7 @@
 /* Differentiators Section */
 .differentiators {
     padding: 80px 0;
-    background: white;
+    background: #0c1e34;
 }
 
 .diff-grid {
@@ -259,10 +261,10 @@
 }
 
 .diff-card {
-    background: white;
+    background: rgba(12, 30, 52, 0.95);
     padding: 2rem;
     border-radius: 16px;
-    border: 2px solid #e5e7eb;
+    border: 2px solid rgba(0, 255, 240, 0.2);
     transition: all 0.3s ease;
 }
 
@@ -290,23 +292,23 @@
 
 .diff-card h3 {
     font-size: 1.5rem;
-    color: var(--deep-navy);
+    color: #ffffff;
     margin-bottom: 1rem;
 }
 
 .diff-card p {
     font-size: 1rem;
     line-height: 1.7;
-    color: var(--carbon-black);
+    color: rgba(255, 255, 255, 0.85);
     margin-bottom: 1rem;
 }
 
 .diff-proof {
     font-size: 0.9rem;
-    color: var(--ocean-blue);
+    color: #00FFF0;
     font-weight: 600;
     padding-top: 1rem;
-    border-top: 1px solid #e5e7eb;
+    border-top: 1px solid rgba(0, 255, 240, 0.2);
 }
 
 .diff-proof a {
@@ -369,7 +371,7 @@
 /* Technology Stack Section */
 .tech-stack {
     padding: 80px 0;
-    background: white;
+    background: #0c1e34;
 }
 
 .stack-grid {
@@ -380,7 +382,7 @@
 }
 
 .stack-category {
-    background: #f8f9fa;
+    background: rgba(12, 30, 52, 0.95);
     padding: 2rem;
     border-radius: 16px;
     border-left: 4px solid var(--electric-cyan);
@@ -388,7 +390,7 @@
 
 .stack-category h3 {
     font-size: 1.25rem;
-    color: var(--deep-navy);
+    color: #ffffff;
     margin-bottom: 1.5rem;
     display: flex;
     align-items: center;
@@ -408,9 +410,9 @@
 
 .stack-category li {
     padding: 0.75rem 0;
-    border-bottom: 1px solid #e5e7eb;
+    border-bottom: 1px solid rgba(0, 255, 240, 0.1);
     font-size: 1rem;
-    color: var(--carbon-black);
+    color: rgba(255, 255, 255, 0.85);
 }
 
 .stack-category li:last-child {
@@ -427,7 +429,7 @@
 /* Certifications Section */
 .certifications {
     padding: 80px 0;
-    background: linear-gradient(to bottom, #f8f9fa 0%, white 100%);
+    background: linear-gradient(to bottom, #0c1e34 0%, #1a2942 100%);
 }
 
 .cert-grid {
@@ -438,16 +440,17 @@
 }
 
 .cert-card {
-    background: white;
+    background: rgba(12, 30, 52, 0.95);
     padding: 2rem;
     border-radius: 16px;
     text-align: center;
-    box-shadow: 0 4px 15px rgba(12, 30, 52, 0.1);
+    border: 1px solid rgba(0, 255, 240, 0.15);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
 }
 
 .cert-card:hover {
-    box-shadow: 0 10px 30px rgba(12, 30, 52, 0.15);
+    box-shadow: 0 10px 30px rgba(0, 255, 240, 0.2);
     transform: translateY(-5px);
 }
 
@@ -469,20 +472,20 @@
 
 .cert-card h4 {
     font-size: 1.25rem;
-    color: var(--deep-navy);
+    color: #ffffff;
     margin-bottom: 1rem;
 }
 
 .cert-card p {
     font-size: 0.95rem;
     line-height: 1.6;
-    color: var(--carbon-black);
+    color: rgba(255, 255, 255, 0.85);
 }
 
 /* Quick Facts Section */
 .quick-facts {
     padding: 80px 0;
-    background: white;
+    background: #0c1e34;
 }
 
 .facts-grid {
@@ -497,15 +500,16 @@
     align-items: start;
     gap: 1rem;
     padding: 1.5rem;
-    background: #f8f9fa;
+    background: rgba(12, 30, 52, 0.95);
     border-radius: 12px;
     border-left: 4px solid var(--electric-cyan);
+    border: 1px solid rgba(0, 255, 240, 0.15);
     transition: all 0.3s ease;
 }
 
 .fact-item:hover {
-    background: white;
-    box-shadow: 0 4px 15px rgba(12, 30, 52, 0.1);
+    background: rgba(30, 58, 138, 0.95);
+    box-shadow: 0 4px 15px rgba(0, 255, 240, 0.2);
 }
 
 .fact-icon {
@@ -526,14 +530,14 @@
 
 .fact-content h4 {
     font-size: 1rem;
-    color: var(--deep-navy);
+    color: #ffffff;
     margin-bottom: 0.25rem;
     font-weight: 700;
 }
 
 .fact-content p {
     font-size: 0.95rem;
-    color: var(--carbon-black);
+    color: rgba(255, 255, 255, 0.85);
     line-height: 1.5;
     margin: 0;
 }
