@@ -497,6 +497,50 @@ textarea:focus {
 }
 
 /* ═══════════════════════════════════════════════════════════════
+   STORY CARDS - NAVY THEME CONSISTENCY
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Non-featured story cards with navy theme */
+.story-card:not(.featured) {
+    background: linear-gradient(135deg, rgba(12, 30, 52, 0.95) 0%, rgba(26, 41, 66, 0.95) 100%);
+    border: 1px solid rgba(0, 255, 240, 0.15);
+}
+
+.story-card:not(.featured) h3 {
+    color: #ffffff;
+}
+
+.story-card:not(.featured) p {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.story-card:not(.featured) .story-industry {
+    color: var(--electric-cyan, #00FFF0);
+}
+
+.story-card:not(.featured) .story-metric {
+    background: rgba(0, 255, 240, 0.1);
+    border: 1px solid rgba(0, 255, 240, 0.2);
+}
+
+.story-card:not(.featured) .metric-value {
+    color: var(--electric-cyan, #00FFF0);
+}
+
+.story-card:not(.featured) .metric-label {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.story-card:not(.featured) .btn-text {
+    color: var(--electric-cyan, #00FFF0);
+}
+
+.story-card:not(.featured):hover {
+    border-color: rgba(0, 255, 240, 0.4);
+    box-shadow: 0 15px 40px rgba(0, 255, 240, 0.15);
+}
+
+/* ═══════════════════════════════════════════════════════════════
    SMOOTH SCROLLING & PAGE TRANSITIONS
    ═══════════════════════════════════════════════════════════════ */
 
