@@ -9,11 +9,11 @@
    ═══════════════════════════════════════════════════════════════ */
 
 .header {
-    background: rgba(12, 30, 52, 0.85) !important;
+    background: rgba(12, 30, 52, 0.98) !important;
     -webkit-backdrop-filter: blur(20px) saturate(180%);
     backdrop-filter: blur(20px) saturate(180%);
-    border-bottom: 1px solid rgba(0, 255, 240, 0.2);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    border-bottom: 1px solid rgba(0, 255, 240, 0.15);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
     position: sticky !important;
     top: 0 !important;
     z-index: 9999 !important;
@@ -21,38 +21,150 @@
 
 .navbar {
     background: transparent !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+}
+
+/* Logo styling */
+.logo a {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.logo-image {
+    height: 45px;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.logo a:hover .logo-image {
+    transform: scale(1.02);
+}
+
+.logo-tagline {
+    color: var(--electric-cyan, #00FFF0) !important;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-top: 2px;
+}
+
+/* Nav menu - desktop */
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .nav-menu li a {
     color: #ffffff !important;
-    font-weight: 700;
-    font-size: 15px;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    font-weight: 600;
+    font-size: 14px;
+    padding: 10px 16px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
     transition: all 0.25s ease;
+    text-decoration: none;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
 }
 
 .nav-menu li a:hover,
 .nav-menu li a.active {
-    color: var(--electric-cyan) !important;
-    text-shadow: 0 0 15px rgba(0, 255, 240, 0.8);
-    transform: translateY(-1px);
+    color: var(--electric-cyan, #00FFF0) !important;
+    background: rgba(0, 255, 240, 0.1);
+    text-shadow: 0 0 10px rgba(0, 255, 240, 0.5);
 }
 
+/* Calculator button in nav */
+.nav-calculator {
+    background: rgba(0, 255, 240, 0.15) !important;
+    border: 1px solid rgba(0, 255, 240, 0.4) !important;
+    border-radius: 8px !important;
+    color: #00FFF0 !important;
+}
+
+.nav-calculator:hover {
+    background: rgba(0, 255, 240, 0.25) !important;
+    border-color: #00FFF0 !important;
+}
+
+.nav-calculator i {
+    color: #00FFF0 !important;
+}
+
+/* Book Consultation CTA button */
 .btn-nav-cta {
-    background: linear-gradient(135deg, var(--electric-cyan), var(--neon-green)) !important;
-    color: var(--deep-navy) !important;
-    padding: 12px 28px !important;
+    background: linear-gradient(135deg, #00FFF0 0%, #00FF88 100%) !important;
+    color: #0c1e34 !important;
+    padding: 12px 24px !important;
     border-radius: 50px !important;
-    font-weight: 800 !important;
-    box-shadow: 0 4px 20px rgba(0, 255, 240, 0.5);
+    font-weight: 700 !important;
+    font-size: 14px !important;
+    box-shadow: 0 4px 20px rgba(0, 255, 240, 0.4);
     text-shadow: none !important;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none !important;
 }
 
 .btn-nav-cta:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(0, 255, 240, 0.6);
-    background: linear-gradient(135deg, #00FFF0, #00d9ff) !important;
+    box-shadow: 0 8px 30px rgba(0, 255, 240, 0.5);
+    background: linear-gradient(135deg, #00FFF0, #4FFFDF) !important;
+    color: #0c1e34 !important;
+}
+
+/* Mobile nav toggle */
+.nav-toggle span {
+    background: #ffffff !important;
+}
+
+/* Mobile nav menu */
+@media (max-width: 767px) {
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 85%;
+        max-width: 320px;
+        height: 100vh;
+        background: rgba(12, 30, 52, 0.98) !important;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 80px 24px 24px;
+        gap: 4px;
+        transition: right 0.3s ease;
+        box-shadow: -10px 0 40px rgba(0, 0, 0, 0.5);
+    }
+    
+    .nav-menu.active {
+        right: 0;
+    }
+    
+    .nav-menu li {
+        width: 100%;
+    }
+    
+    .nav-menu li a {
+        width: 100%;
+        padding: 14px 16px;
+        font-size: 16px;
+    }
+    
+    .btn-nav-cta {
+        margin-top: 16px;
+        text-align: center;
+        justify-content: center;
+    }
 }
 
 /* ═══════════════════════════════════════════════════════════════

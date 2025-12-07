@@ -1599,6 +1599,23 @@ section {
     margin-bottom: var(--spacing-sm);
 }
 
+.footer-logo a {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.footer-logo a:hover {
+    opacity: 0.85;
+}
+
+.footer-logo .logo-image {
+    height: 50px;
+    width: auto;
+    margin-bottom: 8px;
+}
+
 .footer-logo .logo-text {
     color: var(--white);
 }
