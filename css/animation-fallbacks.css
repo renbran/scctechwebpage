@@ -1,0 +1,294 @@
+/**
+ * SGC TECH AI - Animation Fallbacks
+ * Purpose: Ensure all content is visible even if animations fail to load
+ * Load Order: AFTER animations.css
+ */
+
+/* =================================================================
+   CRITICAL: NO-JS FALLBACKS
+   Ensures content is visible if JavaScript fails
+   ================================================================= */
+
+/* Make all animated elements visible by default after a delay */
+.fade-in-up,
+.problem-section,
+.solution-section,
+.process-section,
+.modules-section,
+.cta-section,
+.problem-card,
+.pillar-card {
+    /* Fallback: Show after 2 seconds if JS hasn't triggered */
+    animation: emergencyReveal 0.5s ease-out 2s forwards;
+}
+
+@keyframes emergencyReveal {
+    to {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+        visibility: visible !important;
+    }
+}
+
+/* Ensure battle checklist items are always visible after animation period */
+.battle-checklist li {
+    /* Max animation delay is 1s, so reveal after 2.5s as fallback */
+    animation: fadeInUp 0.5s ease-out forwards, emergencyReveal 0.5s ease-out 2.5s forwards;
+}
+
+/* Ensure star ratings are always visible */
+.star-rating .star {
+    /* Reveal all stars after animation should have completed */
+    animation: starFill 50ms ease-out forwards, emergencyReveal 0.1s ease-out 1s forwards;
+}
+
+/* Ensure logo reveal is always visible */
+.battle-logo-reveal {
+    /* Reveal after animation delay + duration */
+    animation: fadeInDown 0.8s ease-out 1.5s forwards, emergencyReveal 0.5s ease-out 3s forwards;
+}
+
+/* =================================================================
+   PROGRESSIVE ENHANCEMENT
+   Elements work without JavaScript, enhanced with JS
+   ================================================================= */
+
+/* Make counters show their data-count value as fallback */
+.animate-counter::before,
+.scroll-counter::before {
+    content: attr(data-count);
+    display: inline;
+}
+
+/* Hide the ::before when JavaScript has initialized (will have textContent) */
+.animate-counter:not(:empty)::before,
+.scroll-counter:not(:empty)::before {
+    display: none;
+}
+
+/* =================================================================
+   VISIBILITY GUARANTEES
+   Ensure critical content is ALWAYS visible
+   ================================================================= */
+
+/* Critical sections must be visible within 3 seconds */
+.hero,
+.hero-content,
+.hero-title,
+.hero-subtitle,
+.hero-cta,
+.section-header,
+.pricing-grid,
+.success-stories-grid,
+.story-card,
+.team-grid,
+.team-card,
+.about-section,
+.cta-section {
+    /* If not visible by now, force visibility */
+    animation: ensureVisible 0s linear 3s forwards;
+}
+
+@keyframes ensureVisible {
+    to {
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+}
+
+/* Navigation must ALWAYS be visible */
+.header,
+.navbar,
+.nav-menu,
+.logo {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Footer must ALWAYS be visible */
+.footer {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* =================================================================
+   ANIMATION PERFORMANCE SAFEGUARDS
+   Prevent animations from causing layout shifts or hiding content
+   ================================================================= */
+
+/* Prevent transforms from causing content to disappear */
+.fade-in-up,
+.problem-card,
+.pillar-card {
+    /* Use will-change for better performance */
+    will-change: opacity, transform;
+}
+
+/* Clean up will-change after animations complete */
+.fade-in-up.visible,
+.problem-section.visible .problem-card,
+.solution-section.visible .pillar-card {
+    will-change: auto;
+}
+
+/* Ensure minimum visibility during transforms */
+[style*="transform"] {
+    min-height: 1px; /* Prevents collapse */
+}
+
+/* =================================================================
+   REDUCED MOTION SUPPORT
+   Respect user preferences for reduced motion
+   ================================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    /* Disable all animations and show content immediately */
+    .fade-in-up,
+    .problem-section,
+    .solution-section,
+    .process-section,
+    .modules-section,
+    .cta-section,
+    .problem-card,
+    .pillar-card,
+    .battle-checklist li,
+    .star-rating .star,
+    .battle-logo-reveal {
+        opacity: 1 !important;
+        transform: none !important;
+        visibility: visible !important;
+        animation: none !important;
+        transition: none !important;
+    }
+    
+    /* Show all content immediately */
+    .animation-hidden {
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+}
+
+/* =================================================================
+   SPECIFIC ELEMENT FIXES
+   Target problematic elements that may have visibility issues
+   ================================================================= */
+
+/* Story cards must be visible */
+.story-card,
+.story-card.featured,
+.story-badge,
+.story-metrics,
+.story-metric {
+    /* Ensure visibility after page load */
+    animation: ensureStoryVisible 0s linear 2s forwards;
+}
+
+@keyframes ensureStoryVisible {
+    to {
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+}
+
+/* Team cards must be visible */
+.team-card,
+.team-photo,
+.team-info,
+.team-name,
+.team-title {
+    animation: ensureTeamVisible 0s linear 2s forwards;
+}
+
+@keyframes ensureTeamVisible {
+    to {
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+}
+
+/* Pricing cards must be visible */
+.pricing-card,
+.pricing-card.featured,
+.pricing-price,
+.pricing-features {
+    animation: ensurePricingVisible 0s linear 2s forwards;
+}
+
+@keyframes ensurePricingVisible {
+    to {
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+}
+
+/* Calculator and forms must be visible */
+.roi-calculator-section,
+.calculator-container,
+.calculator-form,
+.form-group,
+input,
+select,
+button {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* CTAs must ALWAYS be visible */
+.btn,
+.btn-primary,
+.btn-secondary,
+.btn-whatsapp,
+.cta-button,
+.btn-nav-cta {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* =================================================================
+   MOBILE SPECIFIC SAFEGUARDS
+   Ensure animations don't break on mobile devices
+   ================================================================= */
+
+@media (max-width: 767px) {
+    /* Simplify animations on mobile for performance */
+    .fade-in-up,
+    .problem-card,
+    .pillar-card,
+    .battle-checklist li {
+        /* Reduce animation complexity */
+        animation-duration: 0.3s !important;
+    }
+    
+    /* Show content faster on mobile (shorter fallback delay) */
+    .fade-in-up,
+    .problem-section,
+    .solution-section {
+        animation: emergencyReveal 0.3s ease-out 1s forwards;
+    }
+    
+    /* Ensure mobile navigation is always visible */
+    .mobile-sticky-bar,
+    .btn-whatsapp-sticky,
+    .btn-roi-sticky {
+        opacity: 1 !important;
+        visibility: visible !important;
+        display: grid !important;
+    }
+}
+
+/* =================================================================
+   DEBUG MODE (remove in production)
+   Helps identify elements with visibility issues
+   ================================================================= */
+
+/* Uncomment to debug animation visibility issues:
+
+[style*="opacity: 0"]:not(.visible) {
+    outline: 2px dashed red !important;
+}
+
+.animation-hidden {
+    outline: 2px solid orange !important;
+}
+
+*/
