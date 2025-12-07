@@ -437,6 +437,12 @@
     box-shadow: 0 10px 40px rgba(12, 30, 52, 0.15);
 }
 
+/* Calendly widget styling */
+.calendly-inline-widget {
+    min-width: 320px;
+    height: 700px;
+}
+
 /* Final CTA */
 .final-cta {
     padding: 80px 0;

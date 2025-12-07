@@ -1086,6 +1086,30 @@
     transform: scale(1.1);
 }
 
+/* Client ROI Badge */
+.client-roi-badge {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.client-roi-badge .roi-value {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #00d9ff;
+    margin-bottom: 5px;
+    transition: transform 0.3s ease;
+}
+
+.client-roi-badge .roi-label {
+    font-size: 0.85rem;
+    opacity: 0.7;
+}
+
+.client-card:hover .roi-value {
+    transform: scale(1.1);
+}
+
 /* Mobile Responsive */
 @media (max-width: 768px) {
     .clients-grid {
