@@ -541,6 +541,24 @@ textarea:focus {
    STORY CARDS - NAVY THEME CONSISTENCY
    ═══════════════════════════════════════════════════════════════ */
 
+/* Uniform 3-column grid for story cards */
+.success-stories-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    align-items: stretch;
+}
+
+.story-card.featured {
+    grid-column: span 1 !important;
+}
+
+/* Featured card metrics - 3 columns to fit */
+.story-card.featured .story-metrics {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+
 /* Non-featured story cards with navy theme */
 .story-card:not(.featured) {
     background: linear-gradient(135deg, rgba(12, 30, 52, 0.95) 0%, rgba(26, 41, 66, 0.95) 100%);

@@ -244,22 +244,26 @@
 
 .save-badge {
     display: inline-block;
-    background: #00FF88;
-    color: #000000;
-    padding: 6px 16px;
-    border-radius: 20px;
-    font-size: 12px;
+    background: linear-gradient(135deg, #00FF88 0%, #00E67A 100%);
+    color: #0c1e34;
+    padding: 10px 24px;
+    border-radius: 25px;
+    font-size: 14px;
     font-weight: 800;
     margin-top: 12px;
     letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(0, 255, 136, 0.4);
+    text-shadow: none;
 }
 
 .save-badge.bronze {
-    background: #90EE90;
+    background: linear-gradient(135deg, #90EE90 0%, #7CDC7C 100%);
+    color: #0c1e34;
 }
 
 .save-badge.gold {
     background: linear-gradient(135deg, #FFD700, #FFA500);
+    color: #0c1e34;
 }
 
 .pricing-users {
