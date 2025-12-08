@@ -2073,3 +2073,13 @@ section {
         display: none;
     }
 }
+
+/* ========== JotForm AI Chatbot ========== */
+/* Ensure JotForm chatbot widget is visible above other elements */
+[id*="jotform"],
+[class*="jotform"],
+.jotform-agent-chatbot,
+iframe[src*="jotform"],
+div[data-jotform] {
+    z-index: 99999 !important;
+}
