@@ -1218,16 +1218,19 @@ section {
 .roi-calculator {
     max-width: 900px;
     margin: 0 auto;
-    background: var(--white);
-    border-radius: 12px;
+    background: rgba(10, 22, 40, 0.95);
+    -webkit-backdrop-filter: blur(25px);
+    backdrop-filter: blur(25px);
+    border: 2px solid rgba(0, 255, 240, 0.3);
+    border-radius: 24px;
     padding: var(--spacing-lg);
-    box-shadow: var(--shadow-lg);
-    color: var(--carbon-black);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 40px rgba(0, 255, 240, 0.15);
+    color: #ffffff;
 }
 
 .calculator-form h3,
 .calculator-results h3 {
-    color: var(--ocean-blue);
+    color: #ffffff;
     margin-bottom: var(--spacing-md);
 }
 
@@ -1239,7 +1242,7 @@ section {
     display: block;
     font-weight: var(--font-weight-semibold);
     margin-bottom: var(--spacing-xs);
-    color: var(--deep-navy);
+    color: #ffffff;
 }
 
 .form-group input[type="number"],
@@ -1249,17 +1252,30 @@ section {
 .form-group select {
     width: 100%;
     padding: 12px 16px;
-    border: 2px solid var(--ice-white);
+    border: 2px solid rgba(0, 255, 240, 0.3);
+    background: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
     border-radius: 8px;
     font-family: var(--font-primary);
     font-size: 16px;
     transition: var(--transition-fast);
 }
 
+.form-group input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
 .form-group input:focus,
 .form-group select:focus {
     outline: none;
-    border-color: var(--sky-blue);
+    border-color: var(--electric-cyan, #00FFF0);
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 0 20px rgba(0, 255, 240, 0.3);
+}
+
+.form-group select option {
+    background: #0a1628;
+    color: #ffffff;
 }
 
 .checkbox-grid {
@@ -1272,21 +1288,25 @@ section {
     display: flex;
     align-items: center;
     gap: var(--spacing-xs);
-    padding: 8px;
-    background: var(--ice-white);
-    border-radius: 6px;
+    padding: 12px 14px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
     cursor: pointer;
     transition: var(--transition-fast);
     font-size: 14px;
+    color: #ffffff;
 }
 
 .checkbox-label:hover {
-    background: var(--sky-blue);
-    color: var(--white);
+    background: rgba(0, 255, 240, 0.15);
+    border-color: var(--electric-cyan, #00FFF0);
+    color: #ffffff;
 }
 
 .checkbox-label input[type="checkbox"] {
     cursor: pointer;
+    accent-color: var(--electric-cyan, #00FFF0);
 }
 
 /* Calculator Results */

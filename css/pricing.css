@@ -347,10 +347,9 @@
 .comparison-table {
     width: 100%;
     border-collapse: collapse;
-    background: var(--white);
+    background: transparent;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: var(--shadow-sm);
 }
 
 .comparison-table thead {
