@@ -63,6 +63,9 @@ textarea {
 /* Add padding to body to account for fixed header */
 body {
     padding-top: 70px;
+    background: #0c1e34;
+    color: #ffffff;
+    min-height: 100vh;
 }
 
 .navbar {
