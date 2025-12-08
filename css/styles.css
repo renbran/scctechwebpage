@@ -442,7 +442,7 @@ h4 { font-size: clamp(18px, 2.5vw, 24px); }
     display: block;
     width: 25px;
     height: 3px;
-    background: var(--deep-navy);
+    background: #ffffff;
     border-radius: 2px;
     transition: var(--transition-fast);
 }
@@ -459,41 +459,45 @@ h4 { font-size: clamp(18px, 2.5vw, 24px); }
     transform: rotate(-45deg) translate(6px, -6px);
 }
 
-/* Navigation Menu */
+/* Navigation Menu - Mobile dropdown style */
 .nav-menu {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 80%;
-    max-width: 320px;
-    height: 100vh;
-    background: var(--white);
-    box-shadow: var(--shadow-lg);
-    padding: 80px var(--spacing-md) var(--spacing-md);
-    display: flex;
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: rgba(12, 30, 52, 0.98);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    padding: 16px;
     flex-direction: column;
-    gap: var(--spacing-sm);
-    transition: right var(--transition-medium);
-    z-index: 1000;
+    gap: 8px;
+    z-index: 10000;
+    border-top: 1px solid rgba(0, 255, 240, 0.2);
 }
 
 .nav-menu.active {
-    right: 0;
+    display: flex;
 }
 
 .nav-menu li a {
-    display: block;
-    padding: var(--spacing-sm);
-    color: var(--deep-navy);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 16px;
+    color: #ffffff;
     font-weight: var(--font-weight-semibold);
     border-radius: 8px;
     transition: var(--transition-fast);
+    min-height: 44px;
 }
 
 .nav-menu li a:hover,
 .nav-menu li a.active {
-    background: var(--ice-white);
-    color: var(--ocean-blue);
+    background: rgba(0, 255, 240, 0.15);
+    color: var(--electric-cyan, #00FFF0);
 }
 
 /* Calculator Nav Link */
