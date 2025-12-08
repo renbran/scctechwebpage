@@ -1,0 +1,35 @@
+# robots.txt for SGC TECH AI
+# https://sgctech.ai/robots.txt
+
+# Allow all search engines to crawl all content
+User-agent: *
+Allow: /
+
+# Disallow crawling of backend/admin areas (if they exist)
+Disallow: /admin/
+Disallow: /api/
+Disallow: /*.json$
+Disallow: /*?*cal_api_key=*
+
+# Crawl rate (1 page per second - adjust if needed)
+Crawl-delay: 1
+
+# XML Sitemap location
+Sitemap: https://sgctech.ai/sitemap.xml
+
+# Specific rules for major search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Block aggressive crawlers (optional)
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10

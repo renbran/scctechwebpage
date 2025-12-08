@@ -1,0 +1,279 @@
+/* ═══════════════════════════════════════════════════════════════
+   CONTRAST IMPROVEMENTS - MINIMAL & TARGETED
+   Only fixes actual contrast issues without breaking design
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ─────────────────────────────────────────────────────────────── */
+/* 1. NAVIGATION - Better CTA visibility */
+/* ─────────────────────────────────────────────────────────────── */
+
+.btn-nav-cta {
+    background: rgba(0, 217, 255, 0.15);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(0, 217, 255, 0.5);
+    color: var(--electric-cyan, #00FFF0);
+    text-shadow: 0 0 10px rgba(0, 217, 255, 0.3);
+}
+
+.btn-nav-cta:hover {
+    background: rgba(0, 217, 255, 0.25);
+    border-color: rgba(0, 217, 255, 0.8);
+    color: #ffffff;
+}
+
+/* ─────────────────────────────────────────────────────────────── */
+/* 2. FEATURED STORY CARDS - Keep white text on dark background */
+/* ─────────────────────────────────────────────────────────────── */
+
+.story-card.featured h3,
+.story-card.featured h4 {
+    color: #ffffff;
+}
+
+.story-card.featured p {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* ─────────────────────────────────────────────────────────────── */
+/* 3. MOBILE RESPONSIVENESS - Phase 3 improvements */
+/* ─────────────────────────────────────────────────────────────── */
+
+/* Touch targets - minimum 44x44px on mobile */
+@media (max-width: 767px) {
+    .btn,
+    .cta-button,
+    button,
+    a.btn,
+    input[type="submit"] {
+        min-height: 48px;
+        min-width: 48px;
+        padding: 12px 24px;
+    }
+    
+    /* Navigation toggle (hamburger) - MOBILE ONLY */
+    .nav-toggle {
+        min-width: 44px;
+        min-height: 44px;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    /* Mobile navigation links */
+    .nav-menu li a {
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+        padding: 12px 16px;
+    }
+    
+    /* Social media icons */
+    .footer-social a,
+    .social-links a {
+        min-width: 44px;
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    /* Form inputs */
+    input,
+    select,
+    textarea,
+    button[type="submit"] {
+        min-height: 48px;
+        font-size: 16px; /* Prevents iOS zoom */
+    }
+    
+    /* Body text minimum size */
+    body {
+        font-size: 16px;
+    }
+    
+    /* Small text minimum (footer, captions) */
+    small,
+    .small-text,
+    .caption {
+        font-size: 14px;
+    }
+    
+    /* Logo tagline */
+    .logo-tagline {
+        font-size: 12px;
+    }
+}
+
+/* ─────────────────────────────────────────────────────────────── */
+/* 4. MOBILE LAYOUT FIXES */
+/* ─────────────────────────────────────────────────────────────── */
+
+@media (max-width: 767px) {
+    /* Prevent horizontal scrolling */
+    body {
+        overflow-x: hidden;
+    }
+    
+    .container {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+    
+    /* Stack grids on mobile */
+    .grid,
+    .pricing-grid,
+    .features-grid,
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Full width buttons on mobile */
+    .btn-large,
+    .cta-buttons .btn {
+        width: 100%;
+        margin-bottom: 12px;
+    }
+    
+    /* Sticky mobile bar positioning */
+    .mobile-sticky-bar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 999;
+    }
+    
+    /* Cards spacing */
+    .card,
+    .pricing-card,
+    .story-card {
+        margin-bottom: 20px;
+    }
+    
+    /* Footer single column */
+    .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    /* Calendly widget mobile */
+    .calendly-inline-widget {
+        width: 100%;
+        min-height: 600px;
+    }
+}
+
+/* ─────────────────────────────────────────────────────────────── */
+/* 5. PHASE 4 CONVERSION ELEMENTS */
+/* ─────────────────────────────────────────────────────────────── */
+
+/* Urgency messaging */
+.hero-urgency,
+.pricing-urgency,
+.appointment-urgency {
+    color: #ff9f43;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.hero-urgency i,
+.pricing-urgency i {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+}
+
+/* Pulse animation for CTAs */
+.pulse-animation {
+    animation: ctaPulse 2s ease-in-out infinite;
+}
+
+@keyframes ctaPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+
+/* Process guarantee */
+.process-guarantee {
+    text-align: center;
+    margin-top: 1rem;
+    color: #00FF88;
+}
+
+/* Calculator promise */
+.calculator-promise {
+    text-align: center;
+    margin-top: 0.75rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.85rem;
+}
+
+/* CTA urgency box */
+.cta-urgency-box {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: rgba(255, 159, 67, 0.15);
+    border: 1px solid rgba(255, 159, 67, 0.4);
+    border-radius: 50px;
+    padding: 0.75rem 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.urgency-icon {
+    font-size: 1.25rem;
+    color: #ff9f43;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+    .hero-urgency,
+    .pricing-urgency,
+    .appointment-urgency {
+        font-size: 0.9rem;
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .cta-urgency-box {
+        flex-direction: column;
+        text-align: center;
+        padding: 1rem;
+    }
+}
+
+/* ─────────────────────────────────────────────────────────────── */
+/* 6. ACCESSIBILITY - Screen reader & keyboard navigation */
+/* ─────────────────────────────────────────────────────────────── */
+
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #000;
+    color: #fff;
+    padding: 8px;
+    z-index: 100;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* Focus visible for keyboard navigation */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid var(--electric-cyan, #00FFF0);
+    outline-offset: 2px;
+}

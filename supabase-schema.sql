@@ -24,7 +24,8 @@ CREATE TABLE IF NOT EXISTS leads (
 -- Enable Row Level Security
 ALTER TABLE leads ENABLE ROW LEVEL SECURITY;
 
--- Allow anonymous inserts (for website forms)
+-- Drop existing policy if exists, then create
+DROP POLICY IF EXISTS "Allow anonymous inserts" ON leads;
 CREATE POLICY "Allow anonymous inserts" ON leads
     FOR INSERT
     TO anon
@@ -52,7 +53,8 @@ CREATE TABLE IF NOT EXISTS roi_calculations (
 -- Enable Row Level Security
 ALTER TABLE roi_calculations ENABLE ROW LEVEL SECURITY;
 
--- Allow anonymous inserts
+-- Drop existing policy if exists, then create
+DROP POLICY IF EXISTS "Allow anonymous inserts" ON roi_calculations;
 CREATE POLICY "Allow anonymous inserts" ON roi_calculations
     FOR INSERT
     TO anon
@@ -79,7 +81,8 @@ CREATE TABLE IF NOT EXISTS appointments (
 -- Enable Row Level Security
 ALTER TABLE appointments ENABLE ROW LEVEL SECURITY;
 
--- Allow anonymous inserts
+-- Drop existing policy if exists, then create
+DROP POLICY IF EXISTS "Allow anonymous inserts" ON appointments;
 CREATE POLICY "Allow anonymous inserts" ON appointments
     FOR INSERT
     TO anon
@@ -100,7 +103,8 @@ CREATE TABLE IF NOT EXISTS page_visits (
 -- Enable Row Level Security
 ALTER TABLE page_visits ENABLE ROW LEVEL SECURITY;
 
--- Allow anonymous inserts
+-- Drop existing policy if exists, then create
+DROP POLICY IF EXISTS "Allow anonymous inserts" ON page_visits;
 CREATE POLICY "Allow anonymous inserts" ON page_visits
     FOR INSERT
     TO anon

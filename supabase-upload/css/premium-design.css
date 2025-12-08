@@ -1,0 +1,416 @@
+/* ═══════════════════════════════════════════════════════════════
+   PREMIUM DESIGN UPGRADE - Dark Gradients & Modern Aesthetics
+   ═══════════════════════════════════════════════════════════════ */
+
+:root {
+    /* Premium Dark Gradient Colors */
+    --gradient-primary: linear-gradient(135deg, #0a1628 0%, #1a2942 50%, #0f2439 100%);
+    --gradient-accent: linear-gradient(135deg, var(--electric-cyan, #00FFF0) 0%, #00cccc 100%);
+    --gradient-premium: linear-gradient(135deg, #141e30 0%, #243b55 100%);
+    --gradient-card: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+    --gradient-glow: linear-gradient(135deg, rgba(0,255,240,0.1) 0%, rgba(0,204,204,0.1) 100%);
+    
+    /* Enhanced Colors - Using base electric-cyan from styles.css */
+    --dark-navy: #0a1628;
+    --deep-ocean: #1a2942;
+    --midnight-blue: #0f2439;
+    /* --electric-cyan: inherited from styles.css as #00FFF0 */
+    --neon-blue: #00cccc;
+    --premium-gold: #ffd700;
+    
+    /* Glass Morphism */
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    
+    /* Premium Shadows */
+    --shadow-premium: 0 20px 60px rgba(0, 0, 0, 0.5);
+    --shadow-glow: 0 0 40px rgba(0, 217, 255, 0.3);
+    --shadow-card: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   PREMIUM HEADER WITH DARK GRADIENT
+   ═══════════════════════════════════════════════════════════════ */
+
+.header {
+    background: var(--gradient-primary);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-card);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   PREMIUM HERO SECTIONS
+   ═══════════════════════════════════════════════════════════════ */
+
+.page-hero {
+    background: var(--gradient-primary);
+    position: relative;
+    overflow: hidden;
+}
+
+.page-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(0, 217, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(0, 168, 204, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   GLASS MORPHISM CARDS - APPOINTMENT PAGE
+   ═══════════════════════════════════════════════════════════════ */
+
+.booking-card {
+    background: var(--glass-bg);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 40px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: var(--shadow-card);
+    position: relative;
+    overflow: hidden;
+}
+
+.booking-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-accent);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.booking-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-premium), var(--shadow-glow);
+    border-color: var(--electric-cyan);
+}
+
+.booking-card:hover::before {
+    opacity: 1;
+}
+
+/* Fix spacing between booking cards */
+.booking-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+    margin-top: 50px;
+}
+
+/* Prevent text overlap in cards */
+.booking-card h3 {
+    margin-bottom: 20px;
+    font-size: 1.75rem;
+    line-height: 1.3;
+}
+
+.booking-card p {
+    margin-bottom: 25px;
+    line-height: 1.7;
+    min-height: 80px; /* Ensures consistent height */
+}
+
+.card-features {
+    margin: 25px 0;
+    min-height: 140px; /* Prevents overlap */
+}
+
+.card-features li {
+    padding: 10px 0;
+    line-height: 1.6;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   PREMIUM CASE STUDY CARDS
+   ═══════════════════════════════════════════════════════════════ */
+
+.case-study {
+    background: var(--glass-bg);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 50px;
+    margin-bottom: 50px;
+    box-shadow: var(--shadow-card);
+    transition: all 0.4s ease;
+}
+
+.case-study.featured {
+    border: 2px solid var(--electric-cyan);
+    box-shadow: var(--shadow-premium), var(--shadow-glow);
+}
+
+.case-study:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-premium);
+}
+
+/* Premium badge */
+.case-badge {
+    background: var(--gradient-accent);
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 20px rgba(0, 217, 255, 0.4);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   RESULT CARDS WITH GRADIENTS
+   ═══════════════════════════════════════════════════════════════ */
+
+.result-card {
+    background: var(--glass-bg);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 30px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.result-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-glow);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.result-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--electric-cyan);
+    box-shadow: var(--shadow-card);
+}
+
+.result-card:hover::before {
+    opacity: 1;
+}
+
+.result-card.primary {
+    background: var(--gradient-accent);
+    border: 2px solid var(--electric-cyan);
+    box-shadow: var(--shadow-glow);
+}
+
+/* Primary card text should be solid dark color, not gradient */
+.result-card.primary .result-metric {
+    background: none;
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: var(--deep-navy, #0c1e34);
+    background-clip: unset;
+    color: var(--deep-navy, #0c1e34);
+}
+
+.result-card.primary .result-icon,
+.result-card.primary .result-label,
+.result-card.primary .result-detail {
+    color: var(--deep-navy, #0c1e34);
+}
+
+.result-metric {
+    font-size: 3.5rem;
+    font-weight: 800;
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 15px 0;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   PREMIUM BUTTONS WITH GRADIENTS
+   ═══════════════════════════════════════════════════════════════ */
+
+.btn-primary,
+.btn-secondary,
+.btn-large {
+    background: var(--gradient-accent);
+    border: none;
+    padding: 16px 40px;
+    border-radius: 50px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0, 217, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::before,
+.btn-secondary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn-primary:hover::before,
+.btn-secondary:hover::before {
+    left: 100%;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 15px 40px rgba(0, 217, 255, 0.5);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   TESTIMONIAL CARDS
+   ═══════════════════════════════════════════════════════════════ */
+
+.testimonial {
+    background: var(--glass-bg);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border-left: 4px solid var(--electric-cyan);
+    padding: 35px;
+    border-radius: 12px;
+    margin-top: 30px;
+    box-shadow: var(--shadow-card);
+}
+
+.quote-icon {
+    color: var(--electric-cyan);
+    font-size: 2.5rem;
+    opacity: 0.3;
+    margin-bottom: 15px;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   TEAM ANALYTICS CARDS
+   ═══════════════════════════════════════════════════════════════ */
+
+.analytics-card {
+    background: var(--glass-bg);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 35px;
+    box-shadow: var(--shadow-card);
+    transition: all 0.3s ease;
+}
+
+.analytics-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--electric-cyan);
+    box-shadow: var(--shadow-premium);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FOOTER WITH DARK GRADIENT
+   ═══════════════════════════════════════════════════════════════ */
+
+.footer {
+    background: var(--gradient-primary);
+    border-top: 1px solid var(--glass-border);
+    position: relative;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--gradient-accent);
+    opacity: 0.5;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   RESPONSIVE IMPROVEMENTS - NO MORE OVERLAPS
+   ═══════════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+    .booking-options {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .booking-card {
+        padding: 30px 20px;
+    }
+    
+    .booking-card p {
+        min-height: auto;
+        margin-bottom: 20px;
+    }
+    
+    .card-features {
+        min-height: auto;
+    }
+    
+    .case-study {
+        padding: 30px 20px;
+    }
+    
+    .result-card {
+        padding: 25px 20px;
+        margin-bottom: 20px;
+    }
+    
+    .result-metric {
+        font-size: 2.5rem;
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SMOOTH ANIMATIONS
+   ═══════════════════════════════════════════════════════════════ */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.case-study,
+.booking-card,
+.result-card,
+.analytics-card {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.case-study:nth-child(2) { animation-delay: 0.1s; }
+.case-study:nth-child(3) { animation-delay: 0.2s; }
+.case-study:nth-child(4) { animation-delay: 0.3s; }
