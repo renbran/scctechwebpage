@@ -3,10 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Mobile browser theme color for address bar -->
+    <meta name="theme-color" content="#0c1e34">
+    <meta name="msapplication-navbutton-color" content="#0c1e34">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>SGC TECH AI - Intelligent Infrastructure Deployed in 14 Days | Guaranteed ROI</title>
     <meta name="description" content="UAE's only AI-driven Intelligent Infrastructure implementation with 14-day deployment and 150-200% ROI guarantee. Enterprise transformation that pays for itself.">
     <link rel="icon" type="image/png" href="img/scholarix-logo.png">
     <link rel="apple-touch-icon" href="img/scholarix-logo.png">
+    
+    <!-- Preconnect to external domains for faster loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://sgctech.ai/">
@@ -21,9 +32,30 @@
     <meta property="twitter:image" content="https://sgctech.ai/img/scholarix-logo.png">
     <!-- Canonical URL -->
     <link rel="canonical" href="https://sgctech.ai/">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Critical CSS (inline for above-fold performance) -->
+    <style>
+        /* Critical above-fold styles */
+        :root{--deep-navy:#0c1e34;--electric-cyan:#00FFF0;--white:#ffffff}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Inter',sans-serif;background:var(--deep-navy);color:var(--white)}
+        .header{position:sticky;top:0;z-index:9999;background:rgba(12,30,52,0.98);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px)}
+        .navbar{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;max-width:1200px;margin:0 auto}
+        .logo-image{height:45px;width:auto}
+        .skip-link{position:absolute;left:-9999px}
+        .skip-link:focus{left:0;top:0;z-index:10000;background:var(--electric-cyan);color:var(--deep-navy);padding:8px 16px}
+    </style>
+    
+    <!-- External fonts with display swap -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome - load async for non-blocking -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    
+    <!-- Core CSS -->
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/mobile-first-base.css">
     <link rel="stylesheet" href="css/premium-design.css">
     <link rel="stylesheet" href="css/consistent-backgrounds.css">
     <link rel="stylesheet" href="css/homepage-premium.css">
@@ -33,9 +65,11 @@
     <link rel="stylesheet" href="css/redesign-2025.css">
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="css/animation-fallbacks.css">
+    <link rel="stylesheet" href="css/cookie-consent.css">
     
-    <!-- Animation Dependencies -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <!-- Animation Dependencies - load async -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"></noscript>
 </head>
 <body>
     <!-- Skip to Content Link for Accessibility -->
@@ -44,18 +78,18 @@
     <!-- Desktop Floating Calculator Button -->
     <div class="desktop-floating-cta" id="desktopFloatingCTA">
         <button class="floating-calc-btn" data-calculator-trigger aria-label="Open ROI Calculator">
-            <i class="fas fa-calculator"></i>
+            <i class="fas fa-calculator" aria-hidden="true"></i>
             <span class="floating-calc-text">Calculate ROI</span>
         </button>
     </div>
 
     <!-- Mobile Sticky Bottom Bar -->
-    <div class="mobile-sticky-bar">
-        <a href="https://wa.me/971563905772?text=Hi%20SGC%2C%20I%27m%20interested%20in%20the%2014-day%20AI-Powered%20Systems%20deployment" class="btn-whatsapp-sticky" target="_blank" rel="noopener" aria-label="Contact us on WhatsApp">
-            <i class="fab fa-whatsapp"></i> WhatsApp Us
+    <div class="mobile-sticky-bar" role="navigation" aria-label="Quick contact actions">
+        <a href="https://wa.me/971563905772?text=Hi%20SGC%2C%20I%27m%20interested%20in%20the%2014-day%20AI-Powered%20Systems%20deployment" class="btn-whatsapp-sticky" target="_blank" rel="noopener noreferrer" aria-label="Contact us on WhatsApp (opens in new tab)">
+            <i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp Us
         </a>
         <button class="btn-roi-sticky" data-calculator-trigger aria-label="Open ROI Calculator">
-            <i class="fas fa-calculator"></i> Calculate ROI
+            <i class="fas fa-calculator" aria-hidden="true"></i> Calculate ROI
         </button>
     </div>
 
@@ -65,7 +99,7 @@
             <nav class="navbar" role="navigation" aria-label="Main navigation">
                 <div class="logo">
                     <a href="index.html">
-                        <img src="img/scholarix-logo.png" alt="Scholarix Global AI Consultant" class="logo-image" >
+                        <img src="img/scholarix-logo.png" alt="Scholarix Global AI Consultant" class="logo-image" width="50" height="50">
                         <span class="logo-tagline">Intelligent Infrastructure. Instant Impact.</span>
                     </a>
                 </div>
@@ -77,8 +111,8 @@
                 </div>
 
                 <ul class="nav-menu" id="navMenu" aria-label="Site navigation">
-                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-                    <li><a href="#" class="nav-calculator" data-calculator-trigger><i class="fas fa-calculator"></i> Calculator</a></li>
+                    <li><a href="index.html"><i class="fas fa-home" aria-hidden="true"></i> Home</a></li>
+                    <li><a href="#" class="nav-calculator" data-calculator-trigger><i class="fas fa-calculator" aria-hidden="true"></i> Calculator</a></li>
                     <li><a href="pricing.html">Pricing</a></li>
                     <li><a href="success-stories.html">Success Stories</a></li>
                     <li><a href="team.html">Our Team</a></li>
@@ -96,7 +130,7 @@
             <div class="hero-content">
                 <div class="hero-left">
                     <div class="hero-badge">
-                        <i class="fas fa-bolt"></i> UAE's Fastest ERP Implementation
+                        <i class="fas fa-bolt" aria-hidden="true"></i> UAE's Fastest ERP Implementation
                     </div>
                     
                     <h1 class="hero-title">
@@ -127,20 +161,20 @@
                     <!-- Dual CTA -->
                     <div class="hero-cta">
                         <a href="#" class="btn btn-primary btn-large pulse-animation" data-calculator-trigger>
-                            <i class="fas fa-calculator"></i> Get Your Free ROI Report
+                            <i class="fas fa-calculator" aria-hidden="true"></i> Get Your Free ROI Report
                         </a>
                         <a href="#process" class="btn btn-secondary btn-large">
-                            <i class="fas fa-play-circle"></i> See How It Works
+                            <i class="fas fa-play-circle" aria-hidden="true"></i> See How It Works
                         </a>
                     </div>
-                    <p class="hero-urgency"><i class="fas fa-clock"></i> <strong>Limited:</strong> Only 3 onboarding slots left this month</p>
+                    <p class="hero-urgency"><i class="fas fa-clock" aria-hidden="true"></i> <strong>Limited:</strong> Only 3 onboarding slots left this month</p>
                 </div>
 
                 <div class="hero-right">
                     <!-- Visual Comparison -->
                     <div class="comparison-visual">
                         <div class="comparison-card chaos">
-                            <h3><i class="fas fa-times-circle"></i> Traditional ERP</h3>
+                            <h3><i class="fas fa-times-circle" aria-hidden="true"></i> Traditional ERP</h3>
                             <ul class="comparison-list">
                                 <li><span class="timeline">Month 1-2:</span> Requirements gathering</li>
                                 <li><span class="timeline">Month 3-4:</span> Vendor selection</li>
@@ -154,11 +188,11 @@
                         </div>
 
                         <div class="comparison-arrow">
-                            <i class="fas fa-arrow-right"></i>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
                         </div>
 
                         <div class="comparison-card streamlined">
-                            <h3><i class="fas fa-check-circle"></i> SGC TECH AI</h3>
+                            <h3><i class="fas fa-check-circle" aria-hidden="true"></i> SGC TECH AI</h3>
                             <ul class="comparison-list">
                                 <li><span class="timeline">Day 1-3:</span> AI-powered assessment</li>
                                 <li><span class="timeline">Day 4-7:</span> Rapid configuration</li>
@@ -183,19 +217,19 @@
             <div class="logo-carousel-wrapper">
                 <div class="logo-carousel-track">
                     <!-- First set of logos -->
-                    <img src="img/clients/osus.png" alt="OSUS Properties">
-                    <img src="img/clients/axcapital.svg" alt="AX Capital">
-                    <img src="img/clients/freshmarket.png" alt="Fresh Market LLC">
-                    <img src="img/clients/eigermarvel-logo.png" alt="Eiger Marvel">
-                    <img src="img/clients/lmd-logo-white.webp" alt="LMD">
-                    <img src="img/clients/urban-properties.png" alt="Urban Properties">
+                    <img src="img/clients/osus.png" alt="OSUS Properties" loading="lazy" width="120" height="60">
+                    <img src="img/clients/axcapital.svg" alt="AX Capital" loading="lazy" width="120" height="60">
+                    <img src="img/clients/freshmarket.png" alt="Fresh Market LLC" loading="lazy" width="120" height="60">
+                    <img src="img/clients/eigermarvel-logo.png" alt="Eiger Marvel" loading="lazy" width="120" height="60">
+                    <img src="img/clients/lmd-logo-white.webp" alt="LMD" loading="lazy" width="120" height="60">
+                    <img src="img/clients/urban-properties.png" alt="Urban Properties" loading="lazy" width="120" height="60">
                     <!-- Duplicate set for seamless loop -->
-                    <img src="img/clients/osus.png" alt="OSUS Properties">
-                    <img src="img/clients/axcapital.svg" alt="AX Capital">
-                    <img src="img/clients/freshmarket.png" alt="Fresh Market LLC">
-                    <img src="img/clients/eigermarvel-logo.png" alt="Eiger Marvel">
-                    <img src="img/clients/lmd-logo-white.webp" alt="LMD">
-                    <img src="img/clients/urban-properties.png" alt="Urban Properties">
+                    <img src="img/clients/osus.png" alt="OSUS Properties" loading="lazy" width="120" height="60">
+                    <img src="img/clients/axcapital.svg" alt="AX Capital" loading="lazy" width="120" height="60">
+                    <img src="img/clients/freshmarket.png" alt="Fresh Market LLC" loading="lazy" width="120" height="60">
+                    <img src="img/clients/eigermarvel-logo.png" alt="Eiger Marvel" loading="lazy" width="120" height="60">
+                    <img src="img/clients/lmd-logo-white.webp" alt="LMD" loading="lazy" width="120" height="60">
+                    <img src="img/clients/urban-properties.png" alt="Urban Properties" loading="lazy" width="120" height="60">
                 </div>
             </div>
         </div>
@@ -213,7 +247,7 @@
             <div class="problem-grid">
                 <div class="problem-card">
                     <div class="problem-icon">
-                        <i class="fas fa-hourglass-end"></i>
+                        <i class="fas fa-hourglass-end" aria-hidden="true"></i>
                     </div>
                     <h3>Endless Timelines</h3>
                     <p>6-12 months from decision to go-live. Your competitors move faster.</p>
@@ -222,7 +256,7 @@
 
                 <div class="problem-card">
                     <div class="problem-icon">
-                        <i class="fas fa-money-bill-wave"></i>
+                        <i class="fas fa-money-bill-wave" aria-hidden="true"></i>
                     </div>
                     <h3>Spiraling Costs</h3>
                     <p>Hidden fees, scope creep, and change requests double your budget.</p>
@@ -231,7 +265,7 @@
 
                 <div class="problem-card">
                     <div class="problem-icon">
-                        <i class="fas fa-question-circle"></i>
+                        <i class="fas fa-question-circle" aria-hidden="true"></i>
                     </div>
                     <h3>Uncertain Outcomes</h3>
                     <p>No guarantees. No clear ROI. Just promises and PowerPoints.</p>
@@ -240,7 +274,7 @@
 
                 <div class="problem-card">
                     <div class="problem-icon">
-                        <i class="fas fa-user-tie"></i>
+                        <i class="fas fa-user-tie" aria-hidden="true"></i>
                     </div>
                     <h3>Consultants, Not Engineers</h3>
                     <p>They sell strategy decks. You need production-ready systems.</p>
@@ -262,57 +296,57 @@
             <div class="pillars-grid">
                 <div class="pillar-card">
                     <div class="pillar-number">01</div>
-                    <div class="pillar-icon"><i class="fas fa-rocket"></i></div>
+                    <div class="pillar-icon"><i class="fas fa-rocket" aria-hidden="true"></i></div>
                     <h3>SPEED</h3>
                     <p class="pillar-tagline">14-Day Deployments</p>
                     <p>Industry standard: 6-12 months. SGC TECH AI: 14 days to production. Our AI-accelerated methodology eliminates waste.</p>
                     <ul class="pillar-features">
-                        <li><i class="fas fa-check"></i> AI-powered requirements analysis</li>
-                        <li><i class="fas fa-check"></i> Pre-configured industry templates</li>
-                        <li><i class="fas fa-check"></i> Automated data migration</li>
-                        <li><i class="fas fa-check"></i> Parallel deployment streams</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> AI-powered requirements analysis</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> Pre-configured industry templates</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> Automated data migration</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> Parallel deployment streams</li>
                     </ul>
                 </div>
 
                 <div class="pillar-card">
                     <div class="pillar-number">02</div>
-                    <div class="pillar-icon"><i class="fas fa-brain"></i></div>
+                    <div class="pillar-icon"><i class="fas fa-brain" aria-hidden="true"></i></div>
                     <h3>INTELLIGENCE</h3>
                     <p class="pillar-tagline">AI-Native by Design</p>
                     <p>Every solution includes embedded AI that learns and improves continuously. Your operations get smarter every day.</p>
                     <ul class="pillar-features">
-                        <li><i class="fas fa-check"></i> Predictive analytics built-in</li>
-                        <li><i class="fas fa-check"></i> Intelligent process automation</li>
-                        <li><i class="fas fa-check"></i> Machine learning optimization</li>
-                        <li><i class="fas fa-check"></i> Real-time anomaly detection</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> Predictive analytics built-in</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> Intelligent process automation</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> Machine learning optimization</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> Real-time anomaly detection</li>
                     </ul>
                 </div>
 
                 <div class="pillar-card">
                     <div class="pillar-number">03</div>
-                    <div class="pillar-icon"><i class="fas fa-chart-line"></i></div>
+                    <div class="pillar-icon"><i class="fas fa-chart-line" aria-hidden="true"></i></div>
                     <h3>RESULTS</h3>
                     <p class="pillar-tagline">Guaranteed ROI</p>
                     <p>150-200% return or money back. We guarantee results because our engineering delivers measurable business impact.</p>
                     <ul class="pillar-features">
-                        <li><i class="fas fa-check"></i> 40-80 hours saved monthly</li>
-                        <li><i class="fas fa-check"></i> 90%+ error reduction</li>
-                        <li><i class="fas fa-check"></i> Real-time performance dashboards</li>
-                        <li><i class="fas fa-check"></i> Money-back guarantee</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> 40-80 hours saved monthly</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> 90%+ error reduction</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> Real-time performance dashboards</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> Money-back guarantee</li>
                     </ul>
                 </div>
 
                 <div class="pillar-card">
                     <div class="pillar-number">04</div>
-                    <div class="pillar-icon"><i class="fas fa-code"></i></div>
+                    <div class="pillar-icon"><i class="fas fa-code" aria-hidden="true"></i></div>
                     <h3>ENGINEERING</h3>
                     <p class="pillar-tagline">Built by Technologists</p>
                     <p>We're engineers who ship production code, not consultants who sell strategy. Enterprise-grade from day one.</p>
                     <ul class="pillar-features">
-                        <li><i class="fas fa-check"></i> Production-ready architecture</li>
-                        <li><i class="fas fa-check"></i> Security-first design</li>
-                        <li><i class="fas fa-check"></i> Scalable infrastructure</li>
-                        <li><i class="fas fa-check"></i> Zero vendor lock-in</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> Production-ready architecture</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> Security-first design</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> Scalable infrastructure</li>
+                        <li><i class="fas fa-check" aria-hidden="true"></i> Zero vendor lock-in</li>
                     </ul>
                 </div>
             </div>
@@ -332,7 +366,7 @@
             <div class="timeline-comparison">
                 <div class="timeline-row timeline-sgc">
                     <div class="timeline-label">
-                        <i class="fas fa-rocket"></i>
+                        <i class="fas fa-rocket" aria-hidden="true"></i>
                         <span>SGC TECH AI</span>
                     </div>
                     <div class="timeline-bar">
@@ -342,7 +376,7 @@
                 
                 <div class="timeline-row timeline-traditional">
                     <div class="timeline-label">
-                        <i class="fas fa-hourglass-half"></i>
+                        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
                         <span>Traditional Consultants</span>
                     </div>
                     <div class="timeline-bar">
@@ -358,7 +392,7 @@
                         <span class="timeline-days">Days</span>
                     </div>
                     <div class="timeline-content">
-                        <h3><i class="fas fa-search"></i> AI-Powered Discovery</h3>
+                        <h3><i class="fas fa-search" aria-hidden="true"></i> AI-Powered Discovery</h3>
                         <p><strong>What happens:</strong> Our AI analyzes your current operations, identifies bottlenecks, and creates a tailored implementation blueprint.</p>
                         <ul>
                             <li>Automated process mapping</li>
@@ -378,7 +412,7 @@
                         <span class="timeline-days">Days</span>
                     </div>
                     <div class="timeline-content">
-                        <h3><i class="fas fa-cogs"></i> Rapid Configuration</h3>
+                        <h3><i class="fas fa-cogs" aria-hidden="true"></i> Rapid Configuration</h3>
                         <p><strong>What happens:</strong> We deploy pre-configured industry templates and customize them to your exact needs using AI-assisted development.</p>
                         <ul>
                             <li>AI module installation & setup</li>
@@ -398,7 +432,7 @@
                         <span class="timeline-days">Days</span>
                     </div>
                     <div class="timeline-content">
-                        <h3><i class="fas fa-database"></i> Smart Migration</h3>
+                        <h3><i class="fas fa-database" aria-hidden="true"></i> Smart Migration</h3>
                         <p><strong>What happens:</strong> Our AI-powered migration tools transfer your data with 99.9% accuracy while maintaining business continuity.</p>
                         <ul>
                             <li>Automated data cleansing</li>
@@ -418,7 +452,7 @@
                         <span class="timeline-days">Days</span>
                     </div>
                     <div class="timeline-content">
-                        <h3><i class="fas fa-rocket"></i> Go-Live & Training</h3>
+                        <h3><i class="fas fa-rocket" aria-hidden="true"></i> Go-Live & Training</h3>
                         <p><strong>What happens:</strong> Your team goes live with hands-on training, comprehensive documentation, and ongoing support.</p>
                         <ul>
                             <li>Role-based user training</li>
@@ -435,9 +469,9 @@
 
             <div class="process-cta">
                 <a href="appointment.html" class="btn btn-primary btn-large">
-                    <i class="fas fa-rocket"></i> Start My Transformation Today
+                    <i class="fas fa-rocket" aria-hidden="true"></i> Start My Transformation Today
                 </a>
-                <p class="process-guarantee"><i class="fas fa-shield-alt"></i> Risk-free: 150% ROI guaranteed or your money back</p>
+                <p class="process-guarantee"><i class="fas fa-shield-alt" aria-hidden="true"></i> Risk-free: 150% ROI guaranteed or your money back</p>
             </div>
         </div>
     </section>
@@ -521,10 +555,10 @@
                         </div>
                     </div>
 
-                    <button class="btn btn-primary btn-large btn-block" id="calculateROI" data-calculator-trigger>
-                        <i class="fas fa-chart-line"></i> Show Me My Savings
+                    <button class="btn btn-primary btn-large btn-block" id="calculateROI" data-calculator-trigger aria-label="Calculate your ROI savings">
+                        <i class="fas fa-chart-line" aria-hidden="true"></i> Show Me My Savings
                     </button>
-                    <p class="calculator-promise"><i class="fas fa-lock"></i> Your data stays private. Instant results.</p>
+                    <p class="calculator-promise"><i class="fas fa-lock" aria-hidden="true"></i> Your data stays private. Instant results.</p>
                 </div>
 
                 <div class="calculator-results" id="calculatorResults" >
@@ -575,7 +609,7 @@
                             <input type="email" placeholder="Your email" required>
                             <input type="tel" placeholder="WhatsApp number" required>
                             <button type="submit" class="btn btn-secondary">
-                                <i class="fas fa-paper-plane"></i> Send My Report
+                                <i class="fas fa-paper-plane" aria-hidden="true"></i> Send My Report
                             </button>
                         </form>
                     </div>
@@ -597,7 +631,7 @@
                 <div class="story-card featured">
                     <div class="story-badge">Featured</div>
                     <div class="story-industry">
-                        <i class="fas fa-building"></i> Real Estate
+                        <i class="fas fa-building" aria-hidden="true"></i> Real Estate
                     </div>
                     <h3>From Near-Bankruptcy to Profitability in 14 Days</h3>
                     <p>A Dubai real estate brokerage facing closure implemented SGC's intelligent operations platform and became cash-flow positive within 2 weeks.</p>
@@ -616,13 +650,13 @@
                         </div>
                     </div>
                     <a href="success-stories.html#real-estate-recovery" class="btn btn-text">
-                        Read Full Story <i class="fas fa-arrow-right"></i>
+                        Read Full Story <i class="fas fa-arrow-right" aria-hidden="true"></i>
                     </a>
                 </div>
 
                 <div class="story-card">
                     <div class="story-industry">
-                        <i class="fas fa-industry"></i> Manufacturing
+                        <i class="fas fa-industry" aria-hidden="true"></i> Manufacturing
                     </div>
                     <h3>AED 42K Annual Savings for 30-Person Trading Company</h3>
                     <p>Eliminated manual inventory tracking and reduced errors by 94% with AI-powered automation.</p>
@@ -637,13 +671,13 @@
                         </div>
                     </div>
                     <a href="success-stories.html#manufacturing-trading" class="btn btn-text">
-                        Read Full Story <i class="fas fa-arrow-right"></i>
+                        Read Full Story <i class="fas fa-arrow-right" aria-hidden="true"></i>
                     </a>
                 </div>
 
                 <div class="story-card">
                     <div class="story-industry">
-                        <i class="fas fa-briefcase"></i> Professional Services
+                        <i class="fas fa-briefcase" aria-hidden="true"></i> Professional Services
                     </div>
                     <h3>75 Hours Saved Monthly in Client Operations</h3>
                     <p>Consultancy firm automated billing, project tracking, and reporting—freeing teams for client work.</p>
@@ -658,14 +692,14 @@
                         </div>
                     </div>
                     <a href="success-stories.html#professional-services" class="btn btn-text">
-                        Read Full Story <i class="fas fa-arrow-right"></i>
+                        Read Full Story <i class="fas fa-arrow-right" aria-hidden="true"></i>
                     </a>
                 </div>
             </div>
 
             <div class="see-all-stories">
                 <a href="success-stories.html" class="btn btn-secondary btn-large">
-                    <i class="fas fa-book-open"></i> View All Success Stories
+                    <i class="fas fa-book-open" aria-hidden="true"></i> View All Success Stories
                 </a>
             </div>
         </div>
@@ -690,8 +724,8 @@
                         <h3>CFO Success Story</h3>
                         <p class="video-description">Watch how our AI-powered implementation transformed financial operations and delivered exceptional ROI.</p>
                         <div class="video-meta">
-                            <span class="video-duration"><i class="fas fa-user-tie"></i> CFO Testimonial</span>
-                            <span class="video-tag"><i class="fas fa-star"></i> Executive Review</span>
+                            <span class="video-duration"><i class="fas fa-user-tie" aria-hidden="true"></i> CFO Testimonial</span>
+                            <span class="video-tag"><i class="fas fa-star" aria-hidden="true"></i> Executive Review</span>
                         </div>
                     </div>
                 </div>
@@ -705,8 +739,8 @@
                         <h3>Real Estate Transformation</h3>
                         <p class="video-description">See how a Dubai real estate company revolutionized their property management in just 14 days.</p>
                         <div class="video-meta">
-                            <span class="video-duration"><i class="fas fa-building"></i> Real Estate</span>
-                            <span class="video-tag"><i class="fas fa-star"></i> Client Story</span>
+                            <span class="video-duration"><i class="fas fa-building" aria-hidden="true"></i> Real Estate</span>
+                            <span class="video-tag"><i class="fas fa-star" aria-hidden="true"></i> Client Story</span>
                         </div>
                     </div>
                 </div>
@@ -720,15 +754,15 @@
                         <h3>The Founder Story</h3>
                         <p class="video-description">Learn about SGC TECH AI's mission to transform UAE businesses with intelligent automation.</p>
                         <div class="video-meta">
-                            <span class="video-duration"><i class="fas fa-lightbulb"></i> Our Story</span>
-                            <span class="video-tag"><i class="fas fa-heart"></i> Vision</span>
+                            <span class="video-duration"><i class="fas fa-lightbulb" aria-hidden="true"></i> Our Story</span>
+                            <span class="video-tag"><i class="fas fa-heart" aria-hidden="true"></i> Vision</span>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="video-testimonials-cta">
-                <p><i class="fas fa-video"></i> Want to share your success story? <a href="appointment.html">Book a call</a> with us today.</p>
+                <p><i class="fas fa-video" aria-hidden="true"></i> Want to share your success story? <a href="appointment.html">Book a call</a> with us today.</p>
             </div>
         </div>
     </section>
@@ -740,19 +774,19 @@
                 <h2>Your Competitors Are Already Moving Faster</h2>
                 <p>Join 50+ UAE enterprises who transformed their operations in just 14 days. Every day you wait is money left on the table.</p>
                 <div class="cta-urgency-box">
-                    <span class="urgency-icon"><i class="fas fa-fire"></i></span>
+                    <span class="urgency-icon"><i class="fas fa-fire" aria-hidden="true"></i></span>
                     <span class="urgency-text"><strong>December Special:</strong> Free AI Assessment (worth AED 5,000) with every consultation</span>
                 </div>
                 <div class="cta-buttons">
                     <a href="appointment.html" class="btn btn-primary btn-large pulse-animation">
-                        <i class="fas fa-calendar-check"></i> Claim Your Free Consultation
+                        <i class="fas fa-calendar-check" aria-hidden="true"></i> Claim Your Free Consultation
                     </a>
-                    <a href="https://wa.me/971563905772?text=Hi%20SGC%2C%20I%27m%20interested%20in%20learning%20more%20about%20the%2014-day%20deployment" class="btn btn-whatsapp btn-large" target="_blank" rel="noopener">
-                        <i class="fab fa-whatsapp"></i> Chat With Us Now
+                    <a href="https://wa.me/971563905772?text=Hi%20SGC%2C%20I%27m%20interested%20in%20learning%20more%20about%20the%2014-day%20deployment" class="btn btn-whatsapp btn-large" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-whatsapp" aria-hidden="true"></i> Chat With Us Now
                     </a>
                 </div>
                 <p class="cta-guarantee">
-                    <i class="fas fa-shield-alt"></i> <strong>150-200% ROI Guarantee</strong> or money back. Zero risk.
+                    <i class="fas fa-shield-alt" aria-hidden="true"></i> <strong>150-200% ROI Guarantee</strong> or money back. Zero risk.
                 </p>
             </div>
         </div>
@@ -765,13 +799,13 @@
                 <div class="footer-col">
                     <div class="footer-logo">
                         <a href="index.html">
-                            <img src="img/scholarix-logo.png" alt="Scholarix Global AI Consultant" class="logo-image" >
+                            <img src="img/scholarix-logo.png" alt="Scholarix Global AI Consultant" class="logo-image" width="50" height="50">
                             <span class="logo-tagline">Intelligent Infrastructure. Instant Impact.</span>
                         </a>
                     </div>
                     <p class="footer-desc">AI-native technology infrastructure delivering enterprise transformation in 14 days with guaranteed ROI.</p>
                     <div class="footer-parent">
-                        <i class="fas fa-building"></i> A Scholarix Global Consultants Brand
+                        <i class="fas fa-building" aria-hidden="true"></i> A Scholarix Global Consultants Brand
                     </div>
                 </div>
 
@@ -799,20 +833,20 @@
                     <h4>Contact</h4>
                     <ul class="contact-list">
                         <li>
-                            <i class="fas fa-phone"></i>
+                            <i class="fas fa-phone" aria-hidden="true"></i>
                             <a href="tel:+971563905772">+971 56 390 5772</a>
                         </li>
                         <li>
-                            <i class="fas fa-envelope"></i>
+                            <i class="fas fa-envelope" aria-hidden="true"></i>
                             <a href="mailto:hello@sgctech.ai">hello@sgctech.ai</a>
                         </li>
                         <li>
-                            <i class="fas fa-map-marker-alt"></i>
+                            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
                             Dubai, United Arab Emirates
                         </li>
                         <li>
-                            <i class="fab fa-whatsapp"></i>
-                            <a href="https://wa.me/971563905772" target="_blank" rel="noopener">WhatsApp Us</a>
+                            <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                            <a href="https://wa.me/971563905772" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
                         </li>
                     </ul>
                 </div>
@@ -854,7 +888,7 @@
                     <div class="calculator-form-grid">
                         <div class="calculator-form-group">
                             <label class="calculator-form-label" for="calcEmployees">
-                                <i class="fas fa-users"></i>
+                                <i class="fas fa-users" aria-hidden="true"></i>
                                 Number of Employees
                             </label>
                             <input 
@@ -872,7 +906,7 @@
 
                         <div class="calculator-form-group">
                             <label class="calculator-form-label" for="calcIndustry">
-                                <i class="fas fa-industry"></i>
+                                <i class="fas fa-industry" aria-hidden="true"></i>
                                 Industry
                             </label>
                             <select id="calcIndustry" name="industry" class="calculator-select" required>
@@ -889,7 +923,7 @@
 
                         <div class="calculator-form-group">
                             <label class="calculator-form-label" for="calcCurrentCost">
-                                <i class="fas fa-dollar-sign"></i>
+                                <i class="fas fa-dollar-sign" aria-hidden="true"></i>
                                 Current Monthly Software Cost (AED)
                             </label>
                             <input 
@@ -905,7 +939,7 @@
 
                         <div class="calculator-form-group">
                             <label class="calculator-form-label" for="calcTimeline">
-                                <i class="fas fa-clock"></i>
+                                <i class="fas fa-clock" aria-hidden="true"></i>
                                 Implementation Timeline
                             </label>
                             <select id="calcTimeline" name="timeline" class="calculator-select" required>
@@ -921,7 +955,7 @@
                     <!-- Odoo Modules Selection -->
                     <div class="calculator-form-group full-width">
                         <label class="calculator-form-label">
-                            <i class="fas fa-puzzle-piece"></i>
+                            <i class="fas fa-puzzle-piece" aria-hidden="true"></i>
                             Which Odoo Modules Interest You?
                         </label>
                         <div class="calculator-modules">
@@ -961,8 +995,8 @@
                         </div>
                     </div>
 
-                    <button type="button" class="calculator-next-btn" id="goToStep2">
-                        See My Detailed ROI Report <i class="fas fa-arrow-right"></i>
+                    <button type="button" class="calculator-next-btn" id="goToStep2" aria-label="Proceed to see your detailed ROI report">
+                        See My Detailed ROI Report <i class="fas fa-arrow-right" aria-hidden="true"></i>
                     </button>
                 </div>
 
@@ -1003,7 +1037,7 @@
 
                             <div class="calculator-form-group">
                                 <label class="calculator-form-label" for="leadName">
-                                    <i class="fas fa-user"></i> Your Name
+                                    <i class="fas fa-user" aria-hidden="true"></i> Your Name
                                 </label>
                                 <input 
                                     type="text" 
@@ -1017,7 +1051,7 @@
 
                             <div class="calculator-form-group">
                                 <label class="calculator-form-label" for="leadEmail">
-                                    <i class="fas fa-envelope"></i> Work Email
+                                    <i class="fas fa-envelope" aria-hidden="true"></i> Work Email
                                 </label>
                                 <input 
                                     type="email" 
@@ -1031,7 +1065,7 @@
 
                             <div class="calculator-form-group">
                                 <label class="calculator-form-label" for="leadPhone">
-                                    <i class="fas fa-phone"></i> Phone Number
+                                    <i class="fas fa-phone" aria-hidden="true"></i> Phone Number
                                 </label>
                                 <input 
                                     type="tel" 
@@ -1045,7 +1079,7 @@
 
                             <div class="calculator-form-group">
                                 <label class="calculator-form-label" for="leadCompany">
-                                    <i class="fas fa-building"></i> Company Name
+                                    <i class="fas fa-building" aria-hidden="true"></i> Company Name
                                 </label>
                                 <input 
                                     type="text" 
@@ -1058,16 +1092,16 @@
                             </div>
 
                             <button type="submit" class="calculator-submit-btn" id="submitLeadForm">
-                                <i class="fas fa-unlock"></i> Unlock My Full ROI Report
+                                <i class="fas fa-unlock" aria-hidden="true"></i> Unlock My Full ROI Report
                             </button>
 
                             <p class="privacy-note">
-                                <i class="fas fa-lock"></i> We respect your privacy. No spam, ever.
+                                <i class="fas fa-lock" aria-hidden="true"></i> We respect your privacy. No spam, ever.
                             </p>
                         </form>
 
                         <button type="button" class="calculator-back-btn" id="backToStep1">
-                            <i class="fas fa-arrow-left"></i> Back to adjust inputs
+                            <i class="fas fa-arrow-left" aria-hidden="true"></i> Back to adjust inputs
                         </button>
                     </div>
                 </div>
@@ -1078,7 +1112,7 @@
                         <!-- Without SGC Section (RED/LOSING) -->
                         <div class="comparison-card losing">
                             <div class="comparison-header">
-                                <i class="fas fa-times-circle"></i>
+                                <i class="fas fa-times-circle" aria-hidden="true"></i>
                                 <h4>Without SGC TECH AI</h4>
                             </div>
                             <div class="comparison-body">
@@ -1100,7 +1134,7 @@
                         <!-- With SGC Section (GREEN/WINNING) -->
                         <div class="comparison-card winning">
                             <div class="comparison-header">
-                                <i class="fas fa-check-circle"></i>
+                                <i class="fas fa-check-circle" aria-hidden="true"></i>
                                 <h4>With SGC TECH AI</h4>
                             </div>
                             <div class="comparison-body">
@@ -1139,19 +1173,19 @@
                     <!-- Call to Action -->
                     <div class="calculator-results-cta">
                         <a href="appointment.html" class="calculator-cta-btn primary pulse">
-                            <i class="fas fa-calendar-check"></i>
+                            <i class="fas fa-calendar-check" aria-hidden="true"></i>
                             Book Free Consultation - Lock In This ROI
                         </a>
                         <a href="https://wa.me/971563905772?text=Hi%20SGC%2C%20I%20just%20calculated%20my%20ROI%20and%20I%27m%20ready%20to%20discuss%20implementation" 
                            class="calculator-cta-btn secondary" 
-                           target="_blank" rel="noopener">
-                            <i class="fab fa-whatsapp"></i>
+                           target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-whatsapp" aria-hidden="true"></i>
                             Discuss on WhatsApp Now
                         </a>
                     </div>
 
                     <p class="guarantee-note">
-                        <i class="fas fa-shield-alt"></i> 
+                        <i class="fas fa-shield-alt" aria-hidden="true"></i> 
                         <strong>150% ROI Guarantee:</strong> If we don't deliver, you get a full refund.
                     </p>
                 </div>
@@ -1166,7 +1200,7 @@
             
             <div class="exit-intent-content">
                 <div class="exit-intent-icon">
-                    <i class="fas fa-calculator"></i>
+                    <i class="fas fa-calculator" aria-hidden="true"></i>
                 </div>
                 
                 <h2 id="exitIntentTitle">Wait! Don't Leave Without Your ROI</h2>
@@ -1188,11 +1222,11 @@
                 </div>
                 
                 <button class="exit-intent-cta" data-calculator-trigger>
-                    <i class="fas fa-calculator"></i> Calculate My ROI Now
+                    <i class="fas fa-calculator" aria-hidden="true"></i> Calculate My ROI Now
                 </button>
                 
                 <p class="exit-intent-guarantee">
-                    <i class="fas fa-shield-alt"></i> 150% ROI Guarantee or Money Back
+                    <i class="fas fa-shield-alt" aria-hidden="true"></i> 150% ROI Guarantee or Money Back
                 </p>
                 
                 <button class="exit-intent-dismiss">No thanks, I'll miss out on savings</button>
@@ -1204,21 +1238,22 @@
     <a href="https://wa.me/971563905772?text=Hi%20SGC%2C%20I%27m%20interested%20in%20your%20Odoo%20ERP%20implementation%20services." 
        class="whatsapp-float" 
        target="_blank" 
-       rel="noopener" 
+       rel="noopener noreferrer" 
        aria-label="Chat on WhatsApp">
-        <i class="fab fa-whatsapp"></i>
+        <i class="fab fa-whatsapp" aria-hidden="true"></i>
         <span class="whatsapp-tooltip">Chat with us!</span>
     </a>
 
-    <!-- Animation Libraries -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- Animation Libraries (defer for non-blocking) -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     
-    <!-- Main Scripts -->
-    <script src="js/main.js"></script>
-    <script src="js/calculator-modal.js"></script>
-    <script src="js/redesign-animations.js"></script>
-    <script src="js/animations.js"></script>
+    <!-- Main Scripts (defer for non-blocking) -->
+    <script defer src="js/main.js"></script>
+    <script defer src="js/calculator-modal.js"></script>
+    <script defer src="js/redesign-animations.js"></script>
+    <script defer src="js/animations.js"></script>
+    <script defer src="js/cookie-consent.js"></script>
 </body>
 </html>

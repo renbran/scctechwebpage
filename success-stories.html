@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Mobile browser theme color -->
+    <meta name="theme-color" content="#0c1e34">
+    <meta name="msapplication-navbutton-color" content="#0c1e34">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>Success Stories - SGC TECH AI | Real Client Results & Case Studies</title>
     <meta name="description" content="See how SGC TECH AI transforms businesses across UAE. Real case studies from Food & Beverage, Retail, Manufacturing, and Professional Services with proven ROI.">
     <link rel="icon" type="image/png" href="img/scholarix-logo.png">
@@ -21,26 +25,42 @@
     <meta property="twitter:image" content="https://sgctech.ai/img/scholarix-logo.png">
     <!-- Canonical URL -->
     <link rel="canonical" href="https://sgctech.ai/success-stories.html">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Preconnect for faster external resource loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <!-- Critical CSS for above-fold content -->
+    <style>
+        body{margin:0;font-family:'Inter',system-ui,-apple-system,sans-serif;background:#0c1e34}
+        .header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(12,30,52,0.95);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px)}
+        .nav-container{max-width:1200px;margin:0 auto;padding:1rem;display:flex;justify-content:space-between;align-items:center}
+        .skip-link{position:absolute;top:-40px;left:0;background:#00FFF0;color:#0c1e34;padding:8px;z-index:100}
+        .skip-link:focus{top:0}
+    </style>
+    <!-- Non-blocking external CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/mobile-first-base.css">
     <link rel="stylesheet" href="css/success-stories.css">
     <link rel="stylesheet" href="css/premium-design.css">
     <link rel="stylesheet" href="css/consistent-backgrounds.css">
     <link rel="stylesheet" href="css/premium-global.css">
     <link rel="stylesheet" href="css/contrast-improvements.css">
     <link rel="stylesheet" href="css/animation-fallbacks.css">
+    <link rel="stylesheet" href="css/cookie-consent.css">
 </head>
 <body>
     <!-- Skip to Content Link for Accessibility -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
     <!-- Mobile Sticky Bottom Bar -->
-    <div class="mobile-sticky-bar">
-        <a href="https://wa.me/971563905772?text=Hi%20SGC%2C%20I%27d%20like%20to%20discuss%20a%20similar%20implementation" class="btn-whatsapp-sticky" target="_blank" rel="noopener">
-            <i class="fab fa-whatsapp"></i> WhatsApp Us
+    <div class="mobile-sticky-bar" role="navigation" aria-label="Quick contact actions">
+        <a href="https://wa.me/971563905772?text=Hi%20SGC%2C%20I%27d%20like%20to%20discuss%20a%20similar%20implementation" class="btn-whatsapp-sticky" target="_blank" rel="noopener noreferrer" aria-label="Contact us on WhatsApp (opens in new tab)">
+            <i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp Us
         </a>
-        <a href="appointment.html" class="btn-appointment-sticky">
-            <i class="fas fa-calendar-check"></i> Book Consultation
+        <a href="appointment.html" class="btn-appointment-sticky" aria-label="Schedule a consultation appointment">
+            <i class="fas fa-calendar-check" aria-hidden="true"></i> Book Consultation
         </a>
     </div>
 
@@ -50,7 +70,7 @@
             <nav class="navbar" role="navigation" aria-label="Main navigation">
                 <div class="logo">
                     <a href="index.html">
-                        <img src="img/scholarix-logo.png" alt="Scholarix Global AI Consultant" class="logo-image" >
+                        <img src="img/scholarix-logo.png" alt="Scholarix Global AI Consultant" class="logo-image" width="50" height="50">
                         <span class="logo-tagline">Intelligent Infrastructure. Instant Impact.</span>
                     </a>
                 </div>
@@ -62,8 +82,8 @@
                 </div>
 
                 <ul class="nav-menu" id="navMenu">
-                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-                    <li><a href="index.html" class="nav-calculator"><i class="fas fa-calculator"></i> Calculator</a></li>
+                    <li><a href="index.html"><i class="fas fa-home" aria-hidden="true"></i> Home</a></li>
+                    <li><a href="index.html" class="nav-calculator"><i class="fas fa-calculator" aria-hidden="true"></i> Calculator</a></li>
                     <li><a href="pricing.html">Pricing</a></li>
                     <li><a href="success-stories.html" class="active">Success Stories</a></li>
                     <li><a href="team.html">Our Team</a></li>
@@ -106,13 +126,13 @@
     <!-- Filter by Industry -->
     <section class="filter-section">
         <div class="container">
-            <div class="filter-buttons">
-                <button class="filter-btn active" data-filter="all">All Industries</button>
-                <button class="filter-btn" data-filter="food-beverage">Food & Beverage</button>
-                <button class="filter-btn" data-filter="retail">Retail & E-commerce</button>
-                <button class="filter-btn" data-filter="manufacturing">Manufacturing</button>
-                <button class="filter-btn" data-filter="real-estate">Real Estate</button>
-                <button class="filter-btn" data-filter="professional-services">Professional Services</button>
+            <div class="filter-buttons" role="group" aria-label="Filter success stories by industry">
+                <button type="button" class="filter-btn active" data-filter="all" aria-label="Show all success stories" aria-pressed="true">All Industries</button>
+                <button type="button" class="filter-btn" data-filter="food-beverage" aria-label="Filter by Food and Beverage industry" aria-pressed="false">Food & Beverage</button>
+                <button type="button" class="filter-btn" data-filter="retail" aria-label="Filter by Retail and E-commerce industry" aria-pressed="false">Retail & E-commerce</button>
+                <button type="button" class="filter-btn" data-filter="manufacturing" aria-label="Filter by Manufacturing industry" aria-pressed="false">Manufacturing</button>
+                <button type="button" class="filter-btn" data-filter="real-estate" aria-label="Filter by Real Estate industry" aria-pressed="false">Real Estate</button>
+                <button type="button" class="filter-btn" data-filter="professional-services" aria-label="Filter by Professional Services industry" aria-pressed="false">Professional Services</button>
             </div>
         </div>
     </section>
@@ -127,13 +147,13 @@
                 <div class="case-grid">
                     <div class="case-content">
                         <div class="case-industry">
-                            <i class="fas fa-utensils"></i> Food & Beverage - Grocery Operations
+                            <i class="fas fa-utensils" aria-hidden="true"></i> Food & Beverage - Grocery Operations
                         </div>
                         <h2>Fresh Market LLC</h2>
                         <p class="case-subtitle">Multi-Location Grocery Chain Achieves 180% ROI in First Year</p>
                         
                         <div class="case-challenge">
-                            <h3><i class="fas fa-exclamation-triangle"></i> The Challenge</h3>
+                            <h3><i class="fas fa-exclamation-triangle" aria-hidden="true"></i> The Challenge</h3>
                             <ul>
                                 <li><strong>Inventory chaos:</strong> No real-time visibility across 5 grocery locations</li>
                                 <li><strong>Manual processes:</strong> Excel-based stock management causing daily errors</li>
@@ -144,7 +164,7 @@
                         </div>
                         
                         <div class="case-solution">
-                            <h3><i class="fas fa-lightbulb"></i> The SGC Solution</h3>
+                            <h3><i class="fas fa-lightbulb" aria-hidden="true"></i> The SGC Solution</h3>
                             <p><strong>Deployment Timeline:</strong> 12 days from contract to go-live</p>
                             <p><strong>Modules Implemented:</strong></p>
                             <ul>
@@ -157,7 +177,7 @@
                                 <li>AI-Powered Demand Forecasting</li>
                             </ul>
                             <div class="solution-highlight">
-                                <i class="fas fa-robot"></i>
+                                <i class="fas fa-robot" aria-hidden="true"></i>
                                 <strong>AI Innovation:</strong> Custom demand forecasting algorithm that analyzes sales patterns, seasonality, and local events to optimize inventory levels automatically.
                             </div>
                         </div>
@@ -165,54 +185,54 @@
                     
                     <div class="case-results">
                         <div class="results-header">
-                            <h3><i class="fas fa-chart-line"></i> The Results</h3>
+                            <h3><i class="fas fa-chart-line" aria-hidden="true"></i> The Results</h3>
                             <p class="results-period">Measured over 12 months</p>
                         </div>
                         
                         <div class="result-card primary">
-                            <div class="result-icon"><i class="fas fa-trophy"></i></div>
+                            <div class="result-icon"><i class="fas fa-trophy" aria-hidden="true"></i></div>
                             <div class="result-metric">180%</div>
                             <div class="result-label">ROI in First Year</div>
                             <div class="result-detail">AED 285,000 saved vs. AED 158,000 investment</div>
                         </div>
                         
                         <div class="result-card">
-                            <div class="result-icon"><i class="fas fa-boxes"></i></div>
+                            <div class="result-icon"><i class="fas fa-boxes" aria-hidden="true"></i></div>
                             <div class="result-metric">73%</div>
                             <div class="result-label">Reduction in Spoilage</div>
                             <div class="result-detail">From 18% waste to 4.8% waste</div>
                         </div>
                         
                         <div class="result-card">
-                            <div class="result-icon"><i class="fas fa-clock"></i></div>
+                            <div class="result-icon"><i class="fas fa-clock" aria-hidden="true"></i></div>
                             <div class="result-metric">156</div>
                             <div class="result-label">Hours Saved/Month</div>
                             <div class="result-detail">Automated inventory reconciliation</div>
                         </div>
                         
                         <div class="result-card">
-                            <div class="result-icon"><i class="fas fa-shopping-cart"></i></div>
+                            <div class="result-icon"><i class="fas fa-shopping-cart" aria-hidden="true"></i></div>
                             <div class="result-metric">92%</div>
                             <div class="result-label">Stock Availability</div>
                             <div class="result-detail">Up from 67% before AI-Powered Systems</div>
                         </div>
                         
                         <div class="result-card">
-                            <div class="result-icon"><i class="fas fa-dollar-sign"></i></div>
+                            <div class="result-icon"><i class="fas fa-dollar-sign" aria-hidden="true"></i></div>
                             <div class="result-metric">4.2</div>
                             <div class="result-label">Months to Payback</div>
                             <div class="result-detail">Full investment recovered</div>
                         </div>
                         
                         <div class="result-card">
-                            <div class="result-icon"><i class="fas fa-smile"></i></div>
+                            <div class="result-icon"><i class="fas fa-smile" aria-hidden="true"></i></div>
                             <div class="result-metric">34%</div>
                             <div class="result-label">Customer Satisfaction Increase</div>
                             <div class="result-detail">Based on in-store surveys</div>
                         </div>
                         
                         <div class="testimonial">
-                            <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                            <div class="quote-icon"><i class="fas fa-quote-left" aria-hidden="true"></i></div>
                             <p class="quote-text">"SGC TECH AI delivered in 12 days what our previous vendor couldn't do in 6 months. The AI forecasting alone saved us AED 120,000 in the first year by preventing over-ordering and spoilage. This system paid for itself faster than any business investment we've ever made."</p>
                             <div class="quote-author">
                                 <strong>Operations Director</strong>
@@ -228,13 +248,13 @@
                 <div class="case-grid">
                     <div class="case-content">
                         <div class="case-industry">
-                            <i class="fas fa-building"></i> Real Estate Management
+                            <i class="fas fa-building" aria-hidden="true"></i> Real Estate Management
                         </div>
                         <h2>Dubai Property Management Group</h2>
                         <p class="case-subtitle">150+ Properties Unified Under Single Platform</p>
                         
                         <div class="case-challenge">
-                            <h3><i class="fas fa-exclamation-triangle"></i> The Challenge</h3>
+                            <h3><i class="fas fa-exclamation-triangle" aria-hidden="true"></i> The Challenge</h3>
                             <ul>
                                 <li>Manual rent collection across 150+ residential/commercial properties</li>
                                 <li>No centralized tenant communication system</li>
@@ -245,7 +265,7 @@
                         </div>
                         
                         <div class="case-solution">
-                            <h3><i class="fas fa-lightbulb"></i> The SGC Solution</h3>
+                            <h3><i class="fas fa-lightbulb" aria-hidden="true"></i> The SGC Solution</h3>
                             <p><strong>Deployment:</strong> 14 days | <strong>Team Size:</strong> 18 employees trained</p>
                             <ul>
                                 <li>Property Management Module (Custom)</li>
@@ -260,7 +280,7 @@
                     
                     <div class="case-results">
                         <div class="results-header">
-                            <h3><i class="fas fa-chart-line"></i> The Results</h3>
+                            <h3><i class="fas fa-chart-line" aria-hidden="true"></i> The Results</h3>
                         </div>
                         
                         <div class="result-card primary">
@@ -293,13 +313,13 @@
                 <div class="case-grid">
                     <div class="case-content">
                         <div class="case-industry">
-                            <i class="fas fa-industry"></i> Manufacturing & Distribution
+                            <i class="fas fa-industry" aria-hidden="true"></i> Manufacturing & Distribution
                         </div>
                         <h2>Emirates Custom Furniture</h2>
                         <p class="case-subtitle">Production Delays Cut by 68% with Smart Manufacturing</p>
                         
                         <div class="case-challenge">
-                            <h3><i class="fas fa-exclamation-triangle"></i> The Challenge</h3>
+                            <h3><i class="fas fa-exclamation-triangle" aria-hidden="true"></i> The Challenge</h3>
                             <ul>
                                 <li>No production tracking system (orders lost in workshop)</li>
                                 <li>Material procurement delays causing missed deadlines</li>
@@ -310,7 +330,7 @@
                         </div>
                         
                         <div class="case-solution">
-                            <h3><i class="fas fa-lightbulb"></i> The SGC Solution</h3>
+                            <h3><i class="fas fa-lightbulb" aria-hidden="true"></i> The SGC Solution</h3>
                             <p><strong>Deployment:</strong> 13 days | <strong>Custom Features:</strong> 3 bespoke modules</p>
                             <ul>
                                 <li>Manufacturing Order Management</li>
@@ -325,7 +345,7 @@
                     
                     <div class="case-results">
                         <div class="results-header">
-                            <h3><i class="fas fa-chart-line"></i> The Results</h3>
+                            <h3><i class="fas fa-chart-line" aria-hidden="true"></i> The Results</h3>
                         </div>
                         
                         <div class="result-card primary">
@@ -358,13 +378,13 @@
                 <div class="case-grid">
                     <div class="case-content">
                         <div class="case-industry">
-                            <i class="fas fa-shopping-bag"></i> Retail & E-commerce
+                            <i class="fas fa-shopping-bag" aria-hidden="true"></i> Retail & E-commerce
                         </div>
                         <h2>Fashion Forward UAE</h2>
                         <p class="case-subtitle">Omnichannel Retail: Online + 4 Physical Stores Unified</p>
                         
                         <div class="case-challenge">
-                            <h3><i class="fas fa-exclamation-triangle"></i> The Challenge</h3>
+                            <h3><i class="fas fa-exclamation-triangle" aria-hidden="true"></i> The Challenge</h3>
                             <ul>
                                 <li>Shopify and in-store inventory completely disconnected</li>
                                 <li>Double-selling causing customer refunds and complaints</li>
@@ -375,7 +395,7 @@
                         </div>
                         
                         <div class="case-solution">
-                            <h3><i class="fas fa-lightbulb"></i> The SGC Solution</h3>
+                            <h3><i class="fas fa-lightbulb" aria-hidden="true"></i> The SGC Solution</h3>
                             <p><strong>Deployment:</strong> 14 days | <strong>Integration:</strong> Shopify bidirectional sync</p>
                             <ul>
                                 <li>Unified Inventory (Online + 4 Stores)</li>
@@ -390,7 +410,7 @@
                     
                     <div class="case-results">
                         <div class="results-header">
-                            <h3><i class="fas fa-chart-line"></i> The Results</h3>
+                            <h3><i class="fas fa-chart-line" aria-hidden="true"></i> The Results</h3>
                         </div>
                         
                         <div class="result-card primary">
@@ -423,13 +443,13 @@
                 <div class="case-grid">
                     <div class="case-content">
                         <div class="case-industry">
-                            <i class="fas fa-briefcase"></i> Professional Services
+                            <i class="fas fa-briefcase" aria-hidden="true"></i> Professional Services
                         </div>
                         <h2>Gulf Consulting Partners</h2>
                         <p class="case-subtitle">Billable Hours Increased 42% with Time Tracking Automation</p>
                         
                         <div class="case-challenge">
-                            <h3><i class="fas fa-exclamation-triangle"></i> The Challenge</h3>
+                            <h3><i class="fas fa-exclamation-triangle" aria-hidden="true"></i> The Challenge</h3>
                             <ul>
                                 <li>Consultants losing 20-30% billable time to admin work</li>
                                 <li>No visibility into project profitability until invoice</li>
@@ -440,7 +460,7 @@
                         </div>
                         
                         <div class="case-solution">
-                            <h3><i class="fas fa-lightbulb"></i> The SGC Solution</h3>
+                            <h3><i class="fas fa-lightbulb" aria-hidden="true"></i> The SGC Solution</h3>
                             <p><strong>Deployment:</strong> 11 days | <strong>Users:</strong> 24 consultants trained</p>
                             <ul>
                                 <li>Project Management & Time Tracking</li>
@@ -455,7 +475,7 @@
                     
                     <div class="case-results">
                         <div class="results-header">
-                            <h3><i class="fas fa-chart-line"></i> The Results</h3>
+                            <h3><i class="fas fa-chart-line" aria-hidden="true"></i> The Results</h3>
                         </div>
                         
                         <div class="result-card primary">
@@ -495,22 +515,22 @@
             </div>
             <div class="patterns-grid">
                 <div class="pattern-card">
-                    <div class="pattern-icon"><i class="fas fa-bolt"></i></div>
+                    <div class="pattern-icon"><i class="fas fa-bolt" aria-hidden="true"></i></div>
                     <h3>14-Day Deployment</h3>
                     <p>Every client above went live in 11-14 days. Not 6 months, not 18 months—two weeks from contract to production.</p>
                 </div>
                 <div class="pattern-card">
-                    <div class="pattern-icon"><i class="fas fa-chart-line"></i></div>
+                    <div class="pattern-icon"><i class="fas fa-chart-line" aria-hidden="true"></i></div>
                     <h3>150%+ ROI Minimum</h3>
                     <p>Average ROI across all implementations: 172%. Our guarantee is 150% minimum, and we've never failed to deliver.</p>
                 </div>
                 <div class="pattern-card">
-                    <div class="pattern-icon"><i class="fas fa-clock"></i></div>
+                    <div class="pattern-icon"><i class="fas fa-clock" aria-hidden="true"></i></div>
                     <h3>3-5 Month Payback</h3>
                     <p>Investment recovered in first quarter. Industry average is 18-24 months. We're 5x faster.</p>
                 </div>
                 <div class="pattern-card">
-                    <div class="pattern-icon"><i class="fas fa-robot"></i></div>
+                    <div class="pattern-icon"><i class="fas fa-robot" aria-hidden="true"></i></div>
                     <h3>AI-Powered Customization</h3>
                     <p>Every implementation includes custom AI features tailored to industry-specific challenges.</p>
                 </div>
@@ -522,7 +542,7 @@
     <section class="video-testimonials-section">
         <div class="container">
             <div class="section-header">
-                <h2><i class="fas fa-video"></i> Client Video Testimonials</h2>
+                <h2><i class="fas fa-video" aria-hidden="true"></i> Client Video Testimonials</h2>
                 <p>Hear directly from our clients about their transformation journey</p>
             </div>
             <div class="video-testimonials-grid">
@@ -535,8 +555,8 @@
                         <h3>CFO Success Story</h3>
                         <p class="video-description">Watch how our AI-powered implementation transformed financial operations.</p>
                         <div class="video-meta">
-                            <span class="video-duration"><i class="fas fa-user-tie"></i> CFO</span>
-                            <span class="video-tag"><i class="fas fa-star"></i> Executive</span>
+                            <span class="video-duration"><i class="fas fa-user-tie" aria-hidden="true"></i> CFO</span>
+                            <span class="video-tag"><i class="fas fa-star" aria-hidden="true"></i> Executive</span>
                         </div>
                     </div>
                 </div>
@@ -550,8 +570,8 @@
                         <h3>Real Estate Transformation</h3>
                         <p class="video-description">Dubai real estate company revolutionized property management in 14 days.</p>
                         <div class="video-meta">
-                            <span class="video-duration"><i class="fas fa-building"></i> Real Estate</span>
-                            <span class="video-tag"><i class="fas fa-star"></i> Client</span>
+                            <span class="video-duration"><i class="fas fa-building" aria-hidden="true"></i> Real Estate</span>
+                            <span class="video-tag"><i class="fas fa-star" aria-hidden="true"></i> Client</span>
                         </div>
                     </div>
                 </div>
@@ -565,8 +585,8 @@
                         <h3>Our Founder's Vision</h3>
                         <p class="video-description">The story behind SGC TECH AI and our mission to transform businesses.</p>
                         <div class="video-meta">
-                            <span class="video-duration"><i class="fas fa-lightbulb"></i> Founder</span>
-                            <span class="video-tag"><i class="fas fa-star"></i> Story</span>
+                            <span class="video-duration"><i class="fas fa-lightbulb" aria-hidden="true"></i> Founder</span>
+                            <span class="video-tag"><i class="fas fa-star" aria-hidden="true"></i> Story</span>
                         </div>
                     </div>
                 </div>
@@ -583,8 +603,8 @@
                 <div class="cta-buttons">
                     <a href="appointment.html" class="btn-primary">Book Free Consultation</a>
                     <a href="pricing.html" class="btn-secondary">View Pricing</a>
-                    <a href="https://wa.me/971563905772?text=Hi%20SGC%2C%20I%27d%20like%20to%20discuss%20a%20similar%20implementation" class="btn-whatsapp" target="_blank" rel="noopener">
-                        <i class="fab fa-whatsapp"></i> WhatsApp Us Now
+                    <a href="https://wa.me/971563905772?text=Hi%20SGC%2C%20I%27d%20like%20to%20discuss%20a%20similar%20implementation" class="btn-whatsapp" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp Us Now
                     </a>
                 </div>
                 <p class="cta-footer">All implementations include our 150% ROI guarantee. Zero risk.</p>
@@ -599,15 +619,15 @@
                 <div class="footer-col">
                     <div class="footer-logo">
                         <a href="index.html">
-                            <img src="img/scholarix-logo.png" alt="Scholarix Global AI Consultant" class="logo-image" >
+                            <img src="img/scholarix-logo.png" alt="Scholarix Global AI Consultant" class="logo-image" width="50" height="50">
                             <span class="logo-tagline">Intelligent Infrastructure. Instant Impact.</span>
                         </a>
                     </div>
                     <p class="footer-description">UAE's only AI-driven Intelligent Infrastructure implementation partner with 14-day deployment and guaranteed ROI.</p>
                     <div class="footer-social">
-                        <a href="#" target="_blank" rel="noopener" aria-label="Follow us on LinkedIn"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" target="_blank" rel="noopener" aria-label="Follow us on Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="https://wa.me/971563905772" target="_blank" rel="noopener" aria-label="Contact us on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Follow us on LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                        <a href="https://wa.me/971563905772" target="_blank" rel="noopener noreferrer" aria-label="Contact us on WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
                     </div>
                 </div>
                 
@@ -634,10 +654,10 @@
                 <div class="footer-col">
                     <h4>Contact</h4>
                     <ul class="contact-list">
-                        <li><i class="fas fa-map-marker-alt"></i> Dubai, UAE</li>
-                        <li><i class="fas fa-envelope"></i> hello@sgctechai.com</li>
-                        <li><i class="fas fa-phone"></i> +971 56 390 5772</li>
-                        <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/971563905772" target="_blank" rel="noopener">WhatsApp Support</a></li>
+                        <li><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Dubai, UAE</li>
+                        <li><i class="fas fa-envelope" aria-hidden="true"></i> hello@sgctechai.com</li>
+                        <li><i class="fas fa-phone" aria-hidden="true"></i> +971 56 390 5772</li>
+                        <li><i class="fab fa-whatsapp" aria-hidden="true"></i> <a href="https://wa.me/971563905772" target="_blank" rel="noopener noreferrer">WhatsApp Support</a></li>
                     </ul>
                 </div>
             </div>
@@ -653,7 +673,8 @@
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
-    <script src="js/success-stories.js"></script>
+    <script defer src="js/main.js"></script>
+    <script defer src="js/success-stories.js"></script>
+    <script defer src="js/cookie-consent.js"></script>
 </body>
 </html>

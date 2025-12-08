@@ -8,11 +8,15 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add click event to each filter button
     filterButtons.forEach(button => {
         button.addEventListener('click', function() {
-            // Remove active class from all buttons
-            filterButtons.forEach(btn => btn.classList.remove('active'));
+            // Remove active class from all buttons and update aria-pressed
+            filterButtons.forEach(btn => {
+                btn.classList.remove('active');
+                btn.setAttribute('aria-pressed', 'false');
+            });
             
-            // Add active class to clicked button
+            // Add active class to clicked button and update aria-pressed
             this.classList.add('active');
+            this.setAttribute('aria-pressed', 'true');
             
             // Get filter value
             const filterValue = this.getAttribute('data-filter');

@@ -20,7 +20,7 @@ section.dark-section,
 .cta-section,
 .stats-section,
 .testimonials-section {
-    background: #0c1e34 !important;
+    background: #0c1e34;
     position: relative;
     overflow: hidden;
 }
@@ -321,7 +321,7 @@ section h3,
 .about-section h2,
 .team-section h2,
 .success-stories h2 {
-    color: #ffffff !important;
+    color: #ffffff;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
@@ -332,14 +332,14 @@ section p,
 .about-section p,
 .team-section p,
 .case-study p {
-    color: rgba(255, 255, 255, 0.9) !important;
+    color: rgba(255, 255, 255, 0.9);
 }
 
 /* List Items */
 section ul li,
 section ol li,
 .features-list li {
-    color: rgba(255, 255, 255, 0.9) !important;
+    color: rgba(255, 255, 255, 0.9);
 }
 
 /* Subtle Text */
@@ -347,19 +347,19 @@ section ol li,
 .card-footer p,
 small,
 .meta-info {
-    color: rgba(255, 255, 255, 0.7) !important;
+    color: rgba(255, 255, 255, 0.7);
 }
 
 /* Accent Text (Cyan) */
 .highlight,
 .accent-text,
 .pricing-card .save-badge {
-    color: #00FFF0 !important;
+    color: #00FFF0;
 }
 
 /* Neon Green Accents */
 .success-metric,
 .roi-number,
 .stat-number {
-    color: #00FF88 !important;
+    color: #00FF88;
 }
