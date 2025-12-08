@@ -10,31 +10,40 @@
     const body = document.body;
 
     if (navToggle && navMenu) {
-        // Toggle menu on click
-        navToggle.addEventListener('click', function(e) {
+        // Toggle menu on click/touch
+        function handleToggle(e) {
             e.preventDefault();
             e.stopPropagation();
-            const isOpen = this.classList.contains('active');
+            
+            const isOpen = navToggle.classList.contains('active');
             
             if (isOpen) {
                 closeMenu();
             } else {
                 openMenu();
             }
-        });
+        }
+        
+        navToggle.addEventListener('click', handleToggle);
+        
+        // Touch event for better mobile response
+        navToggle.addEventListener('touchend', function(e) {
+            e.preventDefault();
+            handleToggle(e);
+        }, { passive: false });
 
         // Keyboard support for nav toggle
         navToggle.addEventListener('keydown', function(e) {
             if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
-                this.click();
+                handleToggle(e);
             }
             if (e.key === 'Escape' && navMenu.classList.contains('active')) {
                 closeMenu();
             }
         });
 
-        // Close menu when clicking outside
+        // Close menu when clicking/touching outside
         document.addEventListener('click', function(event) {
             if (!navMenu.classList.contains('active')) return;
             
@@ -45,6 +54,18 @@
                 closeMenu();
             }
         });
+        
+        // Touch outside to close
+        document.addEventListener('touchend', function(event) {
+            if (!navMenu.classList.contains('active')) return;
+            
+            const isClickOnToggle = navToggle.contains(event.target);
+            const isClickOnMenu = navMenu.contains(event.target);
+            
+            if (!isClickOnToggle && !isClickOnMenu) {
+                closeMenu();
+            }
+        }, { passive: true });
 
         // Close menu when clicking on a link
         const navLinks = navMenu.querySelectorAll('a');
@@ -81,6 +102,9 @@
             navToggle.setAttribute('aria-expanded', 'false');
             body.style.overflow = ''; // Restore scrolling
         }
+        
+        // Expose closeMenu globally for other scripts
+        window.closeNavMenu = closeMenu;
     }
 
     // ========== Smooth Scrolling for Anchor Links ==========

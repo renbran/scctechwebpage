@@ -83,6 +83,16 @@ class ROICalculator {
         document.querySelectorAll('[data-calculator-trigger]').forEach(trigger => {
             trigger.addEventListener('click', (e) => {
                 e.preventDefault();
+                
+                // Close mobile nav menu if open
+                const navToggle = document.getElementById('navToggle');
+                const navMenu = document.getElementById('navMenu');
+                if (navToggle && navMenu && navMenu.classList.contains('active')) {
+                    navToggle.classList.remove('active');
+                    navMenu.classList.remove('active');
+                    navToggle.setAttribute('aria-expanded', 'false');
+                }
+                
                 this.open();
             });
         });
