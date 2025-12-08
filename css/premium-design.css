@@ -222,6 +222,21 @@
     box-shadow: var(--shadow-glow);
 }
 
+/* Primary card text should be solid dark color, not gradient */
+.result-card.primary .result-metric {
+    background: none;
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: var(--deep-navy, #0c1e34);
+    background-clip: unset;
+    color: var(--deep-navy, #0c1e34);
+}
+
+.result-card.primary .result-icon,
+.result-card.primary .result-label,
+.result-card.primary .result-detail {
+    color: var(--deep-navy, #0c1e34);
+}
+
 .result-metric {
     font-size: 3.5rem;
     font-weight: 800;

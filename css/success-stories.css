@@ -151,21 +151,23 @@
 .case-study.featured {
     border: 3px solid var(--electric-cyan);
     background: linear-gradient(to bottom, rgba(0, 255, 240, 0.1), rgba(12, 30, 52, 0.95));
+    margin-top: 30px; /* Add space for the badge */
 }
 
 .case-badge {
     position: absolute;
-    top: -15px;
-    left: 3rem;
+    top: -18px;
+    left: 2rem;
     background: linear-gradient(135deg, var(--electric-cyan) 0%, var(--neon-green) 100%);
-    color: white;
-    padding: 0.5rem 1.5rem;
+    color: var(--deep-navy, #0c1e34);
+    padding: 0.6rem 1.5rem;
     border-radius: 50px;
     font-weight: 700;
-    font-size: 0.875rem;
+    font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    box-shadow: 0 4px 12px rgba(79, 195, 247, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 255, 240, 0.4);
+    z-index: 10;
 }
 
 .case-grid {
@@ -349,7 +351,16 @@
 .result-card.primary {
     background: linear-gradient(135deg, var(--electric-cyan) 0%, var(--neon-green) 100%);
     border-color: transparent;
-    box-shadow: 0 8px 20px rgba(79, 195, 247, 0.3);
+    box-shadow: 0 8px 20px rgba(0, 255, 240, 0.4);
+}
+
+/* Ensure text is visible on primary gradient card */
+.result-card.primary .result-icon,
+.result-card.primary .result-metric,
+.result-card.primary .result-label,
+.result-card.primary .result-detail {
+    color: var(--deep-navy, #0c1e34);
+    opacity: 1;
 }
 
 .result-icon {
