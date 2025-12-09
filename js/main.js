@@ -296,3 +296,80 @@
     console.log('%cBuilt with 💙 by SGC TECH AI Engineering Team', 'color: #64748b; font-size: 12px;');
 
 })();
+
+// ========== Logo Video Modal Functions (Global scope) ==========
+function openLogoVideoModal() {
+    const modal = document.getElementById('logo-video-modal');
+    const video = document.getElementById('modal-logo-video');
+    
+    if (modal && video) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        
+        // Start playing video
+        video.play().catch(err => console.log('Video autoplay prevented:', err));
+
+        // Track with analytics (if Google Analytics is available)
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'video_modal_opened', {
+                'event_category': 'Engagement',
+                'event_label': 'Logo Reveal Modal'
+            });
+        }
+    }
+}
+
+function closeLogoVideoModal() {
+    const modal = document.getElementById('logo-video-modal');
+    const video = document.getElementById('modal-logo-video');
+    
+    if (modal && video) {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+        
+        // Pause and reset video
+        video.pause();
+        video.currentTime = 0;
+    }
+}
+
+// Close modal on Escape key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeLogoVideoModal();
+    }
+});
+
+// Track hero video interactions
+document.addEventListener('DOMContentLoaded', function() {
+    const heroVideo = document.getElementById('hero-logo-reveal');
+    
+    if (heroVideo) {
+        // Track video load
+        heroVideo.addEventListener('loadeddata', function() {
+            console.log('Hero logo video loaded successfully');
+        });
+
+        // Track video play
+        heroVideo.addEventListener('play', function() {
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'hero_video_play', {
+                    'event_category': 'Engagement',
+                    'event_label': 'Logo Reveal Hero'
+                });
+            }
+        });
+
+        // Fallback: If video fails to load, show poster image
+        heroVideo.addEventListener('error', function() {
+            console.error('Hero video failed to load');
+            this.style.display = 'none';
+            // Show backup image or comparison visual
+            const backupVisual = document.querySelector('.comparison-visual.mobile-only');
+            if (backupVisual) {
+                backupVisual.classList.remove('mobile-only');
+                backupVisual.style.display = 'block';
+            }
+        });
+    }
+});
