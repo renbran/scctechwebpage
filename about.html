@@ -3,10 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Mobile browser theme color -->
-    <meta name="theme-color" content="#0c1e34">
-    <meta name="msapplication-navbutton-color" content="#0c1e34">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>About Us - SGC TECH AI | AI-Driven Intelligent Infrastructure Excellence</title>
     <meta name="description" content="Learn about SGC TECH AI - UAE's leading AI-driven Intelligent Infrastructure implementation partner. Backed by Scholarix Global Consultancy with 14-day deployment guarantee.">
     <link rel="icon" type="image/png" href="img/scholarix-logo.png">
@@ -25,73 +21,72 @@
     <meta property="twitter:image" content="https://sgctech.ai/img/scholarix-logo.png">
     <!-- Canonical URL -->
     <link rel="canonical" href="https://sgctech.ai/about.html">
-
-    <!-- JSON-LD Schema Markup for About Page -->
+    
+    <!-- Schema.org Structured Data -->
     <script type="application/ld+json">
     {
-      "@context": "https://schema.org",
-      "@type": "AboutPage",
-      "name": "About SGC TECH AI | AI-Driven Infrastructure Excellence",
-      "description": "Learn about SGC TECH AI - UAE's leading AI-driven ERP implementation partner. Backed by Scholarix Global Consultancy with 14-day deployment guarantee.",
-      "url": "https://sgctech.ai/about.html",
-      "about": {
-        "@type": "Organization",
-        "name": "SGC TECH AI",
-        "foundingDate": "2024",
-        "numberOfEmployees": "12+",
-        "slogan": "Intelligent Infrastructure. Instant Impact.",
-        "knowsAbout": ["ERP Implementation", "AI Automation", "Machine Learning", "Business Transformation", "Odoo ERP"]
-      }
+        "@context": "https://schema.org",
+        "@type": "AboutPage",
+        "name": "About SGC TECH AI",
+        "description": "Learn about SGC TECH AI - UAE's leading AI-driven Intelligent Infrastructure implementation partner.",
+        "url": "https://sgctech.ai/about.html",
+        "mainEntity": {
+            "@type": "Organization",
+            "name": "SGC TECH AI",
+            "foundingDate": "2024",
+            "description": "UAE's first AI-Native ERP Implementation Partner delivering 14-day deployments with guaranteed ROI.",
+            "parentOrganization": {
+                "@type": "Organization",
+                "name": "Scholarix Global Consultancy"
+            },
+            "numberOfEmployees": {
+                "@type": "QuantitativeValue",
+                "value": "12+"
+            },
+            "knowsAbout": ["Odoo ERP", "AI Integration", "Business Automation", "Digital Transformation"]
+        }
     }
     </script>
-
-    <!-- Preconnect for faster external resource loading -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <!-- Critical CSS for above-fold content -->
-    <style>
-        body{margin:0;font-family:'Inter',system-ui,-apple-system,sans-serif;background:#0c1e34}
-        .header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(12,30,52,0.95);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px)}
-        .nav-container{max-width:1200px;margin:0 auto;padding:1rem;display:flex;justify-content:space-between;align-items:center}
-        .skip-link{position:absolute;top:-40px;left:0;background:#00FFF0;color:#0c1e34;padding:8px;z-index:100}
-        .skip-link:focus{top:0}
-    </style>
-    <!-- Non-blocking external CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://sgctech.ai/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "About Us",
+                "item": "https://sgctech.ai/about.html"
+            }
+        ]
+    }
+    </script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/mobile-first-base.css">
     <link rel="stylesheet" href="css/about.css">
     <link rel="stylesheet" href="css/premium-design.css">
-    <link rel="stylesheet" href="css/consistent-backgrounds.css">
     <link rel="stylesheet" href="css/premium-global.css">
     <link rel="stylesheet" href="css/contrast-improvements.css">
-    <link rel="stylesheet" href="css/animation-fallbacks.css">
-    <link rel="stylesheet" href="css/scroll-helpers.css">
     <link rel="stylesheet" href="css/cookie-consent.css">
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-82T1SDNXZS"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-82T1SDNXZS');
-    </script>
 </head>
 <body>
     <!-- Skip to Content Link for Accessibility -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
     <!-- Mobile Sticky Bottom Bar -->
-    <div class="mobile-sticky-bar" role="navigation" aria-label="Quick contact actions">
-        <a href="appointment.html" class="btn-appointment-sticky" aria-label="Schedule a meeting">
-            <i class="fas fa-calendar-check" aria-hidden="true"></i> Book Meeting
+    <div class="mobile-sticky-bar">
+        <a href="https://wa.me/971563905772?text=Hi%20SGC%2C%20I%27d%20like%20to%20learn%20more%20about%20your%20company" class="btn-whatsapp-sticky" target="_blank" rel="noopener">
+            <i class="fab fa-whatsapp"></i> WhatsApp Us
         </a>
-        <a href="index.html#roi-calculator" class="btn-roi-sticky" aria-label="Open ROI Calculator">
-            <i class="fas fa-calculator" aria-hidden="true"></i> Calculate ROI
+        <a href="appointment.html" class="btn-appointment-sticky">
+            <i class="fas fa-calendar-check"></i> Book Meeting
         </a>
     </div>
 
@@ -101,7 +96,7 @@
             <nav class="navbar" role="navigation" aria-label="Main navigation">
                 <div class="logo">
                     <a href="index.html">
-                        <img src="img/scholarix-logo.png" alt="Scholarix Global AI Consultant" class="logo-image" width="50" height="50">
+                        <img src="img/scholarix-logo.png" alt="Scholarix Global AI Consultant" class="logo-image" >
                         <span class="logo-tagline">Intelligent Infrastructure. Instant Impact.</span>
                     </a>
                 </div>
@@ -113,11 +108,9 @@
                 </div>
 
                 <ul class="nav-menu" id="navMenu">
-                    <li><a href="index.html"><i class="fas fa-home" aria-hidden="true"></i> Home</a></li>
-                    <li><a href="index.html" class="nav-calculator"><i class="fas fa-calculator" aria-hidden="true"></i> Calculator</a></li>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="index.html" class="nav-calculator"><i class="fas fa-calculator"></i> Calculator</a></li>
                     <li><a href="pricing.html">Pricing</a></li>
-                    <li><a href="success-stories.html">Success Stories</a></li>
-                    <li><a href="team.html">Our Team</a></li>
                     <li><a href="about.html" class="active">About</a></li>
                     <li><a href="appointment.html" class="btn-nav-cta">Book Consultation</a></li>
                 </ul>
@@ -135,19 +128,19 @@
             </div>
             <div class="hero-badges">
                 <div class="badge-item">
-                    <i class="fas fa-award" aria-hidden="true"></i>
+                    <i class="fas fa-award"></i>
                     <span>Leading AI Implementation Partner</span>
                 </div>
                 <div class="badge-item">
-                    <i class="fas fa-shield-alt" aria-hidden="true"></i>
+                    <i class="fas fa-shield-alt"></i>
                     <span>150% ROI Guarantee</span>
                 </div>
                 <div class="badge-item">
-                    <i class="fas fa-users" aria-hidden="true"></i>
+                    <i class="fas fa-users"></i>
                     <span>98% Client Retention</span>
                 </div>
                 <div class="badge-item">
-                    <i class="fas fa-bolt" aria-hidden="true"></i>
+                    <i class="fas fa-bolt"></i>
                     <span>14-Day Deployment</span>
                 </div>
             </div>
@@ -217,10 +210,10 @@
                     <h4>Enterprise-Grade Foundation</h4>
                     <p>SGC TECH AI is the technology arm of <strong>Scholarix Global Consultancy</strong>, an established UAE consultancy specializing in education technology and business transformation. Scholarix brings:</p>
                     <ul class="parent-benefits">
-                        <li><i class="fas fa-check-circle" aria-hidden="true"></i> <strong>Regulatory Compliance:</strong> Full UAE business licensing and legal infrastructure</li>
-                        <li><i class="fas fa-check-circle" aria-hidden="true"></i> <strong>Financial Stability:</strong> Established credit lines and payment processing</li>
-                        <li><i class="fas fa-check-circle" aria-hidden="true"></i> <strong>Enterprise Relationships:</strong> Existing contracts with Fortune 500 partners</li>
-                        <li><i class="fas fa-check-circle" aria-hidden="true"></i> <strong>Risk Mitigation:</strong> Insurance, bonding, and guarantee backing</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Regulatory Compliance:</strong> Full UAE business licensing and legal infrastructure</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Financial Stability:</strong> Established credit lines and payment processing</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Enterprise Relationships:</strong> Existing contracts with Fortune 500 partners</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Risk Mitigation:</strong> Insurance, bonding, and guarantee backing</li>
                     </ul>
                     <p class="parent-footer">This partnership allows SGC TECH AI to focus entirely on technical excellence while leveraging Scholarix's operational infrastructure.</p>
                 </div>
@@ -238,7 +231,7 @@
             <div class="diff-grid">
                 <div class="diff-card">
                     <div class="diff-icon">
-                        <i class="fas fa-robot" aria-hidden="true"></i>
+                        <i class="fas fa-robot"></i>
                     </div>
                     <h3>AI-Native, Not AI-Washed</h3>
                     <p>Our proprietary AI engine doesn't just "assist"—it autonomously configures workflows, data models, and integrations based on your business requirements. This eliminates 70% of manual consultant work.</p>
@@ -249,7 +242,7 @@
                 
                 <div class="diff-card">
                     <div class="diff-icon">
-                        <i class="fas fa-code" aria-hidden="true"></i>
+                        <i class="fas fa-code"></i>
                     </div>
                     <h3>Builders, Not Sellers</h3>
                     <p>Our team consists of software engineers with deep AI-Powered Systems technical expertise. We write custom Python modules, optimize database queries, and architect scalable solutions. We don't outsource development.</p>
@@ -260,7 +253,7 @@
                 
                 <div class="diff-card">
                     <div class="diff-icon">
-                        <i class="fas fa-chart-line" aria-hidden="true"></i>
+                        <i class="fas fa-chart-line"></i>
                     </div>
                     <h3>ROI Guarantee, Not Promises</h3>
                     <p>We contractually guarantee 150-200% ROI in your first year. If you don't hit these metrics, we refund the difference. This isn't marketing—it's in our contract.</p>
@@ -271,7 +264,7 @@
                 
                 <div class="diff-card">
                     <div class="diff-icon">
-                        <i class="fas fa-bolt" aria-hidden="true"></i>
+                        <i class="fas fa-bolt"></i>
                     </div>
                     <h3>Speed Without Compromise</h3>
                     <p>14-day deployment doesn't mean rushed work. It means our AI handles configuration efficiently while our engineers focus on high-value customizations. You get enterprise-grade quality at startup speed.</p>
@@ -282,7 +275,7 @@
                 
                 <div class="diff-card">
                     <div class="diff-icon">
-                        <i class="fas fa-hand-holding-usd" aria-hidden="true"></i>
+                        <i class="fas fa-hand-holding-usd"></i>
                     </div>
                     <h3>Transparent Pricing</h3>
                     <p>No hidden fees, no scope creep charges, no maintenance surprises. We publish our pricing tiers publicly because we have nothing to hide. What you see is what you pay.</p>
@@ -293,7 +286,7 @@
                 
                 <div class="diff-card">
                     <div class="diff-icon">
-                        <i class="fas fa-headset" aria-hidden="true"></i>
+                        <i class="fas fa-headset"></i>
                     </div>
                     <h3>Rapid Rescue Service</h3>
                     <p>If your current ERP implementation is failing, we can take over and stabilize it within 2 weeks. Our emergency service includes project assessment, team transition, and rapid remediation.</p>
@@ -346,7 +339,7 @@
             </div>
             <div class="stack-grid">
                 <div class="stack-category">
-                    <h3><i class="fas fa-server" aria-hidden="true"></i> Core Platform</h3>
+                    <h3><i class="fas fa-server"></i> Core Platform</h3>
                     <ul>
                         <li>AI-Powered Systems Enterprise (Latest Version)</li>
                         <li>PostgreSQL Database</li>
@@ -355,7 +348,7 @@
                     </ul>
                 </div>
                 <div class="stack-category">
-                    <h3><i class="fas fa-cloud" aria-hidden="true"></i> Infrastructure</h3>
+                    <h3><i class="fas fa-cloud"></i> Infrastructure</h3>
                     <ul>
                         <li>AWS/Azure Cloud Hosting</li>
                         <li>Kubernetes Orchestration</li>
@@ -364,7 +357,7 @@
                     </ul>
                 </div>
                 <div class="stack-category">
-                    <h3><i class="fas fa-shield-alt" aria-hidden="true"></i> Security</h3>
+                    <h3><i class="fas fa-shield-alt"></i> Security</h3>
                     <ul>
                         <li>SSL/TLS Encryption</li>
                         <li>Multi-Factor Authentication</li>
@@ -373,7 +366,7 @@
                     </ul>
                 </div>
                 <div class="stack-category">
-                    <h3><i class="fas fa-plug" aria-hidden="true"></i> Integrations</h3>
+                    <h3><i class="fas fa-plug"></i> Integrations</h3>
                     <ul>
                         <li>Payment Gateways (Stripe, PayPal)</li>
                         <li>Accounting Systems (QuickBooks, Xero)</li>
@@ -395,40 +388,32 @@
             <div class="cert-grid">
                 <div class="cert-card">
                     <div class="cert-badge">
-                        <!-- Placeholder badge - Replace with actual Odoo Partner badge when obtained -->
-                        <img src="https://via.placeholder.com/150x150/0c1e34/00FFF0?text=Odoo+Partner" alt="Odoo Partner Badge - Placeholder" loading="lazy">
+                        <i class="fas fa-certificate"></i>
                     </div>
-                    <h4>Odoo Implementation Partner <span class="badge-status">(Pending)</span></h4>
-                    <p>Certified partner with direct access to Odoo's technical resources and support. Application in progress.</p>
+                    <h4>Leading AI Implementation Partner</h4>
+                    <p>AI-native implementation partner with direct access to AI-Powered Systems's technical resources and support.</p>
                 </div>
                 <div class="cert-card">
                     <div class="cert-badge">
-                        <!-- Placeholder badge - Replace with actual business license -->
-                        <img src="https://via.placeholder.com/150x150/0c1e34/00FFF0?text=UAE+License" alt="UAE Business License - Placeholder" loading="lazy">
+                        <i class="fas fa-building"></i>
                     </div>
-                    <h4>UAE Business License <span class="badge-status">(Active)</span></h4>
+                    <h4>UAE Business License</h4>
                     <p>Fully licensed and registered business entity in the United Arab Emirates with local regulatory compliance.</p>
                 </div>
                 <div class="cert-card">
                     <div class="cert-badge">
-                        <!-- Placeholder badge - Replace with actual ISO certificate -->
-                        <img src="https://via.placeholder.com/150x150/0c1e34/00FFF0?text=ISO+27001" alt="ISO 27001 Certificate - Placeholder" loading="lazy">
+                        <i class="fas fa-shield-alt"></i>
                     </div>
-                    <h4>ISO 27001 Security <span class="badge-status">(In Progress)</span></h4>
-                    <p>Security and information management systems aligned with ISO 27001 standards. Certification process underway.</p>
+                    <h4>ISO-Ready Infrastructure</h4>
+                    <p>Security and quality management systems aligned with ISO 27001 and ISO 9001 standards.</p>
                 </div>
                 <div class="cert-card">
                     <div class="cert-badge">
-                        <!-- Placeholder badge - Replace with actual AWS badge -->
-                        <img src="https://via.placeholder.com/150x150/0c1e34/00FFF0?text=AWS+Partner" alt="AWS Partner Badge - Placeholder" loading="lazy">
+                        <i class="fas fa-handshake"></i>
                     </div>
-                    <h4>AWS Partner <span class="badge-status">(Registered)</span></h4>
-                    <p>Amazon Web Services technology partner with expertise in cloud infrastructure and deployment automation.</p>
+                    <h4>Enterprise Partnerships</h4>
+                    <p>Strategic partnerships with AWS, Microsoft Azure, and leading UAE system integrators.</p>
                 </div>
-            </div>
-            <div class="cert-note">
-                <p><strong>Note:</strong> Badge images are placeholders. Replace with actual certification badges once obtained.</p>
-                <p>We're actively working towards official certifications. All technical capabilities are production-ready and battle-tested.</p>
             </div>
         </div>
     </section>
@@ -442,56 +427,56 @@
             </div>
             <div class="facts-grid">
                 <div class="fact-item">
-                    <div class="fact-icon"><i class="fas fa-map-marker-alt" aria-hidden="true"></i></div>
+                    <div class="fact-icon"><i class="fas fa-map-marker-alt"></i></div>
                     <div class="fact-content">
                         <h4>Headquarters</h4>
                         <p>Dubai, United Arab Emirates</p>
                     </div>
                 </div>
                 <div class="fact-item">
-                    <div class="fact-icon"><i class="fas fa-calendar-alt" aria-hidden="true"></i></div>
+                    <div class="fact-icon"><i class="fas fa-calendar-alt"></i></div>
                     <div class="fact-content">
                         <h4>Founded</h4>
                         <p>2024 (Under Scholarix Global)</p>
                     </div>
                 </div>
                 <div class="fact-item">
-                    <div class="fact-icon"><i class="fas fa-users" aria-hidden="true"></i></div>
+                    <div class="fact-icon"><i class="fas fa-users"></i></div>
                     <div class="fact-content">
                         <h4>Team Size</h4>
                         <p>12+ Engineers & Consultants</p>
                     </div>
                 </div>
                 <div class="fact-item">
-                    <div class="fact-icon"><i class="fas fa-project-diagram" aria-hidden="true"></i></div>
+                    <div class="fact-icon"><i class="fas fa-project-diagram"></i></div>
                     <div class="fact-content">
                         <h4>Projects Completed</h4>
                         <p>50+ AI-Powered Systems Implementations</p>
                     </div>
                 </div>
                 <div class="fact-item">
-                    <div class="fact-icon"><i class="fas fa-industry" aria-hidden="true"></i></div>
+                    <div class="fact-icon"><i class="fas fa-industry"></i></div>
                     <div class="fact-content">
                         <h4>Industries Served</h4>
                         <p>15+ Sectors Including Real Estate, Manufacturing, Professional Services</p>
                     </div>
                 </div>
                 <div class="fact-item">
-                    <div class="fact-icon"><i class="fas fa-clock" aria-hidden="true"></i></div>
+                    <div class="fact-icon"><i class="fas fa-clock"></i></div>
                     <div class="fact-content">
                         <h4>Average Deployment</h4>
                         <p>14 Days from Kickoff to Go-Live</p>
                     </div>
                 </div>
                 <div class="fact-item">
-                    <div class="fact-icon"><i class="fas fa-dollar-sign" aria-hidden="true"></i></div>
+                    <div class="fact-icon"><i class="fas fa-dollar-sign"></i></div>
                     <div class="fact-content">
                         <h4>Pricing Range</h4>
                         <p>AED 15,000 - 150,000+ (Based on Complexity)</p>
                     </div>
                 </div>
                 <div class="fact-item">
-                    <div class="fact-icon"><i class="fas fa-phone-alt" aria-hidden="true"></i></div>
+                    <div class="fact-icon"><i class="fas fa-phone-alt"></i></div>
                     <div class="fact-content">
                         <h4>Support</h4>
                         <p>24/7 WhatsApp + Email Support</p>
@@ -510,8 +495,8 @@
                 <div class="cta-buttons">
                     <a href="appointment.html" class="btn-primary">Book Free Consultation</a>
                     <a href="pricing.html" class="btn-secondary">View Pricing</a>
-                    <a href="https://wa.me/971563905772?text=Hi%20SGC%2C%20I%27d%20like%20to%20learn%20more%20about%20your%20company" class="btn-whatsapp" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp Us
+                    <a href="https://wa.me/971563905772?text=Hi%20SGC%2C%20I%27d%20like%20to%20learn%20more%20about%20your%20company" class="btn-whatsapp" target="_blank" rel="noopener">
+                        <i class="fab fa-whatsapp"></i> WhatsApp Us
                     </a>
                 </div>
             </div>
@@ -524,16 +509,14 @@
             <div class="footer-grid">
                 <div class="footer-col">
                     <div class="footer-logo">
-                        <a href="index.html">
-                            <img src="img/scholarix-logo.png" alt="Scholarix Global AI Consultant" class="logo-image" width="50" height="50">
-                            <span class="logo-tagline">Intelligent Infrastructure. Instant Impact.</span>
-                        </a>
+                        <img src="img/scholarix-logo.png" alt="Scholarix Global AI Consultant" class="logo-image" >
+                        <span class="logo-tagline">Intelligent Infrastructure. Instant Impact.</span>
                     </div>
                     <p class="footer-description">UAE's only AI-driven Intelligent Infrastructure implementation partner with 14-day deployment and guaranteed ROI.</p>
                     <div class="footer-social">
-                        <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Follow us on LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
-                        <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
-                        <a href="https://wa.me/971563905772" target="_blank" rel="noopener noreferrer" aria-label="Contact us on WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+                        <a href="#" target="_blank" rel="noopener" aria-label="Follow us on LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" target="_blank" rel="noopener" aria-label="Follow us on Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://wa.me/971563905772" target="_blank" rel="noopener" aria-label="Contact us on WhatsApp"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
                 
@@ -560,10 +543,10 @@
                 <div class="footer-col">
                     <h4>Contact</h4>
                     <ul class="contact-list">
-                        <li><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Dubai, UAE</li>
-                        <li><i class="fas fa-envelope" aria-hidden="true"></i> hello@sgctechai.com</li>
-                        <li><i class="fas fa-phone" aria-hidden="true"></i> +971 56 390 5772</li>
-                        <li><i class="fab fa-whatsapp" aria-hidden="true"></i> <a href="https://wa.me/971563905772" target="_blank" rel="noopener noreferrer">WhatsApp Support</a></li>
+                        <li><i class="fas fa-map-marker-alt"></i> Dubai, UAE</li>
+                        <li><i class="fas fa-envelope"></i> hello@sgctechai.com</li>
+                        <li><i class="fas fa-phone"></i> +971 56 390 5772</li>
+                        <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/971563905772" target="_blank" rel="noopener">WhatsApp Support</a></li>
                     </ul>
                 </div>
             </div>
@@ -579,13 +562,7 @@
         </div>
     </footer>
 
-    <!-- Supabase Client Library -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script defer src="js/main.js"></script>
-    <script defer src="js/scroll-helpers.js"></script>
-    <script defer src="js/cookie-consent.js"></script>
-    <script defer src="js/supabase.js"></script>
-    <!-- JotForm AI Chatbot -->
-    <script src="https://www.jotform.com/agent/embedjs/0198703ffa427218a332abfed80d7948f032/embed.js" async></script>
+    <script src="js/main.js"></script>
+    <script src="js/cookie-consent.js"></script>
 </body>
 </html>

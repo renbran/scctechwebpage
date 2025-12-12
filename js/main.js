@@ -7,104 +7,30 @@
     // ========== Mobile Navigation Toggle ==========
     const navToggle = document.getElementById('navToggle');
     const navMenu = document.getElementById('navMenu');
-    const body = document.body;
 
     if (navToggle && navMenu) {
-        // Toggle menu on click/touch
-        function handleToggle(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            
-            const isOpen = navToggle.classList.contains('active');
-            
-            if (isOpen) {
-                closeMenu();
-            } else {
-                openMenu();
-            }
-        }
-        
-        navToggle.addEventListener('click', handleToggle);
-        
-        // Touch event for better mobile response
-        navToggle.addEventListener('touchend', function(e) {
-            e.preventDefault();
-            handleToggle(e);
-        }, { passive: false });
-
-        // Keyboard support for nav toggle
-        navToggle.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                handleToggle(e);
-            }
-            if (e.key === 'Escape' && navMenu.classList.contains('active')) {
-                closeMenu();
-            }
+        navToggle.addEventListener('click', function() {
+            this.classList.toggle('active');
+            navMenu.classList.toggle('active');
         });
 
-        // Close menu when clicking/touching outside
+        // Close menu when clicking outside
         document.addEventListener('click', function(event) {
-            if (!navMenu.classList.contains('active')) return;
-            
-            const isClickOnToggle = navToggle.contains(event.target);
-            const isClickOnMenu = navMenu.contains(event.target);
-            
-            if (!isClickOnToggle && !isClickOnMenu) {
-                closeMenu();
+            const isClickInside = navToggle.contains(event.target) || navMenu.contains(event.target);
+            if (!isClickInside && navMenu.classList.contains('active')) {
+                navToggle.classList.remove('active');
+                navMenu.classList.remove('active');
             }
         });
-        
-        // Touch outside to close
-        document.addEventListener('touchend', function(event) {
-            if (!navMenu.classList.contains('active')) return;
-            
-            const isClickOnToggle = navToggle.contains(event.target);
-            const isClickOnMenu = navMenu.contains(event.target);
-            
-            if (!isClickOnToggle && !isClickOnMenu) {
-                closeMenu();
-            }
-        }, { passive: true });
 
         // Close menu when clicking on a link
         const navLinks = navMenu.querySelectorAll('a');
         navLinks.forEach(link => {
             link.addEventListener('click', function() {
-                closeMenu();
+                navToggle.classList.remove('active');
+                navMenu.classList.remove('active');
             });
         });
-
-        // Close on Escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && navMenu.classList.contains('active')) {
-                closeMenu();
-            }
-        });
-
-        // Close on resize to desktop
-        window.addEventListener('resize', function() {
-            if (window.innerWidth >= 768 && navMenu.classList.contains('active')) {
-                closeMenu();
-            }
-        });
-
-        function openMenu() {
-            navToggle.classList.add('active');
-            navMenu.classList.add('active');
-            navToggle.setAttribute('aria-expanded', 'true');
-            body.style.overflow = 'hidden'; // Prevent background scroll
-        }
-
-        function closeMenu() {
-            navToggle.classList.remove('active');
-            navMenu.classList.remove('active');
-            navToggle.setAttribute('aria-expanded', 'false');
-            body.style.overflow = ''; // Restore scrolling
-        }
-        
-        // Expose closeMenu globally for other scripts
-        window.closeNavMenu = closeMenu;
     }
 
     // ========== Smooth Scrolling for Anchor Links ==========
@@ -364,67 +290,86 @@
         });
     });
 
-    // ========== Video Testimonials Modal ==========
-    window.playVideoTestimonial = function(type) {
-        const modal = document.getElementById('videoModal');
-        const title = document.getElementById('videoModalTitle');
-        const desc = document.getElementById('videoModalDesc');
-        
-        if (!modal) return;
-        
-        // Video content based on type (placeholder for actual videos)
-        const content = {
-            'real-estate': {
-                title: 'Real Estate Transformation Story',
-                desc: 'Discover how Dubai Brokerage achieved 197% ROI with our 14-day Odoo implementation. Video testimonial coming soon!'
-            },
-            'manufacturing': {
-                title: 'Manufacturing Excellence Story',
-                desc: 'See how our Trading Co. client reduced errors by 94% and saved AED 42,000 monthly. Full video coming soon!'
-            },
-            'professional': {
-                title: 'Professional Services Success',
-                desc: 'Learn how a leading consultancy saves 75+ hours monthly and achieved 168% ROI. Video testimonial in production!'
-            }
-        };
-        
-        if (title && content[type]) {
-            title.textContent = content[type].title;
-            desc.textContent = content[type].desc;
-        }
-        
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-        
-        // Track video modal opens
-        console.log('Video testimonial opened:', type);
-    };
-    
-    window.closeVideoModal = function(event) {
-        const modal = document.getElementById('videoModal');
-        if (!modal) return;
-        
-        // Only close if clicking overlay or close button
-        if (event.target === modal || event.target.closest('.video-modal-close')) {
-            modal.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-    };
-    
-    // Close modal with Escape key
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            const modal = document.getElementById('videoModal');
-            if (modal && modal.classList.contains('active')) {
-                modal.classList.remove('active');
-                document.body.style.overflow = '';
-            }
-        }
-    });
-
     // ========== Console Welcome Message ==========
     console.log('%cSGC TECH AI', 'color: #00FFF0; font-size: 24px; font-weight: bold;');
     console.log('%cIntelligent Infrastructure. Instant Impact.', 'color: #4fc3f7; font-size: 14px;');
     console.log('%cBuilt with 💙 by SGC TECH AI Engineering Team', 'color: #64748b; font-size: 12px;');
 
 })();
+
+// ========== Logo Video Modal Functions (Global scope) ==========
+function openLogoVideoModal() {
+    const modal = document.getElementById('logo-video-modal');
+    const video = document.getElementById('modal-logo-video');
+    
+    if (modal && video) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        
+        // Start playing video
+        video.play().catch(err => console.log('Video autoplay prevented:', err));
+
+        // Track with analytics (if Google Analytics is available)
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'video_modal_opened', {
+                'event_category': 'Engagement',
+                'event_label': 'Logo Reveal Modal'
+            });
+        }
+    }
+}
+
+function closeLogoVideoModal() {
+    const modal = document.getElementById('logo-video-modal');
+    const video = document.getElementById('modal-logo-video');
+    
+    if (modal && video) {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+        
+        // Pause and reset video
+        video.pause();
+        video.currentTime = 0;
+    }
+}
+
+// Close modal on Escape key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeLogoVideoModal();
+    }
+});
+
+// Track hero video interactions
+document.addEventListener('DOMContentLoaded', function() {
+    const heroVideo = document.getElementById('hero-logo-reveal');
+    
+    if (heroVideo) {
+        // Track video load
+        heroVideo.addEventListener('loadeddata', function() {
+            console.log('Hero logo video loaded successfully');
+        });
+
+        // Track video play
+        heroVideo.addEventListener('play', function() {
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'hero_video_play', {
+                    'event_category': 'Engagement',
+                    'event_label': 'Logo Reveal Hero'
+                });
+            }
+        });
+
+        // Fallback: If video fails to load, show poster image
+        heroVideo.addEventListener('error', function() {
+            console.error('Hero video failed to load');
+            this.style.display = 'none';
+            // Show backup image or comparison visual
+            const backupVisual = document.querySelector('.comparison-visual.mobile-only');
+            if (backupVisual) {
+                backupVisual.classList.remove('mobile-only');
+                backupVisual.style.display = 'block';
+            }
+        });
+    }
+});
