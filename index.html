@@ -167,6 +167,7 @@
     <link rel="stylesheet" href="css/cookie-consent.css">
     <link rel="stylesheet" href="css/redesign-2025.css">
     <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/navigation-cta-standardized.css">
     
     <!-- Animation Dependencies -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
@@ -217,10 +218,12 @@
 
                 <ul class="nav-menu" id="navMenu" aria-label="Site navigation">
                     <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-                    <li><a href="#" class="nav-calculator" data-calculator-trigger><i class="fas fa-calculator"></i> Calculator</a></li>
-                    <li><a href="pricing.html">Pricing</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="appointment.html" class="btn-nav-cta">Book Consultation</a></li>
+                    <li><a href="services/index.html"><i class="fas fa-cogs"></i> Services</a></li>
+                    <li><a href="pricing.html"><i class="fas fa-tag"></i> Pricing</a></li>
+                    <li><a href="success-stories.html"><i class="fas fa-trophy"></i> Success Stories</a></li>
+                    <li><a href="about.html"><i class="fas fa-users"></i> About</a></li>
+                    <li><a href="blog/index.html"><i class="fas fa-newspaper"></i> Resources</a></li>
+                    <li><a href="appointment.html" class="btn-nav-cta"><i class="fas fa-calendar-check"></i> Get Free ROI Report</a></li>
                 </ul>
             </nav>
         </div>
@@ -1085,6 +1088,64 @@
         </div>
     </section>
 
+    <!-- Multi-Channel Contact Section -->
+    <section class="multi-channel-contact">
+        <div class="container">
+            <div class="contact-header">
+                <h2>Ready to <span class="highlight-cyan">Transform Your Business</span> in 14 Days?</h2>
+                <p>Choose your preferred way to connect with our AI implementation experts</p>
+            </div>
+            
+            <div class="contact-grid">
+                <!-- Phone Contact -->
+                <a href="tel:+971563905772" class="contact-card phone">
+                    <div class="contact-card-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3>Call Us</h3>
+                    <p>+971 56 390 5772</p>
+                    <span class="cta-label">Speak with an expert <i class="fas fa-arrow-right"></i></span>
+                </a>
+                
+                <!-- Email Contact -->
+                <a href="mailto:hello@sgctech.ai?subject=14-Day%20AI%20Implementation%20Inquiry" class="contact-card email">
+                    <div class="contact-card-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email Us</h3>
+                    <p>hello@sgctech.ai</p>
+                    <span class="cta-label">Get detailed proposal <i class="fas fa-arrow-right"></i></span>
+                </a>
+                
+                <!-- WhatsApp Contact -->
+                <a href="https://wa.me/971563905772?text=Hi%20SGC%2C%20I%27m%20interested%20in%20the%2014-day%20AI-Powered%20Systems%20deployment" target="_blank" rel="noopener" class="contact-card whatsapp">
+                    <div class="contact-card-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <h3>WhatsApp</h3>
+                    <p>Instant Response</p>
+                    <span class="cta-label">Chat now <i class="fas fa-arrow-right"></i></span>
+                </a>
+                
+                <!-- Schedule Appointment -->
+                <a href="appointment.html" class="contact-card schedule">
+                    <div class="contact-card-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h3>Book Consultation</h3>
+                    <p>Free 30-Min Strategy Call</p>
+                    <span class="cta-label">Schedule now <i class="fas fa-arrow-right"></i></span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating CTA -->
+    <a href="appointment.html" class="floating-cta" aria-label="Get Free ROI Report">
+        <i class="fas fa-rocket"></i>
+        <span>Get Free ROI Report</span>
+    </a>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -1570,10 +1631,12 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     
     <!-- Main Scripts -->
+    <script src="js/navigation-cta.js"></script>
     <script src="js/main.js"></script>
     <script src="js/cookie-consent.js"></script>
     <script src="js/calculator-modal.js"></script>
     <script src="js/redesign-animations.js"></script>
     <script src="js/animations.js"></script>
+    <script src="js/analytics.js"></script>
 </body>
 </html>
