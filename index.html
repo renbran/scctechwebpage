@@ -25,6 +25,20 @@
     <!-- Canonical URL -->
     <link rel="canonical" href="https://sgctech.ai/">
     
+    <!-- Google Analytics 4 - PROMPT 3 Implementation -->
+    <!-- Replace G-XXXXXXXXXX with your actual GA4 Measurement ID -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX', {
+            'send_page_view': true,
+            'anonymize_ip': true
+        });
+    </script>
+    <!-- End Google Analytics 4 -->
+    
     <!-- Schema.org Structured Data -->
     <script type="application/ld+json">
     {
@@ -1694,5 +1708,6 @@
     <script src="js/redesign-animations.js"></script>
     <script src="js/animations.js"></script>
     <script src="js/sgc-stats.js"></script> <!-- PROMPT 4: Verified Statistics -->
+    <script src="js/analytics.js"></script> <!-- PROMPT 3: Google Analytics 4 Tracking -->
 </body>
 </html>
