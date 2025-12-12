@@ -1,0 +1,892 @@
+/* ========================================
+   MOBILE OPTIMIZATIONS ENHANCED
+   Fixes for tables, calculator, and all mobile overlapping issues
+   ======================================== */
+
+/* ========== RESPONSIVE TABLE FIXES ========== */
+
+/* Ensure table wrapper doesn't overflow */
+.table-responsive,
+.comparison-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 24px 0;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    position: relative;
+}
+
+/* Add scroll indicator on mobile */
+@media (max-width: 767px) {
+    .table-responsive::after {
+        content: '← Scroll →';
+        position: absolute;
+        bottom: 8px;
+        right: 16px;
+        font-size: 11px;
+        color: rgba(0, 255, 240, 0.6);
+        font-weight: 600;
+        padding: 4px 12px;
+        background: rgba(12, 30, 52, 0.9);
+        border-radius: 12px;
+        pointer-events: none;
+        animation: scrollHint 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollHint {
+        0%, 100% { opacity: 0.6; }
+        50% { opacity: 1; }
+    }
+}
+
+/* Base table styles */
+table {
+    width: 100%;
+    min-width: 100%;
+    border-collapse: collapse;
+    background: white;
+    font-size: 14px;
+}
+
+/* Pricing comparison table */
+.comparison-table {
+    min-width: 600px; /* Ensures horizontal scroll on small screens */
+}
+
+/* Cost table in blog */
+.cost-table {
+    min-width: 650px; /* Prevents cramping */
+}
+
+thead {
+    background: linear-gradient(135deg, #0c1e34 0%, #1e3a8a 100%);
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+th {
+    padding: 16px 12px;
+    text-align: left;
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+}
+
+td {
+    padding: 16px 12px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    vertical-align: middle;
+}
+
+td:first-child {
+    font-weight: 600;
+    color: #0c1e34;
+}
+
+tr:hover {
+    background: rgba(0, 255, 240, 0.03);
+}
+
+/* Icon styling in tables */
+td i.fa-check-circle {
+    color: #00FF88;
+    font-size: 18px;
+}
+
+td i.fa-times-circle {
+    color: #ff3b30;
+    font-size: 18px;
+    opacity: 0.5;
+}
+
+/* Center aligned cells */
+td.center,
+th.center {
+    text-align: center;
+}
+
+/* ========== MOBILE TABLE ALTERNATIVE VIEW ========== */
+
+@media (max-width: 767px) {
+    /* For very small tables, allow card-style stacking */
+    .table-responsive.stack-mobile table,
+    .table-responsive.stack-mobile thead,
+    .table-responsive.stack-mobile tbody,
+    .table-responsive.stack-mobile th,
+    .table-responsive.stack-mobile td,
+    .table-responsive.stack-mobile tr {
+        display: block;
+    }
+
+    .table-responsive.stack-mobile thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    .table-responsive.stack-mobile tr {
+        margin-bottom: 16px;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 12px;
+        background: white;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .table-responsive.stack-mobile td {
+        border: none;
+        position: relative;
+        padding-left: 50%;
+        text-align: right;
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    .table-responsive.stack-mobile td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 16px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-weight: 700;
+        color: #0c1e34;
+        text-align: left;
+        text-transform: uppercase;
+        font-size: 11px;
+        letter-spacing: 0.5px;
+    }
+
+    /* Ensure minimum table font size on mobile */
+    table {
+        font-size: 13px;
+    }
+
+    th {
+        font-size: 11px;
+        padding: 12px 8px;
+    }
+
+    td {
+        padding: 12px 8px;
+    }
+}
+
+/* ========== TIMELINE COMPARISON MOBILE FIX ========== */
+
+.timeline-comparison {
+    width: 100%;
+    margin: 40px 0;
+}
+
+.timeline-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.timeline-label {
+    min-width: 200px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.timeline-bar {
+    flex: 1;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 25px;
+    position: relative;
+    overflow: hidden;
+}
+
+.timeline-fill {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 16px;
+    color: white;
+    border-radius: 25px;
+    transition: width 1s ease;
+}
+
+@media (max-width: 767px) {
+    .timeline-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .timeline-label {
+        min-width: auto;
+        width: 100%;
+        padding: 12px;
+        background: rgba(0, 255, 240, 0.1);
+        border-radius: 12px;
+        justify-content: center;
+    }
+
+    .timeline-bar {
+        width: 100%;
+        height: 60px;
+    }
+
+    .timeline-fill {
+        font-size: 14px;
+    }
+}
+
+/* ========== ROI CALCULATOR MOBILE ENHANCEMENTS ========== */
+
+@media (max-width: 767px) {
+    /* Modal overlay optimizations */
+    .calculator-modal-overlay {
+        padding: 0;
+        align-items: flex-start;
+    }
+
+    .calculator-modal {
+        margin: 0;
+        border-radius: 0;
+        max-height: 100vh;
+        min-height: 100vh;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    /* Header adjustments */
+    .calculator-modal-header {
+        padding: 16px;
+        position: sticky;
+        top: 0;
+        background: linear-gradient(135deg, rgba(10, 22, 40, 0.98) 0%, rgba(26, 41, 66, 0.98) 100%);
+        z-index: 100;
+        border-bottom: 2px solid rgba(0, 255, 240, 0.2);
+    }
+
+    .calculator-modal-title {
+        font-size: 20px;
+        margin-right: 40px;
+        line-height: 1.3;
+    }
+
+    .calculator-modal-subtitle {
+        font-size: 13px;
+    }
+
+    .calculator-modal-close {
+        width: 36px;
+        height: 36px;
+        top: 16px;
+        right: 16px;
+        font-size: 20px;
+    }
+
+    /* Body adjustments */
+    .calculator-modal-body {
+        padding: 16px;
+    }
+
+    /* Form improvements */
+    .calculator-form-grid {
+        gap: 16px;
+    }
+
+    .calculator-input,
+    .calculator-select {
+        padding: 16px 14px; /* Larger touch target */
+        font-size: 16px; /* Prevents iOS zoom */
+    }
+
+    /* Module checkboxes - larger touch targets */
+    .calculator-modules {
+        gap: 10px;
+    }
+
+    .calculator-module-checkbox {
+        padding: 16px;
+        min-height: 52px; /* Better touch target */
+    }
+
+    .calculator-module-checkbox input[type="checkbox"] {
+        width: 24px;
+        height: 24px;
+        margin: 0;
+    }
+
+    .calculator-module-label {
+        font-size: 14px;
+        line-height: 1.4;
+    }
+
+    /* Submit button */
+    .calculator-submit-btn,
+    .calculator-next-btn {
+        padding: 18px 20px;
+        font-size: 16px;
+        min-height: 56px;
+    }
+
+    /* Results section */
+    .calculator-results {
+        padding: 20px 16px;
+        margin-top: 20px;
+    }
+
+    .calculator-results-title {
+        font-size: 20px;
+        margin-bottom: 16px;
+    }
+
+    .calculator-results-grid {
+        gap: 12px;
+    }
+
+    .calculator-result-card {
+        padding: 16px;
+    }
+
+    .calculator-result-value {
+        font-size: 26px;
+    }
+
+    .calculator-result-value.highlight {
+        font-size: 32px;
+    }
+
+    /* CTA buttons in results */
+    .calculator-results-cta {
+        gap: 10px;
+        flex-direction: column;
+    }
+
+    .calculator-cta-btn {
+        padding: 16px 20px;
+        font-size: 15px;
+        width: 100%;
+    }
+
+    /* Step indicators */
+    .calculator-steps-indicator {
+        padding: 12px 16px;
+        gap: 8px;
+        position: sticky;
+        top: 60px;
+        background: rgba(10, 22, 40, 0.98);
+        z-index: 99;
+    }
+
+    .step-dot {
+        width: 32px;
+        height: 32px;
+        font-size: 13px;
+    }
+
+    .step-line {
+        width: 20px;
+    }
+
+    /* Teaser preview */
+    .teaser-preview {
+        flex-direction: column;
+        text-align: center;
+        padding: 16px;
+        gap: 12px;
+    }
+
+    .teaser-icon {
+        font-size: 36px;
+    }
+
+    .teaser-amount {
+        font-size: 24px;
+    }
+
+    /* Email gate */
+    .email-gate-icon {
+        font-size: 48px;
+    }
+
+    .email-gate-title {
+        font-size: 22px;
+    }
+
+    .email-gate-subtitle {
+        font-size: 14px;
+        margin-bottom: 24px;
+    }
+
+    .teaser-results {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .teaser-result-item {
+        padding: 14px 20px;
+    }
+
+    .teaser-result-value {
+        font-size: 28px;
+    }
+
+    /* Comparison cards */
+    .results-comparison {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .comparison-card {
+        padding: 16px;
+    }
+
+    .comparison-header {
+        flex-direction: column;
+        gap: 8px;
+        margin-bottom: 16px;
+    }
+
+    .comparison-header i {
+        font-size: 28px;
+    }
+
+    .comparison-header h4 {
+        font-size: 15px;
+    }
+
+    .stat-value {
+        font-size: 20px;
+    }
+
+    .stat-label {
+        font-size: 11px;
+    }
+
+    /* Net impact summary */
+    .net-impact-summary {
+        padding: 16px;
+    }
+
+    .impact-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        padding: 12px 0;
+    }
+
+    .impact-label {
+        font-size: 13px;
+        width: 100%;
+    }
+
+    .impact-value {
+        font-size: 22px;
+        width: 100%;
+        text-align: left;
+    }
+
+    .impact-value.big {
+        font-size: 28px;
+    }
+
+    /* Guarantee note */
+    .guarantee-note {
+        font-size: 13px;
+        padding: 12px 16px;
+    }
+}
+
+/* ========== COMPARISON VISUAL CARDS MOBILE FIX ========== */
+
+.comparison-visual {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin: 40px 0;
+}
+
+.comparison-card {
+    flex: 1;
+    padding: 24px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.comparison-card h3 {
+    font-size: 18px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.comparison-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.comparison-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.comparison-list li:last-child {
+    border-bottom: none;
+}
+
+.comparison-arrow {
+    font-size: 36px;
+    color: #00FFF0;
+    flex-shrink: 0;
+}
+
+@media (max-width: 767px) {
+    .comparison-visual {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .comparison-card {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .comparison-card h3 {
+        font-size: 16px;
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
+    }
+
+    .comparison-card h3 i {
+        font-size: 28px;
+    }
+
+    .comparison-arrow {
+        font-size: 28px;
+        transform: rotate(90deg);
+    }
+
+    .comparison-list li {
+        font-size: 13px;
+        padding: 8px 0;
+    }
+}
+
+/* ========== PRICING CARDS MOBILE STACK ========== */
+
+@media (max-width: 767px) {
+    .pricing-tiers {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .pricing-card {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+    }
+
+    .pricing-card.featured {
+        transform: none;
+        box-shadow: 0 8px 32px rgba(0, 255, 240, 0.3);
+    }
+}
+
+/* ========== STATS GRID MOBILE FIX ========== */
+
+@media (max-width: 767px) {
+    .stats-grid,
+    .metrics-grid,
+    .feature-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .stat-card,
+    .metric-card,
+    .feature-card {
+        min-height: auto;
+    }
+}
+
+/* ========== HORIZONTAL SCROLL IMPROVEMENTS ========== */
+
+/* Better scrollbar styling for mobile */
+@media (max-width: 767px) {
+    .table-responsive::-webkit-scrollbar {
+        height: 8px;
+    }
+
+    .table-responsive::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0.05);
+        border-radius: 4px;
+    }
+
+    .table-responsive::-webkit-scrollbar-thumb {
+        background: rgba(0, 255, 240, 0.5);
+        border-radius: 4px;
+    }
+
+    .table-responsive::-webkit-scrollbar-thumb:hover {
+        background: rgba(0, 255, 240, 0.7);
+    }
+}
+
+/* ========== FORM ELEMENTS MOBILE TOUCH OPTIMIZATION ========== */
+
+@media (max-width: 767px) {
+    /* Ensure all interactive elements meet 48px minimum */
+    button,
+    .btn,
+    .cta-button,
+    .btn-primary,
+    .btn-secondary,
+    a.button,
+    input[type="submit"],
+    input[type="button"] {
+        min-height: 48px;
+        min-width: 48px;
+        padding: 14px 20px;
+        font-size: 16px; /* Prevents iOS zoom */
+    }
+
+    /* Form inputs */
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="number"],
+    input[type="password"],
+    textarea,
+    select {
+        min-height: 48px;
+        padding: 14px 16px;
+        font-size: 16px; /* Prevents iOS zoom */
+        border-radius: 12px;
+    }
+
+    select {
+        padding-right: 40px;
+        background-position: right 12px center;
+    }
+
+    /* Checkbox and radio larger touch targets */
+    input[type="checkbox"],
+    input[type="radio"] {
+        min-width: 24px;
+        min-height: 24px;
+    }
+
+    /* Labels should be tappable too */
+    label {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        -webkit-tap-highlight-color: rgba(0, 255, 240, 0.1);
+    }
+}
+
+/* ========== PREVENT MOBILE ZOOM ON FOCUS ========== */
+
+@media (max-width: 767px) {
+    input,
+    select,
+    textarea {
+        font-size: 16px !important; /* Prevents iOS auto-zoom */
+    }
+}
+
+/* ========== MOBILE NAVIGATION FIXES ========== */
+
+@media (max-width: 767px) {
+    .nav-menu {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .nav-menu li {
+        width: 100%;
+    }
+
+    .nav-menu a {
+        width: 100%;
+        padding: 16px 20px;
+        min-height: 52px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        font-size: 16px;
+    }
+}
+
+/* ========== OVERFLOW FIX FOR PARENT CONTAINERS ========== */
+
+@media (max-width: 767px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    .container {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    section {
+        overflow-x: hidden;
+    }
+
+    /* Ensure images don't cause horizontal scroll */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Ensure videos are responsive */
+    video,
+    iframe {
+        max-width: 100%;
+    }
+}
+
+/* ========== STICKY ELEMENTS MOBILE OPTIMIZATION ========== */
+
+@media (max-width: 767px) {
+    .mobile-sticky-bar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        display: flex;
+        gap: 0;
+        box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .mobile-sticky-bar a {
+        flex: 1;
+        padding: 14px 12px;
+        min-height: 56px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .mobile-sticky-bar i {
+        font-size: 18px;
+    }
+
+    /* Add bottom padding to body to account for sticky bar */
+    body {
+        padding-bottom: 60px;
+    }
+}
+
+/* ========== TEXT READABILITY ON MOBILE ========== */
+
+@media (max-width: 767px) {
+    body {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    h1 {
+        font-size: 28px;
+        line-height: 1.2;
+    }
+
+    h2 {
+        font-size: 24px;
+        line-height: 1.3;
+    }
+
+    h3 {
+        font-size: 20px;
+        line-height: 1.3;
+    }
+
+    h4 {
+        font-size: 18px;
+        line-height: 1.4;
+    }
+
+    p {
+        margin-bottom: 16px;
+    }
+
+    /* Ensure proper spacing in lists */
+    ul,
+    ol {
+        padding-left: 24px;
+    }
+
+    li {
+        margin-bottom: 10px;
+        line-height: 1.6;
+    }
+}
+
+/* ========== FLOATING ACTION BUTTON MOBILE ========== */
+
+@media (max-width: 767px) {
+    .floating-calc-btn,
+    .desktop-floating-cta {
+        position: fixed !important;
+        bottom: 70px; /* Above sticky bar */
+        right: 16px;
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        z-index: 999;
+    }
+
+    .floating-calc-text {
+        display: none;
+    }
+}
+
+/* ========== TOUCH FEEDBACK ========== */
+
+@media (max-width: 767px) {
+    /* Add subtle touch feedback to all interactive elements */
+    button:active,
+    .btn:active,
+    a.button:active,
+    .card:active {
+        opacity: 0.85;
+        transform: scale(0.98);
+    }
+
+    /* Remove tap highlight color (we have our own feedback) */
+    * {
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Add custom tap highlight for links and buttons */
+    a:active,
+    button:active {
+        background-color: rgba(0, 255, 240, 0.1);
+    }
+}
