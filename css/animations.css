@@ -6,8 +6,34 @@
  */
 
 /* =================================================================
+   ACCESSIBILITY: PREFERS REDUCED MOTION
+   Disables all animations for users with motion sensitivity (WCAG AA)
+   ================================================================= */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* =================================================================
    SECTION 1: CORE KEYFRAME ANIMATIONS
    ================================================================= */
+
+/* GPU ACCELERATION: Use transform and will-change for 60fps performance */
+.animate,
+.fade-in-up,
+.fade-in-down,
+.scale-pulse,
+[class*="animation"] {
+    will-change: transform, opacity;
+    transform: translateZ(0); /* Force GPU layer */
+    backface-visibility: hidden; /* Prevent flickering */
+}
 
 /* Fade and slide up (for scroll reveals) */
 @keyframes fadeInUp {
@@ -252,7 +278,7 @@
 }
 
 .battle-progress-label {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 600;
     color: var(--electric-cyan);
     margin-bottom: 8px;
@@ -420,7 +446,7 @@
 }
 
 .battle-proof-ticker-content span {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 600;
     color: var(--electric-cyan);
 }
@@ -521,7 +547,7 @@
 }
 
 .calculator-losing-box h4 {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 600;
     color: rgba(255, 255, 255, 0.7);
     margin-bottom: 8px;
@@ -542,7 +568,7 @@
 }
 
 .calculator-total-loss .label {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 600;
     color: rgba(255, 255, 255, 0.7);
     margin-bottom: 8px;
@@ -653,7 +679,7 @@
 }
 
 .calculator-winning-box h4 {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 600;
     color: rgba(255, 255, 255, 0.7);
     margin-bottom: 8px;
@@ -677,7 +703,7 @@
 }
 
 .calculator-total-gain .label {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 600;
     color: rgba(255, 255, 255, 0.7);
     margin-bottom: 8px;
@@ -739,7 +765,7 @@
 }
 
 .calculator-comparison-option .label {
-    font-size: 14px;
+    font-size: 16px;
     color: rgba(255, 255, 255, 0.7);
     margin-bottom: 8px;
 }
@@ -803,7 +829,7 @@
 }
 
 .calculator-investment-box .investment-label {
-    font-size: 14px;
+    font-size: 16px;
     color: rgba(255, 255, 255, 0.7);
 }
 
@@ -819,7 +845,7 @@
     gap: 20px;
     justify-content: center;
     margin-top: 12px;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .calculator-investment-box .roi-stats span {
@@ -955,7 +981,7 @@
         var(--electric-cyan) 0%, 
         var(--neon-green) 100%);
     color: var(--deep-navy);
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 900;
     padding: 8px 20px;
     border-radius: 20px;
@@ -1027,7 +1053,7 @@
 
 /* Best for label */
 .door-card-best-for {
-    font-size: 14px;
+    font-size: 16px;
     color: rgba(255, 255, 255, 0.6);
     text-align: center;
     margin: 20px 0;
@@ -1150,7 +1176,7 @@
 .sticky-footer-button {
     padding: 12px 24px;
     border-radius: 8px;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 700;
     text-decoration: none;
     cursor: pointer;
@@ -1179,7 +1205,7 @@
 .sticky-footer-contact {
     display: flex;
     gap: 15px;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .sticky-footer-contact a {
@@ -1770,7 +1796,7 @@
 
 .exit-stat-label {
     display: block;
-    font-size: 12px;
+    font-size: 14px;
     color: rgba(255, 255, 255, 0.6);
     margin-top: 4px;
     text-transform: uppercase;
@@ -1801,7 +1827,7 @@
 
 .exit-intent-guarantee {
     margin-top: 16px;
-    font-size: 14px;
+    font-size: 16px;
     color: var(--neon-green);
     display: flex;
     align-items: center;
@@ -2053,7 +2079,7 @@
 }
 
 .video-overlay span {
-    font-size: 14px;
+    font-size: 16px;
     color: rgba(255, 255, 255, 0.7);
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -2074,7 +2100,7 @@
 }
 
 .video-info p {
-    font-size: 14px;
+    font-size: 16px;
     color: rgba(255, 255, 255, 0.7);
     font-style: italic;
     margin-bottom: 16px;

@@ -29,7 +29,7 @@
 
 .header .logo-tagline {
     display: inline-block;
-    font-size: 12px;
+    font-size: 14px;
     color: var(--electric-cyan, #00FFF0);
     font-weight: 600;
     letter-spacing: 0.5px;

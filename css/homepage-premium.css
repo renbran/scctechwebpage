@@ -11,7 +11,14 @@
     background: linear-gradient(135deg, #0a1628 0%, #1a2942 50%, #0f2439 100%);
     position: relative;
     overflow: hidden;
-    padding: 140px 0 120px;
+    padding: 100px 0 80px; /* Reduced for mobile, increased via media query for desktop */
+}
+
+/* Desktop spacing */
+@media (min-width: 768px) {
+    .hero {
+        padding: 140px 0 120px;
+    }
 }
 
 /* Animated gradient overlay with radial glow */
@@ -207,10 +214,17 @@
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 20px;
-    padding: 35px;
+    padding: 24px; /* Mobile-first: reduced padding */
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
+}
+
+/* Desktop spacing */
+@media (min-width: 768px) {
+    .problem-card {
+        padding: 35px;
+    }
 }
 
 .problem-card::before {
@@ -241,8 +255,14 @@
 
 .solution-section {
     background: linear-gradient(135deg, #1a2942 0%, #0a1628 100%);
-    padding: 100px 0;
+    padding: 60px 0; /* Mobile-first */
     position: relative;
+}
+
+@media (min-width: 768px) {
+    .solution-section {
+        padding: 100px 0;
+    }
 }
 
 .solution-grid {
@@ -258,10 +278,16 @@
     backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 24px;
-    padding: 40px;
+    padding: 28px; /* Mobile-first: comfortable but not excessive */
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
+}
+
+@media (min-width: 768px) {
+    .solution-card {
+        padding: 40px;
+    }
 }
 
 .solution-card::before {

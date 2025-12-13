@@ -9,8 +9,8 @@
     --deep-navy: #0c1e34;
     --ocean-blue: #1e3a8a;
     --sky-blue: #4fc3f7;
-    --electric-cyan: #00FFF0;
-    --neon-green: #00FF88;
+    --electric-cyan: #00D9FF; /* Updated for better contrast - WCAG AA compliant */
+    --neon-green: #10FFB0; /* Updated for better contrast - more vibrant */
     --carbon-black: #0A0A0A;
     --ice-white: #e8f4fd;
     --slate-gray: #64748b;
@@ -1409,7 +1409,7 @@ section {
     color: var(--carbon-black);
     padding: 4px 12px;
     border-radius: 12px;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: var(--font-weight-semibold);
 }
 
@@ -1479,7 +1479,7 @@ section {
 }
 
 .metric-label {
-    font-size: 12px;
+    font-size: 14px;
     color: var(--slate-gray);
     margin-top: 4px;
 }
@@ -1625,7 +1625,7 @@ section {
 }
 
 .footer-parent {
-    font-size: 12px;
+    font-size: 14px;
     opacity: 0.7;
     display: flex;
     align-items: center;
