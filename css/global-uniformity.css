@@ -5,69 +5,80 @@
    ═══════════════════════════════════════════════════════════════ */
 
 /* ═══════════════════════════════════════════════════════════════
-   SECTION 1: UNIVERSAL SECTION BACKGROUNDS
-   All pages must use these background patterns
+   SECTION 1: UNIVERSAL SECTION BACKGROUNDS - NAVY & CYAN SYSTEM
+   All pages must use navy/cyan design with backdrop effects
    ═══════════════════════════════════════════════════════════════ */
 
-/* Default section - light background */
+/* Default section - Navy gradient with cyan glow */
 section {
-    background: var(--white, #ffffff);
-    position: relative;
-}
-
-/* Dark gradient sections - premium feel with subtle glow */
-section.dark-section,
-.hero,
-.cta-section,
-.testimonials-section,
-.process-section {
     background: linear-gradient(135deg, #0a1628 0%, #1a2942 50%, #0f2439 100%);
-    background-attachment: fixed; /* Parallax effect */
+    background-attachment: fixed;
     color: var(--white, #ffffff);
     position: relative;
+    overflow: hidden;
 }
 
-/* Premium glow overlay for dark sections */
-section.dark-section::before,
-.hero::before,
-.cta-section::before {
+/* Cyan glow overlay for ALL sections */
+section::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at 20% 50%, rgba(0, 217, 255, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 80% 50%, rgba(0, 168, 204, 0.05) 0%, transparent 50%);
+    background: radial-gradient(circle at 20% 50%, rgba(0, 217, 255, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(0, 255, 240, 0.08) 0%, transparent 50%);
     pointer-events: none;
     z-index: 0;
 }
 
-/* Light gradient sections - softer sections */
-section.light-section,
-.features-section,
-.benefits-section,
-.stats-section {
-    background: linear-gradient(135deg, #f8fbff 0%, #e8f4fd 100%);
-    color: var(--carbon-black, #0A0A0A);
+/* Section content wrapper for proper z-index */
+section > * {
+    position: relative;
+    z-index: 1;
 }
 
-/* Navy sections - corporate/trust sections */
+/* Dark navy sections - Deep corporate feel */
+section.dark-section,
+.hero,
+.cta-section,
+.testimonials-section,
+.process-section {
+    background: linear-gradient(135deg, #051221 0%, #0c1e34 50%, #081829 100%);
+    background-attachment: fixed;
+    color: var(--white, #ffffff);
+}
+
+/* Alternating navy sections - Visual variety */
 section.navy-section,
 .credentials-section,
 .values-section,
 .team-section {
-    background: var(--deep-navy, #0c1e34);
+    background: linear-gradient(135deg, #0f2439 0%, #1e3a8a 50%, #1a2942 100%);
+    background-attachment: fixed;
     color: var(--white, #ffffff);
 }
 
-/* White sections - clean, minimal sections */
-section.white-section,
+/* Light navy sections - Subtle contrast */
+section.light-section,
+.features-section,
+.benefits-section,
+.stats-section {
+    background: linear-gradient(135deg, #1a2942 0%, #2a4a6a 50%, #1e3a8a 100%);
+    background-attachment: fixed;
+    color: var(--white, #ffffff);
+}
+
+/* Premium sections - Glass morphism effect */
+section.premium-section,
 .pricing-section,
 .faq-section,
 .contact-section {
-    background: var(--white, #ffffff);
-    color: var(--carbon-black, #0A0A0A);
+    background: linear-gradient(135deg, #0a1628 0%, #1a2942 50%, #0f2439 100%);
+    background-attachment: fixed;
+    color: var(--white, #ffffff);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
 }
 
 /* ═══════════════════════════════════════════════════════════════
@@ -75,14 +86,16 @@ section.white-section,
    Consistent header across all pages
    ═══════════════════════════════════════════════════════════════ */
 
-/* Header background - premium dark gradient to showcase transparent logo */
+/* Header background - Navy/Cyan with backdrop blur */
 .header {
-    background: linear-gradient(135deg, #0a1628 0%, #1e3a8a 50%, #0f2439 100%);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 217, 255, 0.1);
+    background: linear-gradient(135deg, rgba(10, 22, 40, 0.95) 0%, rgba(30, 58, 138, 0.95) 50%, rgba(15, 36, 57, 0.95) 100%);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4), 0 0 60px rgba(0, 217, 255, 0.15);
     position: sticky;
     top: 0;
     z-index: 1000;
-    border-bottom: 1px solid rgba(0, 217, 255, 0.2);
+    border-bottom: 2px solid rgba(0, 217, 255, 0.3);
 }
 
 /* Logo sizing consistency - Premium transparent logo */
@@ -152,24 +165,31 @@ section.white-section,
    ═══════════════════════════════════════════════════════════════ */
 
 .footer {
-    background: var(--carbon-black, #0A0A0A);
-    color: rgba(255, 255, 255, 0.8);
+    background: linear-gradient(135deg, #051221 0%, #0c1e34 100%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 2px solid rgba(0, 217, 255, 0.2);
+    color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.3);
 }
 
 .footer a {
-    color: rgba(255, 255, 255, 0.8);
-    transition: color 0.3s ease;
+    color: rgba(255, 255, 255, 0.9);
+    transition: all 0.3s ease;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 .footer a:hover {
     color: var(--electric-cyan, #00D9FF);
+    text-shadow: 0 0 12px rgba(0, 217, 255, 0.6);
 }
 
 .footer-heading {
-    color: var(--white, #ffffff);
-    font-weight: 700;
-    font-size: 18px;
+    color: var(--electric-cyan, #00D9FF);
+    font-weight: 800;
+    font-size: 20px;
     margin-bottom: 16px;
+    text-shadow: 0 0 20px rgba(0, 217, 255, 0.4);
 }
 
 /* ═══════════════════════════════════════════════════════════════
@@ -183,12 +203,15 @@ section.white-section,
 .testimonial-card,
 .team-card,
 .service-card {
-    background: var(--white, #ffffff);
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 2px solid rgba(0, 217, 255, 0.2);
+    border-radius: 20px;
     padding: 32px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    color: var(--white, #ffffff);
 }
 
 .card:hover,
@@ -198,19 +221,24 @@ section.white-section,
 .team-card:hover,
 .service-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(0, 217, 255, 0.6);
+    box-shadow: 0 12px 48px rgba(0, 217, 255, 0.2), 0 0 60px rgba(0, 217, 255, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
-/* Dark cards - for use on light backgrounds */
+/* Premium glass cards - Enhanced depth */
 .card-dark {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(30px) saturate(200%);
+    -webkit-backdrop-filter: blur(30px) saturate(200%);
+    border: 2px solid rgba(0, 217, 255, 0.3);
+    color: var(--white, #ffffff);
 }
 
 .card-dark:hover {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(0, 217, 255, 0.5);
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(0, 217, 255, 0.8);
+    box-shadow: 0 16px 64px rgba(0, 217, 255, 0.3);
 }
 
 /* ═══════════════════════════════════════════════════════════════
@@ -218,28 +246,41 @@ section.white-section,
    All buttons follow same design system
    ═══════════════════════════════════════════════════════════════ */
 
-/* Primary button - always gradient */
+/* Primary button - Cyan gradient with backdrop */
 .btn-primary {
-    background: linear-gradient(135deg, var(--ocean-blue, #1e3a8a), var(--sky-blue, #4fc3f7));
+    background: linear-gradient(135deg, var(--electric-cyan, #00D9FF) 0%, var(--ocean-blue, #1e3a8a) 100%);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     color: var(--white, #ffffff);
-    border: none;
+    border: 2px solid rgba(0, 217, 255, 0.3);
+    box-shadow: 0 4px 20px rgba(0, 217, 255, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    font-weight: 700;
 }
 
 .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(30, 58, 138, 0.4);
+    transform: translateY(-3px);
+    background: linear-gradient(135deg, #00FFF0 0%, #00D9FF 100%);
+    box-shadow: 0 12px 40px rgba(0, 217, 255, 0.6), 0 0 60px rgba(0, 217, 255, 0.4);
+    border-color: rgba(0, 255, 240, 0.8);
 }
 
-/* Secondary button - outlined */
+/* Secondary button - Glass morphism with cyan border */
 .btn-secondary {
-    background: transparent;
-    color: var(--ocean-blue, #1e3a8a);
-    border: 2px solid var(--ocean-blue, #1e3a8a);
+    background: rgba(0, 217, 255, 0.1);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    color: var(--electric-cyan, #00D9FF);
+    border: 2px solid rgba(0, 217, 255, 0.5);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    font-weight: 700;
 }
 
 .btn-secondary:hover {
-    background: var(--ocean-blue, #1e3a8a);
+    background: rgba(0, 217, 255, 0.2);
+    border-color: var(--electric-cyan, #00D9FF);
     color: var(--white, #ffffff);
+    box-shadow: 0 8px 32px rgba(0, 217, 255, 0.3);
 }
 
 /* WhatsApp button - always green */
@@ -272,7 +313,7 @@ section.white-section,
    Consistent heading and text styles
    ═══════════════════════════════════════════════════════════════ */
 
-/* Section headers - consistent pattern */
+/* Section headers - High contrast for navy backgrounds */
 .section-header {
     text-align: center;
     margin-bottom: 48px;
@@ -280,31 +321,49 @@ section.white-section,
 
 .section-label {
     display: inline-block;
-    font-size: 14px;
-    font-weight: 600;
+    font-size: 16px;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
+    letter-spacing: 2px;
     color: var(--electric-cyan, #00D9FF);
+    text-shadow: 0 0 20px rgba(0, 217, 255, 0.5), 0 0 40px rgba(0, 217, 255, 0.3);
     margin-bottom: 16px;
 }
 
 .section-header h2 {
-    font-size: clamp(28px, 4vw, 42px);
-    font-weight: 700;
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 800;
     margin-bottom: 16px;
+    color: var(--white, #ffffff);
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+    line-height: 1.2;
 }
 
 .section-subtitle {
-    font-size: 18px;
-    color: rgba(0, 0, 0, 0.7);
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.95);
     max-width: 700px;
     margin: 0 auto;
+    line-height: 1.6;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
 }
 
-/* Dark section typography */
-.dark-section .section-subtitle,
-.navy-section .section-subtitle {
-    color: rgba(255, 255, 255, 0.8);
+/* All section text - High contrast white */
+section h1,
+section h2,
+section h3,
+section h4,
+section h5,
+section h6 {
+    color: var(--white, #ffffff);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+section p,
+section li,
+section span {
+    color: rgba(255, 255, 255, 0.95);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
 }
 
 /* ═══════════════════════════════════════════════════════════════
