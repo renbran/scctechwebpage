@@ -1,0 +1,405 @@
+/* ═══════════════════════════════════════════════════════════════
+   GLOBAL UNIFORMITY RULES - December 13, 2025
+   Enforces consistent design patterns across ALL pages
+   Load Order: After styles.css, before page-specific CSS
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ═══════════════════════════════════════════════════════════════
+   SECTION 1: UNIVERSAL SECTION BACKGROUNDS
+   All pages must use these background patterns
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Default section - light background */
+section {
+    background: var(--white, #ffffff);
+    position: relative;
+}
+
+/* Dark gradient sections - premium feel */
+section.dark-section,
+.hero,
+.cta-section,
+.testimonials-section,
+.process-section {
+    background: linear-gradient(135deg, #0a1628 0%, #1a2942 50%, #0f2439 100%);
+    color: var(--white, #ffffff);
+}
+
+/* Light gradient sections - softer sections */
+section.light-section,
+.features-section,
+.benefits-section,
+.stats-section {
+    background: linear-gradient(135deg, #f8fbff 0%, #e8f4fd 100%);
+    color: var(--carbon-black, #0A0A0A);
+}
+
+/* Navy sections - corporate/trust sections */
+section.navy-section,
+.credentials-section,
+.values-section,
+.team-section {
+    background: var(--deep-navy, #0c1e34);
+    color: var(--white, #ffffff);
+}
+
+/* White sections - clean, minimal sections */
+section.white-section,
+.pricing-section,
+.faq-section,
+.contact-section {
+    background: var(--white, #ffffff);
+    color: var(--carbon-black, #0A0A0A);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SECTION 2: HEADER/NAVBAR UNIFORMITY
+   Consistent header across all pages
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Header background - always ocean blue */
+.header {
+    background: var(--ocean-blue, #1e3a8a);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Logo sizing consistency */
+.logo-image {
+    height: 40px; /* Mobile-first */
+    width: auto;
+    object-fit: contain;
+}
+
+@media (min-width: 769px) {
+    .logo-image {
+        height: 50px;
+    }
+}
+
+@media (min-width: 1025px) {
+    .logo-image {
+        height: 60px;
+    }
+}
+
+/* Logo tagline consistency */
+.logo-tagline {
+    display: block;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: 4px;
+    font-weight: 400;
+}
+
+/* Navigation menu - uniform styling */
+.nav-menu a {
+    color: var(--white, #ffffff);
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+    color: var(--electric-cyan, #00D9FF);
+}
+
+/* Navigation CTA button - always cyan */
+.btn-nav-cta {
+    background: rgba(0, 217, 255, 0.15) !important;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(0, 217, 255, 0.5) !important;
+    color: var(--electric-cyan, #00D9FF) !important;
+}
+
+.btn-nav-cta:hover {
+    background: rgba(0, 217, 255, 0.25) !important;
+    border-color: rgba(0, 217, 255, 0.8) !important;
+    color: var(--white, #ffffff) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SECTION 3: FOOTER UNIFORMITY
+   Consistent footer across all pages
+   ═══════════════════════════════════════════════════════════════ */
+
+.footer {
+    background: var(--carbon-black, #0A0A0A);
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.footer a {
+    color: rgba(255, 255, 255, 0.8);
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: var(--electric-cyan, #00D9FF);
+}
+
+.footer-heading {
+    color: var(--white, #ffffff);
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 16px;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SECTION 4: CARD UNIFORMITY
+   All cards use consistent styling
+   ═══════════════════════════════════════════════════════════════ */
+
+.card,
+.pricing-card,
+.feature-card,
+.testimonial-card,
+.team-card,
+.service-card {
+    background: var(--white, #ffffff);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card:hover,
+.pricing-card:hover,
+.feature-card:hover,
+.testimonial-card:hover,
+.team-card:hover,
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+}
+
+/* Dark cards - for use on light backgrounds */
+.card-dark {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card-dark:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(0, 217, 255, 0.5);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SECTION 5: BUTTON UNIFORMITY
+   All buttons follow same design system
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Primary button - always gradient */
+.btn-primary {
+    background: linear-gradient(135deg, var(--ocean-blue, #1e3a8a), var(--sky-blue, #4fc3f7));
+    color: var(--white, #ffffff);
+    border: none;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(30, 58, 138, 0.4);
+}
+
+/* Secondary button - outlined */
+.btn-secondary {
+    background: transparent;
+    color: var(--ocean-blue, #1e3a8a);
+    border: 2px solid var(--ocean-blue, #1e3a8a);
+}
+
+.btn-secondary:hover {
+    background: var(--ocean-blue, #1e3a8a);
+    color: var(--white, #ffffff);
+}
+
+/* WhatsApp button - always green */
+.btn-whatsapp,
+.btn-whatsapp-sticky {
+    background: #25D366 !important;
+    color: var(--white, #ffffff) !important;
+    border: none;
+}
+
+.btn-whatsapp:hover,
+.btn-whatsapp-sticky:hover {
+    background: #20BA5A !important;
+}
+
+/* ROI Calculator button - always cyan */
+.btn-roi-sticky,
+[data-calculator-trigger] {
+    background: var(--electric-cyan, #00D9FF) !important;
+    color: var(--deep-navy, #0c1e34) !important;
+}
+
+.btn-roi-sticky:hover,
+[data-calculator-trigger]:hover {
+    background: #00BFFF !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SECTION 6: TYPOGRAPHY UNIFORMITY
+   Consistent heading and text styles
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Section headers - consistent pattern */
+.section-header {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.section-label {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--electric-cyan, #00D9FF);
+    margin-bottom: 16px;
+}
+
+.section-header h2 {
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.section-subtitle {
+    font-size: 18px;
+    color: rgba(0, 0, 0, 0.7);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Dark section typography */
+.dark-section .section-subtitle,
+.navy-section .section-subtitle {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SECTION 7: IMAGE UNIFORMITY
+   Consistent image styling across site
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Logo images - clients, partners */
+.img-logo {
+    max-width: 140px;
+    height: auto;
+    object-fit: contain;
+    filter: grayscale(100%) brightness(1.2);
+    transition: filter 0.3s ease;
+}
+
+.img-logo:hover {
+    filter: grayscale(0%) brightness(1);
+}
+
+/* Card images - features, services */
+.img-card {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Team photos - consistent aspect ratio */
+.img-team {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SECTION 8: SPACING UNIFORMITY
+   Consistent padding/margin across pages
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Section padding - mobile-first */
+section {
+    padding: 60px 0;
+}
+
+@media (min-width: 768px) {
+    section {
+        padding: 80px 0;
+    }
+}
+
+@media (min-width: 1024px) {
+    section {
+        padding: 100px 0;
+    }
+}
+
+/* Grid gaps - consistent spacing */
+.grid,
+.pricing-grid,
+.features-grid,
+.team-grid,
+.services-grid {
+    gap: 24px;
+}
+
+@media (min-width: 768px) {
+    .grid,
+    .pricing-grid,
+    .features-grid,
+    .team-grid,
+    .services-grid {
+        gap: 32px;
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SECTION 9: ACCENT COLOR USAGE
+   When to use cyan vs green
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Cyan - primary CTAs, links, highlights */
+.highlight-cyan,
+.accent-cyan,
+a.link-cyan {
+    color: var(--electric-cyan, #00D9FF);
+}
+
+/* Green - success states, ROI, money indicators */
+.highlight-green,
+.accent-green,
+.success-indicator {
+    color: var(--neon-green, #10FFB0);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SECTION 10: MOBILE STICKY BARS
+   Consistent across all pages
+   ═══════════════════════════════════════════════════════════════ */
+
+.mobile-sticky-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    background: var(--white, #ffffff);
+    box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    gap: 8px;
+    padding: 12px 16px;
+}
+
+@media (min-width: 768px) {
+    .mobile-sticky-bar {
+        display: none; /* Hide on desktop */
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   END OF UNIFORMITY RULES
+   ═══════════════════════════════════════════════════════════════ */
