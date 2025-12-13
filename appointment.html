@@ -83,8 +83,9 @@
     <link rel="stylesheet" href="css/premium-global.css">
     <link rel="stylesheet" href="css/contrast-improvements.css">
     <link rel="stylesheet" href="css/cookie-consent.css">
+    <link rel="stylesheet" href="css/navigation-cta-standardized.css">
 </head>
-<body>
+<body class="page-appointment">
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PQ8DKKC8"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -119,12 +120,14 @@
                     <span></span>
                 </div>
 
-                <ul class="nav-menu" id="navMenu">
+                <ul class="nav-menu" id="navMenu" aria-label="Site navigation">
                     <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-                    <li><a href="index.html" class="nav-calculator"><i class="fas fa-calculator"></i> Calculator</a></li>
-                    <li><a href="pricing.html">Pricing</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="appointment.html" class="active btn-nav-cta">Book Consultation</a></li>
+                    <li><a href="services/index.html"><i class="fas fa-cogs"></i> Services</a></li>
+                    <li><a href="pricing.html"><i class="fas fa-tag"></i> Pricing</a></li>
+                    <li><a href="success-stories.html"><i class="fas fa-trophy"></i> Success Stories</a></li>
+                    <li><a href="about.html"><i class="fas fa-users"></i> About</a></li>
+                    <li><a href="blog/index.html"><i class="fas fa-newspaper"></i> Resources</a></li>
+                    <li><a href="appointment.html" class="btn-nav-cta active"><i class="fas fa-calendar-check"></i> Get Free ROI Report</a></li>
                 </ul>
             </nav>
         </div>
@@ -407,6 +410,42 @@
     </section>
 
     <!-- Footer -->
+    <!-- Multi-Channel Contact Section -->
+    <section class="multi-channel-contact">
+        <div class="container">
+            <div class="contact-header">
+                <h2>Prefer Another <span class="highlight-cyan">Way to Connect</span>?</h2>
+                <p>Choose your preferred communication method</p>
+            </div>
+            <div class="contact-grid">
+                <a href="tel:+971563905772" class="contact-card phone">
+                    <div class="contact-card-icon"><i class="fas fa-phone"></i></div>
+                    <h3>Call Us</h3>
+                    <p>+971 56 390 5772</p>
+                    <span class="cta-label">Speak directly <i class="fas fa-arrow-right"></i></span>
+                </a>
+                <a href="mailto:hello@sgctech.ai?subject=Appointment%20Request" class="contact-card email">
+                    <div class="contact-card-icon"><i class="fas fa-envelope"></i></div>
+                    <h3>Email Us</h3>
+                    <p>hello@sgctech.ai</p>
+                    <span class="cta-label">Send email <i class="fas fa-arrow-right"></i></span>
+                </a>
+                <a href="https://wa.me/971563905772?text=Hi%20SGC%2C%20I%27d%20like%20to%20schedule%20a%20consultation" target="_blank" rel="noopener" class="contact-card whatsapp">
+                    <div class="contact-card-icon"><i class="fab fa-whatsapp"></i></div>
+                    <h3>WhatsApp</h3>
+                    <p>Instant Response</p>
+                    <span class="cta-label">Chat now <i class="fas fa-arrow-right"></i></span>
+                </a>
+                <a href="#appointment-form" class="contact-card schedule">
+                    <div class="contact-card-icon"><i class="fas fa-arrow-up"></i></div>
+                    <h3>Use Form Above</h3>
+                    <p>Fill Online Form</p>
+                    <span class="cta-label">Scroll up <i class="fas fa-arrow-right"></i></span>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
@@ -465,7 +504,9 @@
         </div>
     </footer>
 
+    <script src="js/navigation-cta.js"></script>
     <script src="js/main.js"></script>
     <script src="js/cookie-consent.js"></script>
+    <script src="js/analytics.js"></script>
 </body>
 </html>
