@@ -15,14 +15,32 @@ section {
     position: relative;
 }
 
-/* Dark gradient sections - premium feel */
+/* Dark gradient sections - premium feel with subtle glow */
 section.dark-section,
 .hero,
 .cta-section,
 .testimonials-section,
 .process-section {
     background: linear-gradient(135deg, #0a1628 0%, #1a2942 50%, #0f2439 100%);
+    background-attachment: fixed; /* Parallax effect */
     color: var(--white, #ffffff);
+    position: relative;
+}
+
+/* Premium glow overlay for dark sections */
+section.dark-section::before,
+.hero::before,
+.cta-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(0, 217, 255, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(0, 168, 204, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
 }
 
 /* Light gradient sections - softer sections */
@@ -57,31 +75,39 @@ section.white-section,
    Consistent header across all pages
    ═══════════════════════════════════════════════════════════════ */
 
-/* Header background - always ocean blue */
+/* Header background - premium dark gradient to showcase transparent logo */
 .header {
-    background: var(--ocean-blue, #1e3a8a);
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, #0a1628 0%, #1e3a8a 50%, #0f2439 100%);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 217, 255, 0.1);
     position: sticky;
     top: 0;
     z-index: 1000;
+    border-bottom: 1px solid rgba(0, 217, 255, 0.2);
 }
 
-/* Logo sizing consistency */
+/* Logo sizing consistency - Premium transparent logo */
 .logo-image {
-    height: 40px; /* Mobile-first */
+    height: 50px; /* Mobile-first - increased for better visibility */
     width: auto;
     object-fit: contain;
+    filter: drop-shadow(0 2px 8px rgba(0, 217, 255, 0.3)); /* Premium glow effect */
+    transition: all 0.3s ease;
+}
+
+.logo-image:hover {
+    filter: drop-shadow(0 4px 12px rgba(0, 217, 255, 0.5));
+    transform: scale(1.05);
 }
 
 @media (min-width: 769px) {
     .logo-image {
-        height: 50px;
+        height: 60px;
     }
 }
 
 @media (min-width: 1025px) {
     .logo-image {
-        height: 60px;
+        height: 70px; /* Larger for desktop premium feel */
     }
 }
 
